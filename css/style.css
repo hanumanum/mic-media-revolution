@@ -1,0 +1,60 @@
+body{
+    background-color: #000;
+    color: white;
+}
+
+
+.chapter-head{
+    font-size: 8em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.chaper-slogan{
+    font-size: 2.5em;
+    text-align: center;
+    text-transform: uppercase;
+    
+}
+
+#nav{
+    width:32px;
+    position: fixed;
+    top:0;
+    z-index: 999999;
+}
+
+.nav-items{
+    width:32px;
+    height:32px;
+    margin-bottom:5px;
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color:white;
+    cursor: pointer;
+}
+
+.nav-items:hover{
+    background-color: black;
+}
+
+#nav-see{
+    background-image: url("../img/nav-see.png");
+    
+}
+
+#nav-hear{
+    background-image: url("../img/nav-hear.png");
+}
+
+#nav-speak{
+    background-image: url("../img/nav-speak.png");
+}
+
+#nav-act{
+    background-image: url("../img/nav-act.png");
+}
+
+/*  */
+
