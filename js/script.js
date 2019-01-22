@@ -1,3 +1,4 @@
 new fullpage('#fullpage', {
-    anchors:['nav-see', 'nav-hear', 'nav-speak','nav-act']
+    //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
+    //menu: '#nav'
 });
