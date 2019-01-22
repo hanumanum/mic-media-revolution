@@ -33,6 +33,7 @@ body{
     background-repeat: no-repeat;
     background-color:white;
     cursor: pointer;
+    display: block;
 }
 
 .nav-items:hover{

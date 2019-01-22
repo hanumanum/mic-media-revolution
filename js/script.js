@@ -1,1 +1,3 @@
-new fullpage('#fullpage', {});
+new fullpage('#fullpage', {
+    anchors:['nav-see', 'nav-hear', 'nav-speak','nav-act']
+});
