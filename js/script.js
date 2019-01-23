@@ -17,6 +17,29 @@ new fullpage('#fullpage', {
         }
         /* end of Quotes fadeIn */
 
+        /* Becouses */
+        let becouse = $("#"+destination.item.id).find(".becouse")
+        let becouseList = $("#"+destination.item.id).find(".becouse-list > li")
+        if(becouse && becouseList){
+            $(becouse[0]).addClass("fadeIn2")
+            let ind = 8
+            let liIndex = 0
+
+            let anim = setInterval(function(){
+                let li = becouseList[liIndex]
+                $(li).addClass("fadeIn"+ind)
+                
+                ind+=4
+                liIndex++
+                
+                if(liIndex==becouseList.length){
+                    clearInterval(anim)
+                }
+
+            },1000)
+        }
+        /* End of Becouses */
+
         /* Video */
         if(destination.anchor=="speak-video"){
             iframe = document.querySelector('#video_video_594');

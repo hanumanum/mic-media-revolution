@@ -109,6 +109,45 @@ body{
 /* end of Quote */
 
 
+.becouse{
+    font-size: 2.4em;
+    font-style: italic;
+    width:40%;
+    margin: auto auto;
+    text-align: left;
+    opacity: 0;
+}
+
+.becouse-list{
+    width:40%;
+    text-align: left;
+    margin: auto auto;
+    font-size: 2em;
+    margin-left: 45%;
+    font-style: italic;
+}
+
+.becouse-list li{
+    list-style-type: none;
+    opacity: 0;
+}
+
+.becouse-list li span{
+    text-align: left;
+    width: 150px;
+    width: 150px;
+    display: inline-block;
+    
+}
+
+.becouse-list li .becouse-big{
+    text-align: left;
+    font-size: 1.9em;
+    width: 300px;
+}
+
+
+
 
 /* fade in animations */
 @-webkit-keyframes fadeIn {
@@ -131,7 +170,7 @@ body{
     }
   }
   
-  .fadeIn2 , .fadeIn5, .fadeIn8  {
+  .fadeIn2 , .fadeIn5, .fadeIn8, .fadeIn9, .fadeIn10, .fadeIn11, .fadeIn12, .fadeIn13, .fadeIn14, .fadeIn15, .fadeIn16, .fadeIn17  {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
     -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
@@ -149,11 +188,51 @@ body{
     animation-duration: 5s;
   }
 
+  .fadeIn6{
+    animation-duration: 6s;
+  }
+
+  .fadeIn7{
+    animation-duration: 7s;
+  }
+
   .fadeIn8{
     animation-duration: 8s;
   }
   
+  .fadeIn9{
+    animation-duration: 9s;
+  }
 
+  .fadeIn10{
+    animation-duration: 10s;
+  }
    
+  .fadeIn11{
+    animation-duration: 11s;
+  }
 
+  .fadeIn12{
+    animation-duration: 12s;
+  }
+
+  .fadeIn13{
+    animation-duration: 13s;
+  }
+
+  .fadeIn14{
+    animation-duration: 14s;
+  }
+
+  .fadeIn15{
+    animation-duration: 15s;
+  }
+
+  .fadeIn16{
+    animation-duration: 16s;
+  }
+
+  .fadeIn17{
+    animation-duration: 17s;
+  }
   /* end of fade in animations */
