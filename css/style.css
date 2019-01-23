@@ -108,7 +108,7 @@ body{
 
 /* end of Quote */
 
-
+/* becouses */
 .becouse{
     font-size: 2.4em;
     font-style: italic;
@@ -145,8 +145,30 @@ body{
     font-size: 1.9em;
     width: 300px;
 }
+/* end of becouses */
 
 
+.person-title{
+    font-size: 1.6em;
+    font-weight: 500;
+    width:40%;
+    font-style: italic;
+    margin-left:20%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.person-text{
+    font-size: 1.3em;
+    width:25%;
+    margin-left:20%;
+    text-align: left;
+}
+
+.person-video{
+    text-align: right;
+    padding-right: 15%;
+}
 
 
 /* fade in animations */
