@@ -83,3 +83,77 @@ body{
         height: 100%;
 }*/
 /*End of Vimeo responsive  */
+
+
+
+/* Quote */
+
+
+.quote{
+    width:40%;
+    font-size: 1.7em;
+    text-align: left;
+    margin: auto auto;
+    opacity: 0;
+}
+
+.quote-autor{
+    width:40%;
+    font-size: 1.4em;
+    text-align: right;
+    font-style: italic;
+    margin: 20px auto;
+    opacity: 0;
+}
+
+/* end of Quote */
+
+
+
+/* fade in animations */
+@-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn2 , .fadeIn5, .fadeIn8  {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+    -moz-animation-fill-mode: forwards;    /* FF 5+ */
+    -o-animation-fill-mode: forwards;      /* Not implemented yet */
+    -ms-animation-fill-mode: forwards;     /* IE 10+ */
+    animation-fill-mode: forwards;  
+  }
+
+  .fadeIn2{
+    animation-duration: 2s;
+  }
+
+  .fadeIn5{
+    animation-duration: 5s;
+  }
+
+  .fadeIn8{
+    animation-duration: 8s;
+  }
+  
+
+   
+
+  /* end of fade in animations */
