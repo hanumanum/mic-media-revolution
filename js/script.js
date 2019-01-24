@@ -40,7 +40,33 @@ new fullpage('#fullpage', {
         }
         /* End of Becouses */
 
+
+        /* person */
+
+        let person =  $("#"+destination.item.id).find(".person-title")
+        let persontext = $("#"+destination.item.id).find(".person-text")
+        if(person && persontext){
+            $(person[0]).addClass("fadeIn2")
+            $(persontext[0]).addClass("fadeIn5")
+        }
+
+        /* end of person */
+
+        /* full screen backgrounds */
+        
+        let slide = $("#"+destination.item.id)
+        let bkgrURL = slide.attr("data-background-image")
+        if(bkgrURL){
+            console.log("heh")
+            $(slide).css({
+                "background-image":'url(' + bkgrURL + ')',
+                "background-size": "cover"
+            })
+        }
+
+        
         /* Video */
+        /*
         if(destination.anchor=="speak-video"){
             iframe = document.querySelector('#video_video_594');
             iframePlayer = new Vimeo.Player(iframe);
@@ -50,6 +76,7 @@ new fullpage('#fullpage', {
         if(origin && origin.anchor=="speak-video"){
             iframePlayer.pause();
         }
+        */
         /* end of Video */
 
     }

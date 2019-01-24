@@ -90,8 +90,8 @@ body{
 
 
 .quote{
-    width:40%;
-    font-size: 1.7em;
+    width:31%;
+    font-size: 1.9em;
     text-align: left;
     margin: auto auto;
     opacity: 0;
@@ -156,6 +156,7 @@ body{
     margin-left:20%;
     margin-bottom: 15px;
     text-align: left;
+    opacity: 0;
 }
 
 .person-text{
@@ -163,6 +164,7 @@ body{
     width:25%;
     margin-left:20%;
     text-align: left;
+    opacity: 0;
 }
 
 .person-video{
