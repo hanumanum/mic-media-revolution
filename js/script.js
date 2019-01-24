@@ -5,29 +5,27 @@ new fullpage('#fullpage', {
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
     //menu: '#nav'
     afterLoad: function(origin, destination, direction){
-		let loadedSlide = this;
-        
-        
-        /* Quotes fadeIn */
-        let quote = $("#"+destination.item.id).find(".quote")
-        let quote_autor = $("#"+destination.item.id).find(".quote-autor")
+       let slide = $("#"+destination.item.id);
+       
+        let quote = $(slide).find(".quote")
+        let quote_autor = $(slide).find(".quote-autor")
         if(quote && quote_autor){
-            $(quote[0]).addClass("fadeIn2")
-            $(quote_autor[0]).addClass("fadeIn8")
+            $(quote[0]).addClass("fadeIn animation2")
+            $(quote_autor[0]).addClass("fadeIn animation8")
         }
-        /* end of Quotes fadeIn */
 
-        /* Becouses */
-        let becouse = $("#"+destination.item.id).find(".becouse")
-        let becouseList = $("#"+destination.item.id).find(".becouse-list > li")
+
+        let becouse = $(slide).find(".becouse")
+        let becouseList = $(slide).find(".becouse-list > li")
         if(becouse && becouseList){
-            $(becouse[0]).addClass("fadeIn2")
+            $(becouse[0]).addClass("fadeIn animation2")
             let ind = 8
             let liIndex = 0
 
             let anim = setInterval(function(){
                 let li = becouseList[liIndex]
-                $(li).addClass("fadeIn"+ind)
+                $(li).addClass("fadeIn")
+                $(li).addClass("animation"+ind)
                 
                 ind+=4
                 liIndex++
@@ -38,32 +36,43 @@ new fullpage('#fullpage', {
 
             },1000)
         }
-        /* End of Becouses */
 
-
-        /* person */
-
-        let person =  $("#"+destination.item.id).find(".person-title")
-        let persontext = $("#"+destination.item.id).find(".person-text")
+        let person = $(slide).find(".person-title")
+        let persontext = $(slide).find(".person-text")
         if(person && persontext){
-            $(person[0]).addClass("fadeIn2")
-            $(persontext[0]).addClass("fadeIn5")
+            $(person[0]).addClass("fadeIn animation2")
+            $(persontext[0]).addClass("fadeIn animation5")
         }
 
-        /* end of person */
-
-        /* full screen backgrounds */
-        
-        let slide = $("#"+destination.item.id)
-        let bkgrURL = slide.attr("data-background-image")
+       
+        let bkgrURL = $(slide).attr("data-background-image")
         if(bkgrURL){
-            console.log("heh")
             $(slide).css({
                 "background-image":'url(' + bkgrURL + ')',
                 "background-size": "cover"
             })
         }
 
+        let relatives = $(slide).find(".relatives")
+        console.log(slide)
+        console.log(relatives)
+        if(relatives){
+            let ind = 1
+            let liIndex = 0
+
+            let anim = setInterval(function(){
+                let li = relatives[liIndex]
+                $(li).addClass("slideInDown")
+                $(li).addClass("animation"+ind)
+                
+                ind+=1
+                liIndex++
+                
+                if(liIndex==relatives.length){
+                    clearInterval(anim)
+                }
+            },1000)
+        }
         
         /* Video */
         /*
@@ -92,3 +101,44 @@ new fullpage('#fullpage', {
 	}
     
 });
+
+
+
+
+/*
+$(".relatives").keydown(function(event){
+    if(event.which=="17")
+        cntrlIsPressed = true;
+});
+
+$(".relatives").keyup(function(){
+    cntrlIsPressed = false;
+});
+
+var cntrlIsPressed = false;
+function selectMe(mouseButton)
+{
+    if(cntrlIsPressed)
+    {
+        switch(mouseButton)
+        {
+            case 1:
+                alert("Cntrl +  left click");
+                break;
+            case 2:
+                alert("Cntrl + right click");
+                break;
+            default:
+                break;
+        }
+    }
+
+
+}
+*/
+
+
+function randomInt(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}

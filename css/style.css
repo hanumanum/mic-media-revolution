@@ -173,6 +173,20 @@ body{
 }
 
 
+.relatives{
+    position: absolute;
+    visibility: hidden;
+}
+
+.bordered{
+    width: 20%;
+    border: 2px white solid;
+    font-size: 1.2em;
+    text-align: left;
+    padding: 15px;
+    font-weight: bold;
+}
+
 /* fade in animations */
 @-webkit-keyframes fadeIn {
     from {
@@ -194,7 +208,9 @@ body{
     }
   }
   
-  .fadeIn2 , .fadeIn5, .fadeIn8, .fadeIn9, .fadeIn10, .fadeIn11, .fadeIn12, .fadeIn13, .fadeIn14, .fadeIn15, .fadeIn16, .fadeIn17  {
+
+ 
+  .fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
     -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
@@ -204,59 +220,114 @@ body{
     animation-fill-mode: forwards;  
   }
 
-  .fadeIn2{
+  .animation1{
+    animation-duration: 1s;
+  }
+ 
+  .animation2{
     animation-duration: 2s;
   }
 
-  .fadeIn5{
+  .animation3{
+    animation-duration: 3s;
+  }
+
+  .animation4{
+    animation-duration: 4s;
+  }
+
+  .animation5{
     animation-duration: 5s;
   }
 
-  .fadeIn6{
+  .animation6{
     animation-duration: 6s;
   }
 
-  .fadeIn7{
+  .animation7{
     animation-duration: 7s;
   }
 
-  .fadeIn8{
+  .animation8{
     animation-duration: 8s;
   }
   
-  .fadeIn9{
+  .animation9{
     animation-duration: 9s;
   }
 
-  .fadeIn10{
+  .animation10{
     animation-duration: 10s;
   }
    
-  .fadeIn11{
+  .animation11{
     animation-duration: 11s;
   }
 
-  .fadeIn12{
+  .animation12{
     animation-duration: 12s;
   }
 
-  .fadeIn13{
+  .animation13{
     animation-duration: 13s;
   }
 
-  .fadeIn14{
+  .animation14{
     animation-duration: 14s;
   }
 
-  .fadeIn15{
+  .animation15{
     animation-duration: 15s;
   }
 
-  .fadeIn16{
+  .animation16{
     animation-duration: 16s;
   }
 
-  .fadeIn17{
+  .animation17{
     animation-duration: 17s;
   }
   /* end of fade in animations */
+
+
+/* slideInDown animations */
+  @-webkit-keyframes slideInDown {
+    from {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+  }
+  
+  .slideInDown {
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+    -moz-animation-fill-mode: forwards;    /* FF 5+ */
+    -o-animation-fill-mode: forwards;      /* Not implemented yet */
+    -ms-animation-fill-mode: forwards;     /* IE 10+ */
+    animation-fill-mode: forwards;  
+  }
+
+
+  /* end of slideInDown animations */
