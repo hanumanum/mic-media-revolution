@@ -89,6 +89,10 @@ body{
 /* Quote */
 
 
+.hidden-sound{
+  display: none;
+}
+
 .quote{
     width:31%;
     font-size: 1.9em;

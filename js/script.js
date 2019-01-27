@@ -1,12 +1,21 @@
 let iframe
 let iframePlayer
+let player;
+let soundCloud;
 
 new fullpage('#fullpage', {
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
     //menu: '#nav'
     afterLoad: function(origin, destination, direction){
-       let slide = $("#"+destination.item.id);
+        let slide = $("#"+destination.item.id);
        
+        let customVideo = $(slide).find(".custom-video")
+        if(customVideo.length!=0){
+            let custVidID = $(customVideo[0]).attr("id")
+            player = new Plyr('#'+custVidID);
+        }
+
+
         let quote = $(slide).find(".quote")
         let quote_autor = $(slide).find(".quote-autor")
         if(quote && quote_autor){
@@ -54,8 +63,6 @@ new fullpage('#fullpage', {
         }
 
         let relatives = $(slide).find(".relatives")
-        console.log(slide)
-        console.log(relatives)
         if(relatives){
             let ind = 1
             let liIndex = 0
@@ -63,7 +70,7 @@ new fullpage('#fullpage', {
             let anim = setInterval(function(){
                 let li = relatives[liIndex]
                 $(li).addClass("slideInDown")
-                $(li).addClass("animation"+ind)
+                $(li).addClass("animation1")
                 
                 ind+=1
                 liIndex++
@@ -71,7 +78,7 @@ new fullpage('#fullpage', {
                 if(liIndex==relatives.length){
                     clearInterval(anim)
                 }
-            },1000)
+            },500)
         }
         
         /* Video */
@@ -91,6 +98,10 @@ new fullpage('#fullpage', {
     }
 
     ,onLeave: function(origin, destination, direction){
+       if(typeof(player)==="object"){
+            player.stop()
+       }
+
         //console.log(iframePlayer)
         /*
         if(typeof(iframePlayer)){
