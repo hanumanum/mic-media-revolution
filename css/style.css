@@ -184,6 +184,14 @@ body{
     
 }
 
+.person-video-left{
+  text-align: left;
+  padding-left: 15%;
+}
+
+.person-text-right{
+  margin-left: 50%;
+}
 
 .relatives{
     position: absolute;
@@ -192,11 +200,14 @@ body{
 
 .bordered{
     width: 20%;
-    border: 2px white solid;
-    font-size: 1.2em;
+    border: 1px white solid;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
     text-align: left;
     padding: 15px;
-    font-weight: bold;
+    z-index: -1;
+    
 }
 
 
@@ -234,6 +245,10 @@ body{
 }
 
 
+.zoomer{
+  zoom:67% 
+}
+
 /* fade in animations */
 @-webkit-keyframes fadeIn {
     from {
@@ -255,7 +270,6 @@ body{
     }
   }
   
-
  
   .fadeIn {
     -webkit-animation-name: fadeIn;
@@ -337,6 +351,7 @@ body{
   /* end of fade in animations */
 
 
+
 /* slideInDown animations */
   @-webkit-keyframes slideInDown {
     from {
@@ -365,7 +380,33 @@ body{
       visibility: visible;
     }
   }
+
+  @keyframes slideRight {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
   
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+  }
+
+
+
+  .slideRight {
+    -webkit-animation-name: slideRight;
+    animation-name: slideRight;
+    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+    -moz-animation-fill-mode: forwards;    /* FF 5+ */
+    -o-animation-fill-mode: forwards;      /* Not implemented yet */
+    -ms-animation-fill-mode: forwards;     /* IE 10+ */
+    animation-fill-mode: forwards;  
+  }
+
   .slideInDown {
     -webkit-animation-name: slideInDown;
     animation-name: slideInDown;

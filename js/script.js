@@ -1,25 +1,26 @@
+let debug = false;
 let iframe
 let iframePlayer
-let player;
+var player;
 
 new fullpage('#fullpage', {
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
     //menu: '#nav'
-    afterLoad: function(origin, destination, direction){
-        let slide = $("#"+destination.item.id);
-       
+    afterLoad: function (origin, destination, direction) {
+        let slide = $("#" + destination.item.id);
+
         let customVideo = $(slide).find(".custom-video")
-        if(customVideo.length!=0){
+        if (customVideo.length != 0) {
             let custVidID = $(customVideo[0]).attr("id")
-            player = new Plyr('#'+custVidID);
+            player = new Plyr('#' + custVidID);
         }
 
 
-        let backgroundVideo = $(slide).find(".backgroundvideo")
-        if(backgroundVideo.length!=0){
-            console.log("adf")
+        var backgroundVideo = $(slide).find(".backgroundvideo")
+        if (backgroundVideo.length != 0) {
+            console.log("enterd")
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
-            player = new Plyr('#'+bckgrVidID, {'controls': [], 'settings':['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true});
+            player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true });
             //player.mute()
             player.volume = 0
             player.loop = true
@@ -29,7 +30,7 @@ new fullpage('#fullpage', {
 
         let quote = $(slide).find(".quote")
         let quote_autor = $(slide).find(".quote-autor")
-        if(quote && quote_autor){
+        if (quote && quote_autor) {
             $(quote[0]).addClass("fadeIn animation2")
             $(quote_autor[0]).addClass("fadeIn animation8")
         }
@@ -37,91 +38,72 @@ new fullpage('#fullpage', {
 
         let becouse = $(slide).find(".becouse")
         let becouseList = $(slide).find(".becouse-list > li")
-        if(becouse && becouseList){
+        if (becouse && becouseList) {
             $(becouse[0]).addClass("fadeIn animation2")
             let ind = 8
             let liIndex = 0
 
-            let anim = setInterval(function(){
+            let anim = setInterval(function () {
                 let li = becouseList[liIndex]
                 $(li).addClass("fadeIn")
-                $(li).addClass("animation"+ind)
-                
-                ind+=4
+                $(li).addClass("animation" + ind)
+
+                ind += 4
                 liIndex++
-                
-                if(liIndex==becouseList.length){
+
+                if (liIndex == becouseList.length) {
                     clearInterval(anim)
                 }
 
-            },1000)
+            }, 1000)
         }
 
         let person = $(slide).find(".person-title")
         let persontext = $(slide).find(".person-text")
-        if(person && persontext){
+        if (person && persontext) {
             $(person[0]).addClass("fadeIn animation2")
             $(persontext[0]).addClass("fadeIn animation5")
         }
 
-       
+
         let bkgrURL = $(slide).attr("data-background-image")
-        if(bkgrURL){
+        if (bkgrURL) {
             $(slide).css({
-                "background-image":'url(' + bkgrURL + ')',
+                "background-image": 'url(' + bkgrURL + ')',
                 "background-size": "cover"
             })
         }
 
         let relatives = $(slide).find(".relatives")
-        if(relatives){
+        if (relatives) {
             let ind = 1
             let liIndex = 0
 
-            let anim = setInterval(function(){
+            let anim = setInterval(function () {
                 let li = relatives[liIndex]
-                $(li).addClass("slideInDown")
-                $(li).addClass("animation1")
-                
-                ind+=1
+                if(!debug){
+                    $(li).addClass("slideInDown")
+                    $(li).addClass("animation1")
+                }
+
+                ind += 1
                 liIndex++
-                
-                if(liIndex==relatives.length){
+
+                if (liIndex == relatives.length) {
                     clearInterval(anim)
                 }
-            },500)
+            }, 500)
         }
-        
-        /* Video */
-        /*
-        if(destination.anchor=="speak-video"){
-            iframe = document.querySelector('#video_video_594');
-            iframePlayer = new Vimeo.Player(iframe);
-            iframePlayer.play();
-        }
-
-        if(origin && origin.anchor=="speak-video"){
-            iframePlayer.pause();
-        }
-        */
-        /* end of Video */
 
     }
 
-    ,onLeave: function(origin, destination, direction){
-       if(typeof(player)==="object"){
+    , onLeave: function (origin, destination, direction) {
+        if (typeof (player) === "object") {
             player.stop()
-       }
-
-        //console.log(iframePlayer)
-        /*
-        if(typeof(iframePlayer)){
-            iframePlayer.stop()
         }
-        */
-        
-	}
-    
+
+    }
+
 });
 
 
@@ -160,7 +142,21 @@ function selectMe(mouseButton)
 */
 
 
-function randomInt(min,max)
-{
-    return Math.floor(Math.random()*(max-min+1)+min);
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+if(debug){
+    $(function () {
+        $(".relatives").draggable({
+            stop: function (event, ui) {
+                console.log(
+                    $(this).attr("src"),
+                    "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top)+"px;")
+            }
+        });
+    });
+    
+}
+
+
