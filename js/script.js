@@ -1,7 +1,6 @@
 let iframe
 let iframePlayer
 let player;
-let soundCloud;
 
 new fullpage('#fullpage', {
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
@@ -13,6 +12,18 @@ new fullpage('#fullpage', {
         if(customVideo.length!=0){
             let custVidID = $(customVideo[0]).attr("id")
             player = new Plyr('#'+custVidID);
+        }
+
+
+        let backgroundVideo = $(slide).find(".backgroundvideo")
+        if(backgroundVideo.length!=0){
+            console.log("adf")
+            let bckgrVidID = $(backgroundVideo[0]).attr("id")
+            player = new Plyr('#'+bckgrVidID, {'controls': [], 'settings':['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true});
+            //player.mute()
+            player.volume = 0
+            player.loop = true
+            player.play()
         }
 
 
