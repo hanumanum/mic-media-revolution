@@ -7,7 +7,7 @@
     <title>Media and Revolution</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css">
+    <link rel="stylesheet" href="css/plyr.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.4/fullpage.css" integrity="sha256-IsQlFhNhWhD0FY7YLL5E+4I1YZpN6XXesuRviEGgTDk="
         crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -27,11 +27,6 @@
             <div class="chaper-slogan">CHAPTER BEGINING</div>
         </div>
 
-        <div class="section" id="adsfasd" data-anchor="asdfasd">
-            <div class="chapter-head">placeholder</div>
-            <div class="chaper-slogan">placeholder beginnging</div>
-        </div>
-
         <div class="section" id="hear" data-anchor="coverhear">
             <div class="chapter-head">Hear</div>
             <div class="chaper-slogan">CHAPTER BEGINING</div>
@@ -40,7 +35,6 @@
 
         <div class="section" id="hear1" data-anchor="hear-video">
             <div class="custom-video" id="video-hear-video" data-plyr-provider="vimeo" data-plyr-embed-id="307114086"></div>
-            <!-- <iframe src="https://player.vimeo.com/video/307114086?wmode=opaque&amp;api=1&amp;loop=0&amp;muted=1&amp;player_id=video_video_764&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=000000" id="video_video_764" width="800" height="600" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="fade-out"></iframe> -->
         </div>
 
 
@@ -56,7 +50,7 @@
 
 
         <div class="section" id="hear3" data-anchor="hear-becouse">
-            <audio class="hidden-sound" data-autoplay>
+            <audio class="hidden-sound" data-autoplay loop>
                 <source src="audio/drums.mp3" type="audio/ogg">
             </audio>
             <div class="becouse">I stood up for</div>
@@ -68,12 +62,10 @@
         </div>
 
         <div class="section" id="hear4" data-anchor="hear-person1">
-            <div class="backgroundvideo" id="video-hear-video1" data-plyr-embed-id="301857323" data-plyr-provider="vimeo"></div>
+            <div class="backgroundvideo" id="video-hear-video1" data-plyr-embed-id="301857323" data-plyr-loop="true" data-plyr-provider="vimeo"></div>
             <div class="layeronbackgroundvideo">
                 <div class="person-video">
-                    <iframe width="525px" height="303px" src="https://player.vimeo.com/video/286539229?wmode=opaque&amp;api=1&amp;loop=0&amp;muted=0&amp;player_id=video_video_557&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=000000"
-                        id="video_video_557" frameborder="0" webkitallowfullscreen="" mozallowfullscreen=""
-                        allowfullscreen="" class="fade-out"></iframe>
+                    <div width="525px" height="303px" class="fade-out personVideo" id="video-hear-video1_1" data-plyr-embed-id="286539229" data-plyr-provider="vimeo"></div>
                 </div>
                 <div class="person-title">
                     Sargis Khachatryan, 26, footbal fan club drummer
@@ -87,7 +79,7 @@
         </div>
 
         <div class="section" id="hear5" data-anchor="hear-gif1" data-background-image="img/gifs/hear1.gif">
-            <audio class="hidden-sound" data-autoplay>
+            <audio class="hidden-sound" data-autoplay loop>
                 <source src="audio/dmb-dmb-hu.mp3" type="audio/ogg">
             </audio>
         </div>
@@ -220,7 +212,7 @@
         </div>
 
         <div class="section" id="hear14" data-anchor="hear-becouse3">
-            <audio class="hidden-sound" data-autoplay>
+            <audio class="hidden-sound" data-autoplay loop>
                 <source src="audio/vuvuzela.mp3" type="audio/ogg">
             </audio>
 

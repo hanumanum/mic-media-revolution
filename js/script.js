@@ -2,6 +2,7 @@ let debug = false;
 let iframe
 let iframePlayer
 var player;
+var playerPerson;
 
 new fullpage('#fullpage', {
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
@@ -15,13 +16,17 @@ new fullpage('#fullpage', {
             player = new Plyr('#' + custVidID);
         }
 
+        let personVideo = $(slide).find(".personVideo")
+        if (personVideo.length != 0) {
+            let custVidID = $(personVideo[0]).attr("id")
+            playerPerson = new Plyr('#' + custVidID, {'autopause':false});
+        }
+        
 
         var backgroundVideo = $(slide).find(".backgroundvideo")
         if (backgroundVideo.length != 0) {
-            console.log("enterd")
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
-            player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true });
-            //player.mute()
+            player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true , 'autopause':false});
             player.volume = 0
             player.loop = true
             player.play()
@@ -31,8 +36,10 @@ new fullpage('#fullpage', {
         let quote = $(slide).find(".quote")
         let quote_autor = $(slide).find(".quote-autor")
         if (quote && quote_autor) {
-            $(quote[0]).addClass("fadeIn animation2")
-            $(quote_autor[0]).addClass("fadeIn animation8")
+            $(quote[0]).addClass("fadeIn animation3")
+            setTimeout(function(){
+                $(quote_autor[0]).addClass("fadeIn animation3")
+            },1000)
         }
 
 
@@ -101,7 +108,11 @@ new fullpage('#fullpage', {
         if (typeof (player) === "object") {
             player.stop()
         }
-
+        
+        if (typeof (playerPerson) === "object") {
+            playerPerson.stop()
+        }
+        
     }
 
 });

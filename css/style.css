@@ -179,9 +179,10 @@ body{
 }
 
 .person-video{
-    text-align: right;
-    padding-right: 15%;
-    
+  text-align: right;
+  padding-right: 15%;
+  width: 30%;
+  margin-left: 60%;    
 }
 
 .person-video-left{
@@ -419,3 +420,6 @@ body{
 
 
   /* end of slideInDown animations */
+.personVideo{
+  width:400px;
+}
