@@ -187,7 +187,7 @@ body{
 
 .person-video-left{
   text-align: left;
-  padding-left: 15%;
+  margin-left: 10%;
 }
 
 .person-text-right{
@@ -197,6 +197,11 @@ body{
 .relatives{
     position: absolute;
     visibility: hidden;
+}
+
+.relatives-fade{
+  position: absolute;
+  opacity: 0;
 }
 
 .bordered{
@@ -247,7 +252,7 @@ body{
 
 
 .zoomer{
-  /* zoom:67%  */
+  zoom:67%;
 }
 
 /* fade in animations */
@@ -397,6 +402,36 @@ body{
   }
 
 
+  @-webkit-keyframes slideInUp {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+      visibility: visible;
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+  }
+
+
+
 
   .slideRight {
     -webkit-animation-name: slideRight;
@@ -411,6 +446,16 @@ body{
   .slideInDown {
     -webkit-animation-name: slideInDown;
     animation-name: slideInDown;
+    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+    -moz-animation-fill-mode: forwards;    /* FF 5+ */
+    -o-animation-fill-mode: forwards;      /* Not implemented yet */
+    -ms-animation-fill-mode: forwards;     /* IE 10+ */
+    animation-fill-mode: forwards;  
+  }
+
+  .slideInDown {
+    -webkit-animation-name: slideInUp;
+    animation-name: slideInUp;
     -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
     -moz-animation-fill-mode: forwards;    /* FF 5+ */
     -o-animation-fill-mode: forwards;      /* Not implemented yet */

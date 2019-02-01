@@ -16,6 +16,13 @@ new fullpage('#fullpage', {
             player = new Plyr('#' + custVidID);
         }
 
+        let fallVideo = $(slide).find(".fall-video")
+        if (fallVideo.length != 0) {
+            let custVidID = $(fallVideo[0]).attr("id")
+            player = new Plyr('#' + custVidID);
+            player.volume = 5
+        }
+
         let personVideo = $(slide).find(".personVideo")
         if (personVideo.length != 0) {
             let custVidID = $(personVideo[0]).attr("id")
@@ -31,7 +38,6 @@ new fullpage('#fullpage', {
             player.loop = true
             player.play()
         }
-
 
         let quote = $(slide).find(".quote")
         let quote_autor = $(slide).find(".quote-autor")
@@ -82,15 +88,22 @@ new fullpage('#fullpage', {
         }
 
         let relatives = $(slide).find(".relatives")
+        let relativesfade = $(slide).find(".relatives-fade")
+        if(relativesfade){
+            relativesfade.addClass("fadeIn")
+            relativesfade.addClass("animation1")
+        }
+
         if (relatives) {
             let ind = 1
             let liIndex = 0
+            
 
             let anim = setInterval(function () {
                 let li = relatives[liIndex]
                 if(!debug){
-                    $(li).addClass("slideInDown")
-                    $(li).addClass("animation1")
+                        $(li).addClass("slideInDown")
+                        $(li).addClass("animation1")
                 }
 
                 ind += 1
@@ -112,7 +125,14 @@ new fullpage('#fullpage', {
         if (typeof (playerPerson) === "object") {
             playerPerson.stop()
         }
-        
+
+        /*
+        let slide = $("#" + origin.item.id);
+
+        let relatives = $(slide).find(".relatives")
+        relatives.removeClass("slideInDown")
+        relatives.addClass("slideInUp")
+        */
     }
 
 });
