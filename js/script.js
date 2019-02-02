@@ -1,4 +1,4 @@
-let debug = false;
+let debug = true;
 let iframe
 let iframePlayer
 var player;
@@ -179,7 +179,7 @@ function randomInt(min, max) {
 
 if(debug){
     $(function () {
-        $(".relatives").draggable({
+        $(".relatives , .relatives-fade").draggable({
             stop: function (event, ui) {
                 console.log(
                     $(this).attr("src"),

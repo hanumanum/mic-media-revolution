@@ -1,67 +1,67 @@
 body{
-    background-color: #000;
-    color: white;
-    font-family: 'Roboto';
-    -webkit-font-smoothing:antialiased;
+  background-color: #000;
+  color: white;
+  font-family: 'Roboto';
+  -webkit-font-smoothing:antialiased;
 }
 
 .section{
-    text-align: center;
+  text-align: center;
 }
 
 .chapter-head{
-    font-size: 8em;
-    text-align: center;
-    text-transform: uppercase;
+  font-size: 8em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .chaper-slogan{
-    font-size: 2.5em;
-    text-align: center;
-    text-transform: uppercase;
-    
+  font-size: 2.5em;
+  text-align: center;
+  text-transform: uppercase;
+  
 }
 
 
 /* nav start */
 #nav{
-    width:32px;
-    position: fixed;
-    top:0;
-    z-index: 999999;
+  width:32px;
+  position: fixed;
+  top:0;
+  z-index: 999999;
 }
 
 .nav-items{
-    width:32px;
-    height:32px;
-    margin-bottom:5px;
-    border-radius: 5px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color:white;
-    cursor: pointer;
-    display: block;
+  width:32px;
+  height:32px;
+  margin-bottom:5px;
+  border-radius: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color:white;
+  cursor: pointer;
+  display: block;
 }
 
 .nav-items:hover{
-    background-color: black;
+  background-color: black;
 }
 
 #nav-see{
-    background-image: url("../img/nav-see.png");
-    
+  background-image: url("../img/nav-see.png");
+  
 }
 
 #nav-hear{
-    background-image: url("../img/nav-hear.png");
+  background-image: url("../img/nav-hear.png");
 }
 
 #nav-speak{
-    background-image: url("../img/nav-speak.png");
+  background-image: url("../img/nav-speak.png");
 }
 
 #nav-act{
-    background-image: url("../img/nav-act.png");
+  background-image: url("../img/nav-act.png");
 }
 /* nav end */
 
@@ -69,20 +69,20 @@ body{
 /* Vimeo responsive  */
 /*
 .embed-container { 
-    position: relative; 
-    padding-bottom: 56.25%;
-    height: 90%; 
-    overflow: hidden; 
-    width: 80%; 
-    height: auto; 
+  position: relative; 
+  padding-bottom: 56.25%;
+  height: 90%; 
+  overflow: hidden; 
+  width: 80%; 
+  height: auto; 
 } 
 
 .embed-container iframe, .embed-container object, .embed-container embed { 
-        position: absolute; 
-        top: 10; 
-        left: 10;
-        width: 100%; 
-        height: 100%;
+      position: absolute; 
+      top: 10; 
+      left: 10;
+      width: 100%; 
+      height: 100%;
 }*/
 /*End of Vimeo responsive  */
 
@@ -92,379 +92,381 @@ body{
 
 
 .hidden-sound{
-  display: none;
+display: none;
 }
 
 .quote{
-    width:40%;
-    font-size: 26px;
-    line-height: 32px;
-    text-align: left;
-    margin: auto auto;
-    opacity: 0;
+  width:27%;
+  font-size: 26px;
+  line-height: 32px;
+  text-align: left;
+  margin: auto auto;
+  opacity: 0;
 }
 
 .quote-autor{
-    width:40%;
-    font-size: 22px;
-    font-weight: 300;
-    text-align: right;
-    font-style: italic;
-    margin: 20px auto;
-    opacity: 0;
+  width:27%;
+  font-size: 22px;
+  font-weight: 300;
+  text-align: right;
+  font-style: italic;
+  margin: 20px auto;
+  opacity: 0;
 }
 
 /* end of Quote */
 
 /* becouses */
 .becouse{
-    font-size: 36px;
-    font-style: italic;
-    font-weight: 400;
-    width:40%;
-    margin: auto auto;
-    text-align: left;
-    opacity: 0;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 400;
+  width:30%;
+  margin: auto auto;
+  text-align: left;
+  opacity: 0;
 }
 
 .becouse-list{
-    width:40%;
-    text-align: left;
-    margin: auto auto;
-    font-size: 2em;
-    margin-left: 45%;
-    font-style: italic;
+  width:40%;
+  text-align: left;
+  margin: auto auto;
+  font-size: 2em;
+  margin-left: 45%;
+  font-style: italic;
 }
 
 .becouse-list li{
-    list-style-type: none;
-    opacity: 0;
+  list-style-type: none;
+  opacity: 0;
 }
 
 .becouse-list li span{
-    text-align: left;
-    width: 150px;
-    display: inline-block;
+  text-align: left;
+  width: 150px;
+  display: inline-block;
 }
 
 .becouse-list li .becouse-big{
-    text-align: left;
-    font-size: 55px;
-    font-weight: 400;
-    width: 300px;
+  text-align: left;
+  font-size: 55px;
+  font-weight: 400;
+  width: 300px;
 }
 /* end of becouses */
 
 
 .person-title{
-    font-size: 23px;
-    font-weight: 500;
-    width:40%;
-    font-style: italic;
-    margin-left:20%;
-    margin-top:25px;
-    margin-bottom: 20px;
-    text-align: left;
-    opacity: 0;
-}
-
-.person-text{
-    font-size: 18px;
-    font-style: italic;
-    font-weight: 400;
-    width:40%;
-    margin-left:20%;
-    text-align: left;
-    opacity: 0;
-}
-
-.person-video{
-  text-align: right;
-  padding-right: 15%;
-  width: 30%;
-  margin-left: 60%;    
-}
-
-.person-video-left{
+  font-size: 23px;
+  font-weight: 500;
+  width: 46%;
+  font-style: italic;
+  margin-left: 31%;
+  margin-top: 131px;
+  margin-bottom: 6px;
   text-align: left;
-  margin-left: 10%;
-}
-
-.person-text-right{
-  margin-left: 50%;
-}
-
-.relatives{
-    position: absolute;
-    visibility: hidden;
-}
-
-.relatives-fade{
-  position: absolute;
   opacity: 0;
 }
 
+.person-text{
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  width: 26%;
+  margin-left: 31%;
+  text-align: left;
+  opacity: 0;
+  line-height: 1.4em; 
+}
+
+.person-video{
+text-align: right;
+padding-right: 15%;
+width: 30%;
+margin-left: 60%;
+}
+
+.person-video-left{
+text-align: left;
+margin-left: 10%;
+}
+
+.person-text-right{
+margin-left: 50%;
+}
+
+.relatives{
+  position: absolute;
+  /* visibility: hidden; */
+}
+
+.relatives-fade{
+position: absolute;
+/*opacity: 0; */ 
+}
+
 .bordered{
-    width: 20%;
-    border: 1px white solid;
-    font-size: 18px;
-    font-weight: 400;
-    font-style: normal;
-    text-align: left;
-    padding: 15px;
-    z-index: -1;
-    
+  width: 20%;
+  border: 1px white solid;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  padding: 15px;
+  line-height: 1.5em;
+  z-index: -1;
+  
 }
 
 
 .backgroundvideo{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  top:0;
-  right:0;
-  width: 100%;
-  height: 100%;
-  background-size: 100% 100%;
-  background-color: black; /* in case the video doesn't fit the whole page*/
-  /* background-image:  our video */;
-  background-position: center center;
-  background-size: contain;
-  object-fit: cover; /*cover video background */
-  z-index:3;
+position: absolute;
+right: 0;
+bottom: 0;
+top:0;
+right:0;
+width: 100%;
+height: 100%;
+background-size: 100% 100%;
+background-color: black; /* in case the video doesn't fit the whole page*/
+/* background-image:  our video */;
+background-position: center center;
+background-size: contain;
+object-fit: cover; /*cover video background */
+z-index:3;
 }
 
 
 .layeronbackgroundvideo{
-  position: absolute;
-  z-index: 10;
-  width: 100%;
-  left: 0;
-  top: 5%;
-  /*
-  * Preventing flicker on some browsers
-  * See http://stackoverflow.com/a/36671466/1081396  or issue #183
-  */
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+position: absolute;
+z-index: 10;
+width: 90%;
+left: 0;
+top: 12%;
+/*
+* Preventing flicker on some browsers
+* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+*/
+-webkit-transform: translate3d(0,0,0);
+-ms-transform: translate3d(0,0,0);
+transform: translate3d(0,0,0);
 }
 
 
 .zoomer{
-  /* zoom:67%; */
+/* zoom:67%; */
 }
 
 /* fade in animations */
 @-webkit-keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
+  from {
+    opacity: 0;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
+
+  to {
+    opacity: 1;
   }
-  
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+  -moz-animation-fill-mode: forwards;    /* FF 5+ */
+  -o-animation-fill-mode: forwards;      /* Not implemented yet */
+  -ms-animation-fill-mode: forwards;     /* IE 10+ */
+  animation-fill-mode: forwards;  
+}
+
+.animation1{
+  animation-duration: 1s;
+}
+
+.animation2{
+  animation-duration: 2s;
+}
+
+.animation3{
+  animation-duration: 3s;
+}
+
+.animation4{
+  animation-duration: 4s;
+}
+
+.animation5{
+  animation-duration: 5s;
+}
+
+.animation6{
+  animation-duration: 6s;
+}
+
+.animation7{
+  animation-duration: 7s;
+}
+
+.animation8{
+  animation-duration: 8s;
+}
+
+.animation9{
+  animation-duration: 9s;
+}
+
+.animation10{
+  animation-duration: 10s;
+}
  
-  .fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
-    -moz-animation-fill-mode: forwards;    /* FF 5+ */
-    -o-animation-fill-mode: forwards;      /* Not implemented yet */
-    -ms-animation-fill-mode: forwards;     /* IE 10+ */
-    animation-fill-mode: forwards;  
-  }
+.animation11{
+  animation-duration: 11s;
+}
 
-  .animation1{
-    animation-duration: 1s;
-  }
- 
-  .animation2{
-    animation-duration: 2s;
-  }
+.animation12{
+  animation-duration: 12s;
+}
 
-  .animation3{
-    animation-duration: 3s;
-  }
+.animation13{
+  animation-duration: 13s;
+}
 
-  .animation4{
-    animation-duration: 4s;
-  }
+.animation14{
+  animation-duration: 14s;
+}
 
-  .animation5{
-    animation-duration: 5s;
-  }
+.animation15{
+  animation-duration: 15s;
+}
 
-  .animation6{
-    animation-duration: 6s;
-  }
+.animation16{
+  animation-duration: 16s;
+}
 
-  .animation7{
-    animation-duration: 7s;
-  }
-
-  .animation8{
-    animation-duration: 8s;
-  }
-  
-  .animation9{
-    animation-duration: 9s;
-  }
-
-  .animation10{
-    animation-duration: 10s;
-  }
-   
-  .animation11{
-    animation-duration: 11s;
-  }
-
-  .animation12{
-    animation-duration: 12s;
-  }
-
-  .animation13{
-    animation-duration: 13s;
-  }
-
-  .animation14{
-    animation-duration: 14s;
-  }
-
-  .animation15{
-    animation-duration: 15s;
-  }
-
-  .animation16{
-    animation-duration: 16s;
-  }
-
-  .animation17{
-    animation-duration: 17s;
-  }
-  /* end of fade in animations */
+.animation17{
+  animation-duration: 17s;
+}
+/* end of fade in animations */
 
 
 
 /* slideInDown animations */
-  @-webkit-keyframes slideInDown {
-    from {
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-      visibility: visible;
-    }
-  
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
-    }
-  }
-  
-  @keyframes slideInDown {
-    from {
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-      visibility: visible;
-    }
-  
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
-    }
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
   }
 
-  @keyframes slideRight {
-    from {
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-      visibility: visible;
-    }
-  
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
-    }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
   }
 
-
-  @-webkit-keyframes slideInUp {
-    from {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
-    }
-  
-    to {
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-      visibility: visible;
-    }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
-  
-  @keyframes slideInUp {
-    from {
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-      visibility: visible;
-    }
-  
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
-    }
+}
+
+@keyframes slideRight {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
   }
 
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+}
 
 
-
-  .slideRight {
-    -webkit-animation-name: slideRight;
-    animation-name: slideRight;
-    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
-    -moz-animation-fill-mode: forwards;    /* FF 5+ */
-    -o-animation-fill-mode: forwards;      /* Not implemented yet */
-    -ms-animation-fill-mode: forwards;     /* IE 10+ */
-    animation-fill-mode: forwards;  
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
 
-  .slideInDown {
-    -webkit-animation-name: slideInDown;
-    animation-name: slideInDown;
-    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
-    -moz-animation-fill-mode: forwards;    /* FF 5+ */
-    -o-animation-fill-mode: forwards;      /* Not implemented yet */
-    -ms-animation-fill-mode: forwards;     /* IE 10+ */
-    animation-fill-mode: forwards;  
+  to {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
   }
 
-  .slideInDown {
-    -webkit-animation-name: slideInUp;
-    animation-name: slideInUp;
-    -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
-    -moz-animation-fill-mode: forwards;    /* FF 5+ */
-    -o-animation-fill-mode: forwards;      /* Not implemented yet */
-    -ms-animation-fill-mode: forwards;     /* IE 10+ */
-    animation-fill-mode: forwards;  
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
+}
 
 
-  /* end of slideInDown animations */
+
+
+.slideRight {
+  -webkit-animation-name: slideRight;
+  animation-name: slideRight;
+  -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+  -moz-animation-fill-mode: forwards;    /* FF 5+ */
+  -o-animation-fill-mode: forwards;      /* Not implemented yet */
+  -ms-animation-fill-mode: forwards;     /* IE 10+ */
+  animation-fill-mode: forwards;  
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+  -moz-animation-fill-mode: forwards;    /* FF 5+ */
+  -o-animation-fill-mode: forwards;      /* Not implemented yet */
+  -ms-animation-fill-mode: forwards;     /* IE 10+ */
+  animation-fill-mode: forwards;  
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+  -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+  -moz-animation-fill-mode: forwards;    /* FF 5+ */
+  -o-animation-fill-mode: forwards;      /* Not implemented yet */
+  -ms-animation-fill-mode: forwards;     /* IE 10+ */
+  animation-fill-mode: forwards;  
+}
+
+
+/* end of slideInDown animations */
 .personVideo{
-  width:400px;
+width:400px;
 }
