@@ -91,7 +91,7 @@ new fullpage('#fullpage', {
         let relativesfade = $(slide).find(".relatives-fade")
         if(relativesfade){
             relativesfade.addClass("fadeIn")
-            relativesfade.addClass("animation1")
+            relativesfade.addClass("animation2")
         }
 
         if (relatives) {
