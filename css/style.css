@@ -197,12 +197,12 @@ margin-left: 50%;
 
 .relatives{
   position: absolute;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .relatives-fade{
 position: absolute;
-/*opacity: 0; */ 
+opacity: 0; 
 }
 
 .bordered{
