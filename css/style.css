@@ -5,6 +5,65 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
+#tools{
+  position: fixed;
+  right:20px;
+  top:20px;
+  width:180px;
+  height: 40px;
+  z-index: 100;
+}
+
+.tool{
+  /* border:solid 1px gray; */
+  width:40px;
+  height: 40px;
+  display: inline-block;
+  opacity:0.5;
+  z-index: 100;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.tool:hover{
+  opacity:1
+}
+
+#language.hy{
+  background-image: url("../img/icons/hy.png");
+}
+
+#language.en{
+  background-image: url("../img/icons/en.png");
+}
+
+
+#fb-button{
+  background-image: url("../img/icons/fb.png");
+}
+
+#twitter-button{
+  background-image: url("../img/icons/tw.png");
+}
+
+.sound-on{
+  background-image: url("../img/icons/sound-on.png");
+}
+
+.sound-off{
+  background-image: url("../img/icons/sound-off.png");
+}
+
+#nav-button{
+  background-image: url("../img/icons/sound-off.png");
+  
+
+}
+
+
+
+
+
 .section{
   text-align: center;
 }
@@ -201,8 +260,8 @@ margin-left: 50%;
 }
 
 .relatives-fade{
-position: absolute;
-opacity: 0; 
+  position: absolute;
+/* opacity: 0;  */
 }
 
 .bordered{
@@ -220,41 +279,41 @@ opacity: 0;
 
 
 .backgroundvideo{
-position: absolute;
-right: 0;
-bottom: 0;
-top:0;
-right:0;
-width: 100%;
-height: 100%;
-background-size: 100% 100%;
-background-color: black; /* in case the video doesn't fit the whole page*/
-/* background-image:  our video */;
-background-position: center center;
-background-size: contain;
-object-fit: cover; /*cover video background */
-z-index:3;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-color: black; /* in case the video doesn't fit the whole page*/
+  /* background-image:  our video */;
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover; /*cover video background */
+  z-index:3;
 }
 
 
 .layeronbackgroundvideo{
-position: absolute;
-z-index: 10;
-width: 90%;
-left: 0;
-top: 12%;
-/*
-* Preventing flicker on some browsers
-* See http://stackoverflow.com/a/36671466/1081396  or issue #183
-*/
--webkit-transform: translate3d(0,0,0);
--ms-transform: translate3d(0,0,0);
-transform: translate3d(0,0,0);
+    position: absolute;
+    z-index: 10;
+    width: 90%;
+    left: 0;
+    top: 12%;
+    /*
+    * Preventing flicker on some browsers
+    * See http://stackoverflow.com/a/36671466/1081396  or issue #183
+    */
+    -webkit-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 
 
 .zoomer{
-/* zoom:67%; */
+  /* zoom:67%; */
 }
 
 /* fade in animations */
@@ -389,61 +448,6 @@ transform: translate3d(0,0,0);
   }
 }
 
-@keyframes slideRight {
-  from {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-    visibility: visible;
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-}
-
-
-@-webkit-keyframes slideInUp {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    visibility: visible;
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-}
-
-
-
-
-.slideRight {
-  -webkit-animation-name: slideRight;
-  animation-name: slideRight;
-  -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
-  -moz-animation-fill-mode: forwards;    /* FF 5+ */
-  -o-animation-fill-mode: forwards;      /* Not implemented yet */
-  -ms-animation-fill-mode: forwards;     /* IE 10+ */
-  animation-fill-mode: forwards;  
-}
 
 .slideInDown {
   -webkit-animation-name: slideInDown;
@@ -455,18 +459,38 @@ transform: translate3d(0,0,0);
   animation-fill-mode: forwards;  
 }
 
-.slideInDown {
-  -webkit-animation-name: slideInUp;
-  animation-name: slideInUp;
+
+@-webkit-keyframes slideOutDown {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    visibility: visible;
+  }
+}
+
+
+.slideOutDown {
+  -webkit-animation-name: slideOutDown;
+  animation-name: slideOutDown;
   -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
   -moz-animation-fill-mode: forwards;    /* FF 5+ */
   -o-animation-fill-mode: forwards;      /* Not implemented yet */
   -ms-animation-fill-mode: forwards;     /* IE 10+ */
   animation-fill-mode: forwards;  
 }
-
-
 /* end of slideInDown animations */
+
+
 .personVideo{
-width:400px;
+  width:400px;
 }
+
+
+
+

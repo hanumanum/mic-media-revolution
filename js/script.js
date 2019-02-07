@@ -1,10 +1,19 @@
 let debug = false;
-let iframe
-let iframePlayer
+let iframe;
+let iframePlayer;
 var player;
 var playerPerson;
+var volume = 0;
+
+$("#sound").click(function(){
+    $(this).toggleClass("sound-on").toggleClass("sound-off")
+    volume = (volume==0)? 5:0
+})
+
 
 new fullpage('#fullpage', {
+    fadingEffect:true,
+    fadingEffectKey:"18DF4FFA-5D204426-AC93E15C-E7F303EF",
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
     //menu: '#nav'
     afterLoad: function (origin, destination, direction) {
@@ -14,13 +23,14 @@ new fullpage('#fullpage', {
         if (customVideo.length != 0) {
             let custVidID = $(customVideo[0]).attr("id")
             player = new Plyr('#' + custVidID);
+            player.volume = volume
         }
 
         let fallVideo = $(slide).find(".fall-video")
         if (fallVideo.length != 0) {
             let custVidID = $(fallVideo[0]).attr("id")
             player = new Plyr('#' + custVidID);
-            player.volume = 5
+            player.volume = volume
         }
 
         let personVideo = $(slide).find(".personVideo")
@@ -88,17 +98,16 @@ new fullpage('#fullpage', {
         }
 
         let relatives = $(slide).find(".relatives")
+        relatives.removeClass("slideOutDown")
+        
         let relativesfade = $(slide).find(".relatives-fade")
         if(relativesfade){
-            relativesfade.addClass("fadeIn")
-            relativesfade.addClass("animation2")
+            //relativesfade.addClass("fadeIn")
+            //relativesfade.addClass("animation2")
         }
 
         if (relatives) {
-            let ind = 1
             let liIndex = 0
-            
-
             let anim = setInterval(function () {
                 let li = relatives[liIndex]
                 if(!debug){
@@ -106,7 +115,6 @@ new fullpage('#fullpage', {
                         $(li).addClass("animation1")
                 }
 
-                ind += 1
                 liIndex++
 
                 if (liIndex == relatives.length) {
@@ -118,6 +126,8 @@ new fullpage('#fullpage', {
     }
 
     , onLeave: function (origin, destination, direction) {
+        let slide = $("#" + origin.item.id);
+        
         if (typeof (player) === "object") {
             player.stop()
         }
@@ -126,13 +136,18 @@ new fullpage('#fullpage', {
             playerPerson.stop()
         }
 
-        /*
-        let slide = $("#" + origin.item.id);
 
         let relatives = $(slide).find(".relatives")
+        let relativesfade  = $(slide).find(".relatives-fade")
         relatives.removeClass("slideInDown")
-        relatives.addClass("slideInUp")
-        */
+        relativesfade.removeClass("fadeIn")
+        
+        relatives.addClass("slideOutDown",function(){
+            setTimeout(function(){
+                relatives.removeClass("slideOutDown")
+            },500)
+        })
+        
     }
 
 });
