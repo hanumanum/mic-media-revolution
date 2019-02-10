@@ -103,6 +103,28 @@ new fullpage('#fullpage', {
         let relatives = $(slide).find(".relatives")
         let relativesfade = $(slide).find(".relatives-fade")
 
+        $(relatives).hover(function(){
+            let w = parseInt($(this).css("width").split("px")[0])
+            let h = parseInt($(this).css("height").split("px")[0])
+            let z = $(this).css("z-index")
+            
+            $(this).data("startparams",{w,h,z})
+
+            let wn = w+w*0.3
+            let hn = h+h*0.3
+            let zn = 2000
+            $(this).css("z-index",zn)
+            $(this).animate({width: wn+"px", heigth:hn+"px"}, 'slow');
+        }, function(){
+            
+            let startparams = $(this).data("startparams")
+            z = (startparams.z=="auto")?0:startparams.z;
+            $(this).css("z-index",z);
+            $(this).animate({width: startparams.w, heigth:startparams.h}, 'slow', function(){
+                
+            })
+        })
+
         if(relativesfade && relativesfade!==undefined){
             setTimeout(function(){
                 let ind = 0

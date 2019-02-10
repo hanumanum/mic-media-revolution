@@ -257,6 +257,11 @@ margin-left: 50%;
 .relatives{
   position: absolute;
   visibility: hidden;
+  transition: transform .2s;
+}
+
+.relatives:hover{
+  
 }
 
 .relatives-fade{
@@ -273,7 +278,7 @@ margin-left: 50%;
   text-align: left;
   padding: 15px;
   line-height: 1.5em;
-  z-index: 0;
+  z-index: -100;
   
 }
 
@@ -314,7 +319,7 @@ margin-left: 50%;
 
 .zoomer{
   /* transform: scale(0.67); */
-  /* zoom:67%; */
+  /* zoom:67%; */ 
 }
 
 /* fade in animations */
