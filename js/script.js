@@ -106,18 +106,21 @@ new fullpage('#fullpage', {
         if(relativesfade && relativesfade!==undefined){
             setTimeout(function(){
                 let ind = 0
+                $(relativesfade[ind]).addClass("fadeIn")
+                $(relativesfade[ind]).addClass("animation1")
+                ind++
+
                 let animIntrval = setInterval(function(){
                     $(relativesfade[ind]).addClass("fadeIn")
                     $(relativesfade[ind]).addClass("animation1")
 
                     ind++
-                    
 
                     if(ind==relativesfade.length){
                         clearInterval(animIntrval)
                     }
                 },250)
-            },1000)
+            },500)
         }
 
         if(relatives && relatives!==undefined){
