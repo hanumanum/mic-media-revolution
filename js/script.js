@@ -97,8 +97,49 @@ new fullpage('#fullpage', {
             })
         }
 
+        let bordered = $(slide).find(".bordered")
+        bordered.addClass("fadeIn").addClass("animation2")
+        
         let relatives = $(slide).find(".relatives")
-        relatives.removeClass("slideOutDown")
+        let relativesfade = $(slide).find(".relatives-fade")
+
+        if(relativesfade && relativesfade!==undefined){
+            setTimeout(function(){
+                let ind = 0
+                let animIntrval = setInterval(function(){
+                    $(relativesfade[ind]).addClass("fadeIn")
+                    ind++
+                    if(ind==relativesfade.length){
+                        clearInterval(animIntrval)
+                    }
+                },250)
+            },1000)
+        }
+
+        if(relatives && relatives!==undefined){
+            let ind = 0;
+            $(relatives[ind]).addClass("slideInDown")
+            $(relatives[ind]).addClass("animation1")
+            ind++
+
+            let animIntrval = setInterval(function(){
+                if(!debug){
+                    $(relatives[ind]).addClass("slideInDown")
+                    $(relatives[ind]).addClass("animation1")
+                }
+                ind++
+                if(ind==relatives.length){
+                    clearInterval(animIntrval)
+                }
+
+            },350)
+        }
+
+        //relatives.removeClass("slideOutDown")
+
+        /*
+        //let relatives = $(slide).find(".relatives")
+        
         
         let relativesfade = $(slide).find(".relatives-fade")
         if(relativesfade){
@@ -122,6 +163,7 @@ new fullpage('#fullpage', {
                 }
             }, 500)
         }
+        */
 
     }
 

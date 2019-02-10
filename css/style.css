@@ -261,7 +261,7 @@ margin-left: 50%;
 
 .relatives-fade{
   position: absolute;
-/* opacity: 0;  */
+  opacity: 0; 
 }
 
 .bordered{
@@ -313,6 +313,7 @@ margin-left: 50%;
 
 
 .zoomer{
+  /* transform: scale(0.67); */
   /* zoom:67%; */
 }
 
@@ -452,11 +453,13 @@ margin-left: 50%;
 .slideInDown {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
-  -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
-  -moz-animation-fill-mode: forwards;    /* FF 5+ */
-  -o-animation-fill-mode: forwards;      /* Not implemented yet */
-  -ms-animation-fill-mode: forwards;     /* IE 10+ */
-  animation-fill-mode: forwards;  
+  animation-timing-function: cubic-bezier(0,.91,.75,.98);
+  -webkit-animation-fill-mode: forwards; 
+  -moz-animation-fill-mode: forwards;    
+  -o-animation-fill-mode: forwards;      
+  -ms-animation-fill-mode: forwards;     
+  animation-fill-mode: forwards;
+  
 }
 
 
@@ -478,6 +481,7 @@ margin-left: 50%;
 .slideOutDown {
   -webkit-animation-name: slideOutDown;
   animation-name: slideOutDown;
+  animation-timing-function: ease-in;
   -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
   -moz-animation-fill-mode: forwards;    /* FF 5+ */
   -o-animation-fill-mode: forwards;      /* Not implemented yet */
