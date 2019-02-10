@@ -102,9 +102,13 @@ new fullpage('#fullpage', {
 
         let relatives = $(slide).find(".relatives")
         let relativesfade = $(slide).find(".relatives-fade")
+        let allowOtherAnims = true
 
+
+
+        /*
         $(relatives).hover(function () {
-            if($(this).prop("tagName") == "IMG"){
+            if(allowOtherAnims && $(this).prop("tagName") == "IMG"){
                 let w = parseInt($(this).css("width").split("px")[0])
                 let h = parseInt($(this).css("height").split("px")[0])
                 let z = $(this).css("z-index")
@@ -114,22 +118,25 @@ new fullpage('#fullpage', {
                 let hn = h + h * 0.15
                 let zn = 2000
                 $(this).css("z-index", zn)
+                allowOtherAnims = false
                 $(this).animate({ width: wn + "px", heigth: hn + "px" }, 'slow', function () {
-
+                    //allowOtherAnims = true
                 });
 
 
             }
 
         }, function () {
-
+            
             let startparams = $(this).data("startparams")
             z = (startparams.z == "auto") ? 0 : startparams.z;
             $(this).css("z-index", z);
             $(this).animate({ width: startparams.w, heigth: startparams.h }, 'slow', function () {
-
+                allowOtherAnims = true
             })
         })
+        */
+
 
         if (relativesfade && relativesfade !== undefined) {
             setTimeout(function () {
@@ -269,6 +276,7 @@ function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+
 if (debug) {
     $(function () {
         $(".relatives , .relatives-fade").draggable({
@@ -281,5 +289,43 @@ if (debug) {
     });
 
 }
+
+
+
+var bodyElement = document.querySelector("body");
+bodyElement.addEventListener("mousemove", getMouseDirection, false);
+ 
+var xDirection = "";
+var yDirection = "";
+var oldX = 0;
+var oldY = 0;
+ 
+function getMouseDirection(e) {
+    //deal with the horizontal case
+    if (oldX < e.pageX) {
+        xDirection = "right";
+    } else {
+        xDirection = "left";
+    }
+ 
+    //deal with the vertical case
+    if (oldY < e.pageY) {
+        yDirection = "down";
+    } else {
+        yDirection = "up";
+    }
+
+    diffX =  oldX - e.pageX
+    diffY = oldY - e.pageY
+
+    $("#hear7").css("top",diffY*10)
+    $("#hear7").css("left",diffX*10)
+
+    oldX = e.pageX;
+    oldY = e.pageY;
+ 
+    console.log(xDirection + " " + yDirection);
+}
+
 
 
