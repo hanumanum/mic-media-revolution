@@ -112,6 +112,7 @@ new fullpage('#fullpage', {
 
                     ind++
                     
+                    
                     if(ind==relativesfade.length){
                         clearInterval(animIntrval)
                     }
