@@ -108,7 +108,10 @@ new fullpage('#fullpage', {
                 let ind = 0
                 let animIntrval = setInterval(function(){
                     $(relativesfade[ind]).addClass("fadeIn")
+                    $(relatives[ind]).addClass("animation1")
+
                     ind++
+                    
                     if(ind==relativesfade.length){
                         clearInterval(animIntrval)
                     }
