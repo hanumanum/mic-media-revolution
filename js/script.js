@@ -5,15 +5,15 @@ var player;
 var playerPerson;
 var volume = 0;
 
-$("#sound").click(function(){
+$("#sound").click(function () {
     $(this).toggleClass("sound-on").toggleClass("sound-off")
-    volume = (volume==0)? 5:0
+    volume = (volume == 0) ? 5 : 0
 })
 
 
 new fullpage('#fullpage', {
-    fadingEffect:true,
-    fadingEffectKey:"18DF4FFA-5D204426-AC93E15C-E7F303EF",
+    fadingEffect: true,
+    fadingEffectKey: "18DF4FFA-5D204426-AC93E15C-E7F303EF",
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
     //menu: '#nav'
     afterLoad: function (origin, destination, direction) {
@@ -36,14 +36,14 @@ new fullpage('#fullpage', {
         let personVideo = $(slide).find(".personVideo")
         if (personVideo.length != 0) {
             let custVidID = $(personVideo[0]).attr("id")
-            playerPerson = new Plyr('#' + custVidID, {'autopause':false});
+            playerPerson = new Plyr('#' + custVidID, { 'autopause': false });
         }
-        
+
 
         var backgroundVideo = $(slide).find(".backgroundvideo")
         if (backgroundVideo.length != 0) {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
-            player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true , 'autopause':false});
+            player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false });
             player.volume = 0
             player.loop = true
             player.play()
@@ -53,9 +53,9 @@ new fullpage('#fullpage', {
         let quote_autor = $(slide).find(".quote-autor")
         if (quote && quote_autor) {
             $(quote[0]).addClass("fadeIn animation3")
-            setTimeout(function(){
+            setTimeout(function () {
                 $(quote_autor[0]).addClass("fadeIn animation3")
-            },1000)
+            }, 1000)
         }
 
 
@@ -99,69 +99,75 @@ new fullpage('#fullpage', {
 
         let bordered = $(slide).find(".bordered")
         bordered.addClass("fadeIn").addClass("animation2")
-        
+
         let relatives = $(slide).find(".relatives")
         let relativesfade = $(slide).find(".relatives-fade")
 
-        $(relatives).hover(function(){
-            let w = parseInt($(this).css("width").split("px")[0])
-            let h = parseInt($(this).css("height").split("px")[0])
-            let z = $(this).css("z-index")
-            
-            $(this).data("startparams",{w,h,z})
+        $(relatives).hover(function () {
+            if($(this).prop("tagName") == "IMG"){
+                let w = parseInt($(this).css("width").split("px")[0])
+                let h = parseInt($(this).css("height").split("px")[0])
+                let z = $(this).css("z-index")
 
-            let wn = w+w*0.3
-            let hn = h+h*0.3
-            let zn = 2000
-            $(this).css("z-index",zn)
-            $(this).animate({width: wn+"px", heigth:hn+"px"}, 'slow');
-        }, function(){
-            
+                $(this).data("startparams", { w, h, z })
+                let wn = w + w * 0.15
+                let hn = h + h * 0.15
+                let zn = 2000
+                $(this).css("z-index", zn)
+                $(this).animate({ width: wn + "px", heigth: hn + "px" }, 'slow', function () {
+
+                });
+
+
+            }
+
+        }, function () {
+
             let startparams = $(this).data("startparams")
-            z = (startparams.z=="auto")?0:startparams.z;
-            $(this).css("z-index",z);
-            $(this).animate({width: startparams.w, heigth:startparams.h}, 'slow', function(){
-                
+            z = (startparams.z == "auto") ? 0 : startparams.z;
+            $(this).css("z-index", z);
+            $(this).animate({ width: startparams.w, heigth: startparams.h }, 'slow', function () {
+
             })
         })
 
-        if(relativesfade && relativesfade!==undefined){
-            setTimeout(function(){
+        if (relativesfade && relativesfade !== undefined) {
+            setTimeout(function () {
                 let ind = 0
                 $(relativesfade[ind]).addClass("fadeIn")
                 $(relativesfade[ind]).addClass("animation1")
                 ind++
 
-                let animIntrval = setInterval(function(){
+                let animIntrval = setInterval(function () {
                     $(relativesfade[ind]).addClass("fadeIn")
                     $(relativesfade[ind]).addClass("animation1")
 
                     ind++
 
-                    if(ind==relativesfade.length){
+                    if (ind == relativesfade.length) {
                         clearInterval(animIntrval)
                     }
-                },250)
-            },500)
+                }, 250)
+            }, 500)
         }
 
-        if(relatives && relatives!==undefined){
+        if (relatives && relatives !== undefined) {
             let ind = 0;
             $(relatives[ind]).addClass("slideInDown")
             $(relatives[ind]).addClass("animation1")
             ind++
 
-            let animIntrval = setInterval(function(){
-                if(!debug){
+            let animIntrval = setInterval(function () {
+                if (!debug) {
                     $(relatives[ind]).addClass("slideInDown")
                     $(relatives[ind]).addClass("animation1")
                 }
                 ind++
-                if(ind==relatives.length){
+                if (ind == relatives.length) {
                     clearInterval(animIntrval)
                 }
 
-            },350)
+            }, 350)
         }
 
         //relatives.removeClass("slideOutDown")
@@ -198,27 +204,27 @@ new fullpage('#fullpage', {
 
     , onLeave: function (origin, destination, direction) {
         let slide = $("#" + origin.item.id);
-        
+
         if (typeof (player) === "object") {
             player.stop()
         }
-        
+
         if (typeof (playerPerson) === "object") {
             playerPerson.stop()
         }
 
 
         let relatives = $(slide).find(".relatives")
-        let relativesfade  = $(slide).find(".relatives-fade")
+        let relativesfade = $(slide).find(".relatives-fade")
         relatives.removeClass("slideInDown")
         relativesfade.removeClass("fadeIn")
-        
-        relatives.addClass("slideOutDown",function(){
-            setTimeout(function(){
+
+        relatives.addClass("slideOutDown", function () {
+            setTimeout(function () {
                 relatives.removeClass("slideOutDown")
-            },500)
+            }, 500)
         })
-        
+
     }
 
 });
@@ -263,17 +269,17 @@ function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-if(debug){
+if (debug) {
     $(function () {
         $(".relatives , .relatives-fade").draggable({
             stop: function (event, ui) {
                 console.log(
                     $(this).attr("src"),
-                    "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top)+"px;")
+                    "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;")
             }
         });
     });
-    
+
 }
 
 
