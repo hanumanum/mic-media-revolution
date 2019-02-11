@@ -5,6 +5,7 @@ let scrollSound;
 var player;
 var playerPerson;
 var volume = 0;
+var trtext = "", trbutt = "";
 
 init_menuAndTools()
 
@@ -173,13 +174,21 @@ new fullpage('#fullpage', {
             }, 350)
         }
 
+
+        let trtext = $(slide).find(".translation-text")
+        if(trtext && trtext!=="undefined"){
+            $(slide).find(".translation-button").on("click",function(){
+                trtext.slideToggle(300);
+            })
+        }
     }
 
     , onLeave: function (origin, destination, direction) {
         scrollSound.play()
-
-
+        
         let slide = $("#" + origin.item.id);
+        $(slide).find(".translation-button").off("click")
+
 
         if (typeof (player) === "object") {
             player.stop()
@@ -315,4 +324,9 @@ function init_menuAndTools() {
         $(".nav-items-list").slideToggle(300);
     })
 
+    $('.translation-text').hover(function() {
+        fullpage_api.setAllowScrolling(false, 'up, down');
+   }, function() {
+        fullpage_api.setAllowScrolling(true, 'up, down');
+   });
 }
