@@ -5,9 +5,33 @@ var player;
 var playerPerson;
 var volume = 0;
 
+
+(function ($) {
+    var timeout;
+    $(document).on('mousemove', function (event) {
+        if (timeout !== undefined) {
+            window.clearTimeout(timeout);
+        }
+        timeout = window.setTimeout(function () {
+            $(event.target).trigger('mousemoveend',event);
+        }, 50);
+    });
+}(jQuery));
+
+
+
 $("#sound").click(function () {
     $(this).toggleClass("sound-on").toggleClass("sound-off")
     volume = (volume == 0) ? 5 : 0
+})
+
+//$(".language-hidden").hide()
+$(".language-visible").hover(function(){
+    $(".language-hidden").fadeIn(200)
+})
+
+$("#tools").hover(undefined,function(){
+    $(".language-hidden").fadeOut(200)
 })
 
 
@@ -177,36 +201,6 @@ new fullpage('#fullpage', {
             }, 350)
         }
 
-        //relatives.removeClass("slideOutDown")
-
-        /*
-        //let relatives = $(slide).find(".relatives")
-        
-        
-        let relativesfade = $(slide).find(".relatives-fade")
-        if(relativesfade){
-            //relativesfade.addClass("fadeIn")
-            //relativesfade.addClass("animation2")
-        }
-
-        if (relatives) {
-            let liIndex = 0
-            let anim = setInterval(function () {
-                let li = relatives[liIndex]
-                if(!debug){
-                        $(li).addClass("slideInDown")
-                        $(li).addClass("animation1")
-                }
-
-                liIndex++
-
-                if (liIndex == relatives.length) {
-                    clearInterval(anim)
-                }
-            }, 500)
-        }
-        */
-
     }
 
     , onLeave: function (origin, destination, direction) {
@@ -237,41 +231,6 @@ new fullpage('#fullpage', {
 });
 
 
-
-
-/*
-$(".relatives").keydown(function(event){
-    if(event.which=="17")
-        cntrlIsPressed = true;
-});
-
-$(".relatives").keyup(function(){
-    cntrlIsPressed = false;
-});
-
-var cntrlIsPressed = false;
-function selectMe(mouseButton)
-{
-    if(cntrlIsPressed)
-    {
-        switch(mouseButton)
-        {
-            case 1:
-                alert("Cntrl +  left click");
-                break;
-            case 2:
-                alert("Cntrl + right click");
-                break;
-            default:
-                break;
-        }
-    }
-
-
-}
-*/
-
-
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -292,40 +251,44 @@ if (debug) {
 
 
 
-var bodyElement = document.querySelector("body");
-bodyElement.addEventListener("mousemove", getMouseDirection, false);
+//var bodyElement = document.querySelector("body");
+//bodyElement.addEventListener("mousemove", getMouseDirection, false);
  
+$('#hear7').on('mousemoveend', getMouseDirection);
+
 var xDirection = "";
 var yDirection = "";
 var oldX = 0;
 var oldY = 0;
- 
+var inAnimaton = false;
+var diffX = 0
+var diffY = 0
+
 function getMouseDirection(e) {
-    //deal with the horizontal case
-    if (oldX < e.pageX) {
-        xDirection = "right";
-    } else {
-        xDirection = "left";
-    }
+    const SIZEh = 40
+    const SIZEv = 1
+    
+    let left = parseInt($("#hear7").css("left"))
+    //let top = parseInt($("#hear7").css("top"))
+       
+    diffX = (oldX < currentMousePos.x) ? (SIZEh) : ((-1) * SIZEh)  
+    //diffY = (oldY < currentMousePos.y) ? ((-1) * SIZEv) : SIZEv
  
-    //deal with the vertical case
-    if (oldY < e.pageY) {
-        yDirection = "down";
-    } else {
-        yDirection = "up";
-    }
+    $("#hear7").animate({
+                        "left":left+diffX+"px",
+                        /* "top": top+diffY+"px" */
+                        },1000)
 
-    diffX =  oldX - e.pageX
-    diffY = oldY - e.pageY
+    oldX = currentMousePos.x;
+    oldY = currentMousePos.y;
 
-    $("#hear7").css("top",diffY*10)
-    $("#hear7").css("left",diffX*10)
-
-    oldX = e.pageX;
-    oldY = e.pageY;
- 
-    console.log(xDirection + " " + yDirection);
 }
 
 
-
+var currentMousePos = { x: -1, y: -1 };
+$(function($) {
+    $(document).mousemove(function(event) {
+        currentMousePos.x = event.pageX;
+        currentMousePos.y = event.pageY;
+    });
+});
