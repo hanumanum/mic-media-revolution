@@ -5,20 +5,8 @@ var player;
 var playerPerson;
 var volume = 0;
 
-
-(function ($) {
-    var timeout;
-    $(document).on('mousemove', function (event) {
-        if (timeout !== undefined) {
-            window.clearTimeout(timeout);
-        }
-        timeout = window.setTimeout(function () {
-            $(event.target).trigger('mousemoveend',event);
-        }, 50);
-    });
-}(jQuery));
-
-
+let scrollSound = new Audio('scroll.mp3')
+scrollSound.volume=0.2
 
 $("#sound").click(function () {
     $(this).toggleClass("sound-on").toggleClass("sound-off")
@@ -126,11 +114,9 @@ new fullpage('#fullpage', {
 
         let relatives = $(slide).find(".relatives")
         let relativesfade = $(slide).find(".relatives-fade")
-        let allowOtherAnims = true
-
-
 
         /*
+        let allowOtherAnims = true
         $(relatives).hover(function () {
             if(allowOtherAnims && $(this).prop("tagName") == "IMG"){
                 let w = parseInt($(this).css("width").split("px")[0])
@@ -204,6 +190,9 @@ new fullpage('#fullpage', {
     }
 
     , onLeave: function (origin, destination, direction) {
+        scrollSound.play()
+
+
         let slide = $("#" + origin.item.id);
 
         if (typeof (player) === "object") {
@@ -254,6 +243,9 @@ if (debug) {
 //var bodyElement = document.querySelector("body");
 //bodyElement.addEventListener("mousemove", getMouseDirection, false);
  
+
+
+/*
 $('#hear7').on('mousemoveend', getMouseDirection);
 
 var xDirection = "";
@@ -276,7 +268,7 @@ function getMouseDirection(e) {
  
     $("#hear7").animate({
                         "left":left+diffX+"px",
-                        /* "top": top+diffY+"px" */
+                        "top": top+diffY+"px" 
                         },1000)
 
     oldX = currentMousePos.x;
@@ -292,3 +284,20 @@ $(function($) {
         currentMousePos.y = event.pageY;
     });
 });
+
+
+
+
+(function ($) {
+    var timeout;
+    $(document).on('mousemove', function (event) {
+        if (timeout !== undefined) {
+            window.clearTimeout(timeout);
+        }
+        timeout = window.setTimeout(function () {
+            $(event.target).trigger('mousemoveend',event);
+        }, 50);
+    });
+}(jQuery));
+
+*/
