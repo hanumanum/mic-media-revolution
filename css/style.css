@@ -59,14 +59,38 @@ body{
   background-image: url("../img/icons/sound-off.png");
 }
 
-#nav-button{
-  background-image: url("../img/icons/sound-off.png");
-  
 
+#nav-arrow{
+  background-image: url("../img/icons/arrow.png");
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  margin-left: -39px;
+  z-index: 10000;
+  width: 30px;
+  height: 18px;
+  opacity: 0.5;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: pulse 5s infinite;
 }
 
+#nav-arrow:hover{
+  opacity: 1;
+  cursor: pointer;
+}
 
-
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
 
 
 .section{
@@ -86,47 +110,57 @@ body{
   
 }
 
+#button{
+  background-image: url("../img/icons/menu-button.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 34px;
+  height: 36px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#button:hover{
+  opacity: 1;
+}
 
 /* nav start */
 #nav{
-  width:32px;
+  width:100px;
   position: fixed;
-  top:0;
+  top: 18px;
   z-index: 999999;
 }
 
 .nav-items{
-  width:32px;
-  height:32px;
   margin-bottom:5px;
   border-radius: 5px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color:white;
   cursor: pointer;
   display: block;
+  color:white;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-left: 8px;
+  font-size: 12px;
 }
 
 .nav-items:hover{
-  background-color: black;
+  opacity: 1;
 }
 
-#nav-see{
-  background-image: url("../img/nav-see.png");
-  
+.nav-intro{
+  margin-bottom: 15px;
 }
 
-#nav-hear{
-  background-image: url("../img/nav-hear.png");
+#about{
+  position: fixed;
+  top: 32px;
+  left: 46px;
+  z-index: 999999;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
-#nav-speak{
-  background-image: url("../img/nav-speak.png");
-}
-
-#nav-act{
-  background-image: url("../img/nav-act.png");
-}
 /* nav end */
 
 
@@ -156,7 +190,7 @@ body{
 
 
 .hidden-sound{
-display: none;
+  display: none;
 }
 
 .quote{

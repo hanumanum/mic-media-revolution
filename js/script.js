@@ -1,26 +1,12 @@
 let debug = false;
 let iframe;
 let iframePlayer;
+let scrollSound;
 var player;
 var playerPerson;
 var volume = 0;
 
-let scrollSound = new Audio('scroll.mp3')
-scrollSound.volume=0.2
-
-$("#sound").click(function () {
-    $(this).toggleClass("sound-on").toggleClass("sound-off")
-    volume = (volume == 0) ? 5 : 0
-})
-
-//$(".language-hidden").hide()
-$(".language-visible").hover(function(){
-    $(".language-hidden").fadeIn(200)
-})
-
-$("#tools").hover(undefined,function(){
-    $(".language-hidden").fadeOut(200)
-})
+init_menuAndTools()
 
 
 new fullpage('#fullpage', {
@@ -242,7 +228,7 @@ if (debug) {
 
 //var bodyElement = document.querySelector("body");
 //bodyElement.addEventListener("mousemove", getMouseDirection, false);
- 
+
 
 
 /*
@@ -301,3 +287,32 @@ $(function($) {
 }(jQuery));
 
 */
+
+function init_menuAndTools() {
+    scrollSound = new Audio('scroll.mp3')
+    scrollSound.volume = 0.2
+
+    $("#sound").click(function () {
+        $(this).toggleClass("sound-on").toggleClass("sound-off")
+        volume = (volume == 0) ? 5 : 0
+    })
+
+    $("#nav-arrow").click(function () {
+        fullpage_api.moveSectionDown();
+    })
+
+    $(".language-visible").hover(function () {
+        $(".language-hidden").fadeIn(200)
+    })
+
+    $("#tools").hover(undefined, function () {
+        $(".language-hidden").fadeOut(200)
+    })
+
+
+    $(".nav-items-list").hide()
+    $("#button").click(function(){
+        $(".nav-items-list").slideToggle(300);
+    })
+
+}
