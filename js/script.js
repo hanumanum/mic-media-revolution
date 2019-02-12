@@ -1,13 +1,27 @@
 let debug = false;
-let iframe;
-let iframePlayer;
-let scrollSound;
-var player;
-var playerPerson;
+const INITIAL_SIZE = 1900;
+let ratio;
+let scrollSound, iframe , iframePlayer;
+var player, playerPerson;
 var volume = 0;
 var trtext = "", trbutt = "";
+let browserWidth = $(window).width();
 
+init_scale()
 init_menuAndTools()
+
+function init_scale(){
+    $(window).on("resize",changeRatio)
+    $(window).on("load",changeRatio)
+}
+
+function changeRatio(){
+    browserWidth =  $(window).width();
+    ratio = (browserWidth / INITIAL_SIZE).toFixed(2);
+    //ratio = 1
+    $(".zoomer").css("zoom",ratio);
+}
+
 
 
 new fullpage('#fullpage', {
