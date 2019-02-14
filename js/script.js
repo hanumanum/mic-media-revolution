@@ -18,7 +18,6 @@ function init_scale(){
 function changeRatio(){
     browserWidth =  $(window).width();
     ratio = (browserWidth / INITIAL_SIZE).toFixed(2);
-    //ratio = 1
     $(".zoomer").css("zoom",ratio);
 }
 
@@ -343,4 +342,38 @@ function init_menuAndTools() {
    }, function() {
         fullpage_api.setAllowScrolling(true, 'up, down');
    });
+}
+
+slideLine()
+
+function slideLine(){
+    const anchores = ["coversee","coverhear","coverspeak","coveract"]
+    const POINTHEIGTH = 2
+    const TOPOFFSET = 60
+    let sections =  $(".section")
+    let h = $(window).height() - TOPOFFSET
+    let count = sections.length
+    let distance = Math.floor((h / count  - POINTHEIGTH))
+    let top = distance
+    let activeSection = fullpage_api.getActiveSection();
+
+
+    for(let section of sections){
+        let d = $("<div>")
+        let anchor = $(section).attr("data-anchor")
+
+        d.addClass("slideLinePoint").css("top",top)
+        if(anchores.indexOf(anchor)>-1){
+            d.addClass("slideLinePointTitle")
+            console.log("found")
+        }
+        
+       $(d).click(function(){
+            fullpage_api.moveTo(anchor);
+        })
+        
+        $("#slideLine").append(d)
+        top+=distance;
+    }
+
 }

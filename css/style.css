@@ -566,3 +566,34 @@ body{
 .translation-text::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+
+#slideLine{
+  position: fixed;
+  left: 0px;
+  top: 60px;
+  z-index: 9999;
+}
+
+.slideLinePoint{
+  background-color: white;
+  width:10px;
+  height: 2px;
+  cursor: pointer;
+  position: relative;
+  left: 23px;
+}
+
+.slideLinePointTitle{
+  width: 25px;
+  left: 9px;
+}
+
+.slideLineArrow{
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 20px 10px 0;
+  border-color: transparent #ffffff transparent transparent;
+}
