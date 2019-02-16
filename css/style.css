@@ -320,8 +320,11 @@ body{
 
 
 .zoomer{
-  /* transform: scale(0.67); */
   /* zoom:67%; */
+  transform-origin: '0 0';
+  -moz-transform-origin: '0 0';     
+  -ms-transform-origin: '0 0'; 
+  -webkit-transform-origin: '0 0'; 
 }
 
 /* fade in animations */
@@ -570,18 +573,31 @@ body{
 
 #slideLine{
   position: fixed;
-  left: 0px;
+  left: 8px;
+  top: 60px;
+  z-index: 9999;
+}
+
+
+#slideLineArrowArea{
+  position: fixed;
+  left: 48px;
   top: 60px;
   z-index: 9999;
 }
 
 .slideLinePoint{
-  background-color: white;
+  border-bottom:dotted 1px white;
   width:10px;
   height: 2px;
   cursor: pointer;
-  position: relative;
   left: 23px;
+  box-sizing: border-box;
+}
+
+.seen{
+  border-left:dotted 1px white;
+
 }
 
 .slideLinePointTitle{
@@ -589,11 +605,13 @@ body{
   left: 9px;
 }
 
-.slideLineArrow{
+#slideLineArrow{
   position: fixed;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px 20px 10px 0;
-  border-color: transparent #ffffff transparent transparent;
+  width:24px;
+  height: 24px;
+  background-image: url("../img/icons/triangle.png");
+  background-repeat: no-repeat;
+  z-index: 99999;
+  border:solid 1px white;
+  box-sizing: border-box;
 }

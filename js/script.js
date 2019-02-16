@@ -1,5 +1,7 @@
 let debug = false;
 const INITIAL_SIZE = 1900;
+const POINTHEIGTH = 2
+const TOPOFFSET = 60
 let ratio;
 let scrollSound, iframe , iframePlayer;
 var player, playerPerson;
@@ -18,7 +20,15 @@ function init_scale(){
 function changeRatio(){
     browserWidth =  $(window).width();
     ratio = (browserWidth / INITIAL_SIZE).toFixed(2);
-    $(".zoomer").css("zoom",ratio);
+    
+    $(".zoomer").css({
+        "transform":"scale("+ratio+")",
+        "transform-origin":"0 0",
+    })
+
+    let fptableCells = $(".zoomer").parent()
+    $(fptableCells).css("vertical-align","top")
+    //$(".zoomer").css("zoom",ratio);
 }
 
 
@@ -194,6 +204,27 @@ new fullpage('#fullpage', {
                 trtext.slideToggle(300);
             })
         }
+
+
+
+        let sliedPoints = $(".slideLinePoint")
+        $(".slideLinePoint").removeClass("seen")
+        for(let i = 0; i<sliedPoints.length; i++)
+        {
+            $(sliedPoints[i]).addClass("seen").fadeIn(500)
+            if(destination.anchor == $(sliedPoints[i]).attr("data-hanum-anchor")){
+                break;
+            }
+        }
+        
+        /*let currentOnSlidline = $('*[data-hanum-anchor="'+destination.anchor+'"]')
+        //$("#slideLineArrow").css("")
+        let topOfArrow = currentOnSlidline.css("top")
+        console.log(topOfArrow)
+        $("#slideLineArrow").css("top",parseInt(topOfArrow)+TOPOFFSET+"px")
+        */
+        
+        //let topForArrow = calcDistance($("section"))
     }
 
     , onLeave: function (origin, destination, direction) {
@@ -344,28 +375,25 @@ function init_menuAndTools() {
    });
 }
 
-slideLine()
 
+//slideLine()
 function slideLine(){
     const anchores = ["coversee","coverhear","coverspeak","coveract"]
-    const POINTHEIGTH = 2
-    const TOPOFFSET = 60
-    let sections =  $(".section")
-    let h = $(window).height() - TOPOFFSET
-    let count = sections.length
-    let distance = Math.floor((h / count  - POINTHEIGTH))
+    let sections = $(".section")
+    let distance = calcDistance(sections)
     let top = distance
-    let activeSection = fullpage_api.getActiveSection();
-
+    //let activeSection = fullpage_api.getActiveSection();
 
     for(let section of sections){
         let d = $("<div>")
         let anchor = $(section).attr("data-anchor")
 
-        d.addClass("slideLinePoint").css("top",top)
+        d.addClass("slideLinePoint").css({"height":distance})
+        
+        d.attr("data-hanum-anchor",anchor)
+
         if(anchores.indexOf(anchor)>-1){
             d.addClass("slideLinePointTitle")
-            console.log("found")
         }
         
        $(d).click(function(){
@@ -373,7 +401,16 @@ function slideLine(){
         })
         
         $("#slideLine").append(d)
-        top+=distance;
+        //top+=distance;
     }
 
+}
+
+
+function calcDistance(sections){
+    let h = $(window).height() - TOPOFFSET
+    let count = sections.length
+    let distance = Math.round((h / count  - POINTHEIGTH))
+    
+    return distance
 }
