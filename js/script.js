@@ -1,41 +1,26 @@
 let debug = false;
 const INITIAL_SIZE = 1900;
+const INITIAL_SIZE_HEIGHT = 1200;
 const POINTHEIGTH = 2
 const TOPOFFSET = 60
-let ratio;
-let scrollSound, iframe , iframePlayer;
+let scrollSound, iframe, iframePlayer;
 var player, playerPerson;
 var volume = 0;
 var trtext = "", trbutt = "";
 let browserWidth = $(window).width();
+let browserHeight = $(window).height();
 
-init_scale()
-init_menuAndTools()
 
-function init_scale(){
-    $(window).on("resize",changeRatio)
-    $(window).on("load",changeRatio)
-}
-
-function changeRatio(){
-    browserWidth =  $(window).width();
-    ratio = (browserWidth / INITIAL_SIZE).toFixed(2);
-    
-    $(".zoomer").css({
-        "transform":"scale("+ratio+")",
-        "transform-origin":"0 0",
-    })
-
-    let fptableCells = $(".zoomer").parent()
-    $(fptableCells).css("vertical-align","top")
-    //$(".zoomer").css("zoom",ratio);
-}
-
+initScale()
+initMenuAndTools()
+savePositionsOfRelatives()
 
 
 new fullpage('#fullpage', {
     fadingEffect: true,
     fadingEffectKey: "18DF4FFA-5D204426-AC93E15C-E7F303EF",
+    verticalCentered: true,
+    lazyLoading: true,
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
     //menu: '#nav'
     afterLoad: function (origin, destination, direction) {
@@ -46,7 +31,24 @@ new fullpage('#fullpage', {
             let custVidID = $(customVideo[0]).attr("id")
             player = new Plyr('#' + custVidID);
             player.volume = volume
+            player.on("timeupdate", function (evnt) {
+                console.log(player.currentTime, player.duration)
+                if (player.currentTime > 0 && player.currentTime > player.duration - 0.3) {
+                    console.log("sdf")
+                    $(slide).find(".plyr__control").hide()
+                    player.pause()
+
+                    /*
+                    setTimeout(function(){
+                        fullpage_api.moveSectionDown();
+                    },200)
+                    */
+                }
+            })
         }
+
+
+
 
         let fallVideo = $(slide).find(".fall-video")
         if (fallVideo.length != 0) {
@@ -124,39 +126,7 @@ new fullpage('#fullpage', {
 
         let relatives = $(slide).find(".relatives")
         let relativesfade = $(slide).find(".relatives-fade")
-
-        /*
-        let allowOtherAnims = true
-        $(relatives).hover(function () {
-            if(allowOtherAnims && $(this).prop("tagName") == "IMG"){
-                let w = parseInt($(this).css("width").split("px")[0])
-                let h = parseInt($(this).css("height").split("px")[0])
-                let z = $(this).css("z-index")
-
-                $(this).data("startparams", { w, h, z })
-                let wn = w + w * 0.15
-                let hn = h + h * 0.15
-                let zn = 2000
-                $(this).css("z-index", zn)
-                allowOtherAnims = false
-                $(this).animate({ width: wn + "px", heigth: hn + "px" }, 'slow', function () {
-                    //allowOtherAnims = true
-                });
-
-
-            }
-
-        }, function () {
-            
-            let startparams = $(this).data("startparams")
-            z = (startparams.z == "auto") ? 0 : startparams.z;
-            $(this).css("z-index", z);
-            $(this).animate({ width: startparams.w, heigth: startparams.h }, 'slow', function () {
-                allowOtherAnims = true
-            })
-        })
-        */
-
+        let relativeBlocks = $(slide).find(".relatives, .relatives-fade")
 
         if (relativesfade && relativesfade !== undefined) {
             setTimeout(function () {
@@ -199,47 +169,51 @@ new fullpage('#fullpage', {
 
 
         let trtext = $(slide).find(".translation-text")
-        if(trtext && trtext!=="undefined"){
-            $(slide).find(".translation-button").on("click",function(){
+        if (trtext && trtext !== "undefined") {
+            $(slide).find(".translation-button").on("click", function () {
                 trtext.slideToggle(300);
             })
         }
 
-
-
-        let sliedPoints = $(".slideLinePoint")
-        $(".slideLinePoint").removeClass("seen")
-        for(let i = 0; i<sliedPoints.length; i++)
-        {
-            $(sliedPoints[i]).addClass("seen").fadeIn(500)
-            if(destination.anchor == $(sliedPoints[i]).attr("data-hanum-anchor")){
-                break;
-            }
+        let zoomer = $(slide).find(".zoomer")
+        if(zoomer && zoomer.length>0){
+            startBeeing(destination.item.id)
         }
-        
+
+
+        //followSlideLine()
+
         /*let currentOnSlidline = $('*[data-hanum-anchor="'+destination.anchor+'"]')
         //$("#slideLineArrow").css("")
         let topOfArrow = currentOnSlidline.css("top")
         console.log(topOfArrow)
         $("#slideLineArrow").css("top",parseInt(topOfArrow)+TOPOFFSET+"px")
         */
-        
+
         //let topForArrow = calcDistance($("section"))
+
+
+        //centerVertically(relativeBlocks)
+        
+
+        
     }
 
     , onLeave: function (origin, destination, direction) {
         scrollSound.play()
-        
+
         let slide = $("#" + origin.item.id);
         $(slide).find(".translation-button").off("click")
 
 
         if (typeof (player) === "object") {
             player.stop()
+            delete player
         }
 
         if (typeof (playerPerson) === "object") {
             playerPerson.stop()
+            delete playerPerson
         }
 
 
@@ -259,9 +233,6 @@ new fullpage('#fullpage', {
 });
 
 
-function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 
 if (debug) {
@@ -279,138 +250,3 @@ if (debug) {
 
 
 
-//var bodyElement = document.querySelector("body");
-//bodyElement.addEventListener("mousemove", getMouseDirection, false);
-
-
-
-/*
-$('#hear7').on('mousemoveend', getMouseDirection);
-
-var xDirection = "";
-var yDirection = "";
-var oldX = 0;
-var oldY = 0;
-var inAnimaton = false;
-var diffX = 0
-var diffY = 0
-
-function getMouseDirection(e) {
-    const SIZEh = 40
-    const SIZEv = 1
-    
-    let left = parseInt($("#hear7").css("left"))
-    //let top = parseInt($("#hear7").css("top"))
-       
-    diffX = (oldX < currentMousePos.x) ? (SIZEh) : ((-1) * SIZEh)  
-    //diffY = (oldY < currentMousePos.y) ? ((-1) * SIZEv) : SIZEv
- 
-    $("#hear7").animate({
-                        "left":left+diffX+"px",
-                        "top": top+diffY+"px" 
-                        },1000)
-
-    oldX = currentMousePos.x;
-    oldY = currentMousePos.y;
-
-}
-
-
-var currentMousePos = { x: -1, y: -1 };
-$(function($) {
-    $(document).mousemove(function(event) {
-        currentMousePos.x = event.pageX;
-        currentMousePos.y = event.pageY;
-    });
-});
-
-
-
-
-(function ($) {
-    var timeout;
-    $(document).on('mousemove', function (event) {
-        if (timeout !== undefined) {
-            window.clearTimeout(timeout);
-        }
-        timeout = window.setTimeout(function () {
-            $(event.target).trigger('mousemoveend',event);
-        }, 50);
-    });
-}(jQuery));
-
-*/
-
-function init_menuAndTools() {
-    scrollSound = new Audio('scroll.mp3')
-    scrollSound.volume = 0.2
-
-    $("#sound").click(function () {
-        $(this).toggleClass("sound-on").toggleClass("sound-off")
-        volume = (volume == 0) ? 5 : 0
-    })
-
-    $("#nav-arrow").click(function () {
-        fullpage_api.moveSectionDown();
-    })
-
-    $(".language-visible").hover(function () {
-        $(".language-hidden").fadeIn(200)
-    })
-
-    $("#tools").hover(undefined, function () {
-        $(".language-hidden").fadeOut(200)
-    })
-
-
-    $(".nav-items-list").hide()
-    $("#button").click(function(){
-        $(".nav-items-list").slideToggle(300);
-    })
-
-    $('.translation-text').hover(function() {
-        fullpage_api.setAllowScrolling(false, 'up, down');
-   }, function() {
-        fullpage_api.setAllowScrolling(true, 'up, down');
-   });
-}
-
-
-//slideLine()
-function slideLine(){
-    const anchores = ["coversee","coverhear","coverspeak","coveract"]
-    let sections = $(".section")
-    let distance = calcDistance(sections)
-    let top = distance
-    //let activeSection = fullpage_api.getActiveSection();
-
-    for(let section of sections){
-        let d = $("<div>")
-        let anchor = $(section).attr("data-anchor")
-
-        d.addClass("slideLinePoint").css({"height":distance})
-        
-        d.attr("data-hanum-anchor",anchor)
-
-        if(anchores.indexOf(anchor)>-1){
-            d.addClass("slideLinePointTitle")
-        }
-        
-       $(d).click(function(){
-            fullpage_api.moveTo(anchor);
-        })
-        
-        $("#slideLine").append(d)
-        //top+=distance;
-    }
-
-}
-
-
-function calcDistance(sections){
-    let h = $(window).height() - TOPOFFSET
-    let count = sections.length
-    let distance = Math.round((h / count  - POINTHEIGTH))
-    
-    return distance
-}
