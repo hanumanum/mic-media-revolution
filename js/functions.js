@@ -163,8 +163,8 @@ function centerVertically(blocks){
 
 function startBeeing(elem, isOpposite=false){
     const INTERVAL_TIME = 100;
-    const X_DIVISION = 10;
-    const Y_DIVISION = 10;
+    const X_DIVISION = 5;
+    const Y_DIVISION = 5;
     let bee = elem;
     let x0 = parseInt(elem.style.left);
     let y0 = parseInt(elem.style.top)
@@ -190,18 +190,19 @@ function startBeeing(elem, isOpposite=false){
     }
     
     function followMouse(isOpposite=false) {
+        //mouse.xDiff = (mouse.xDiff==0)?0:mouse.xDiff--;
+        //mouse.yDiff--;
         if(isOpposite){
-            beepos.x -= mouse.xDiff //X_DIVISION;
-            beepos.y -= mouse.yDiff;
+            beepos.x -= mouse.xDiff/X_DIVISION;
+            beepos.y -= mouse.yDiff/Y_DIVISION;
             bee.style.left = beepos.x + "px";
             bee.style.top = beepos.y + "px";
-
         }
         else{
             //let distX = (mouse.x/X_DIVISION - beepos.x);
             //let distY = (mouse.y/Y_DIVISION - beepos.y);
-            beepos.x += mouse.xDiff //X_DIVISION;
-            beepos.y += mouse.yDiff;
+            beepos.x += mouse.xDiff/X_DIVISION;
+            beepos.y += mouse.yDiff/Y_DIVISION;
             bee.style.left = beepos.x + "px";
             bee.style.top = beepos.y + "px";
             
