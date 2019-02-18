@@ -116,7 +116,7 @@ function changeRatio(){
     let centerNEW = browserHeight/2
 
     $(".zoomer").css({
-        "transform":"scale("+ratio+") translate(0px, -"+400+"px)",
+        "transform":"scale("+ratio+") translate(0px, -"+450+"px)",
         "transform-origin":"top left",
     })
 
