@@ -161,32 +161,51 @@ function centerVertically(blocks){
 
 
 
-function startBeeing(elemID){
+function startBeeing(elem, isOpposite=false){
     const INTERVAL_TIME = 100;
     const X_DIVISION = 10;
     const Y_DIVISION = 10;
-    let bee = document.getElementById(elemID);
-    let beepos = { x: 0, y: 0 };
-    let mouse = { x: 0, y: 0 };
+    let bee = elem;
+    let x0 = parseInt(elem.style.left);
+    let y0 = parseInt(elem.style.top)
+    //console.log(elem.style.left, elem.style.top)
+    let beepos = { x:x0 , y:y0 };
+    let mouse = { x:x0, y:y0, xprev:0, yprev:0, xDiff:0, yDiff:0};
 
     document.addEventListener("mousemove", getMouse);
+    //bee.style.position = "absolute"; 
 
-    bee.style.position = "absolute"; 
-    let intervalID = setInterval(followMouse, INTERVAL_TIME);
+    let intervalID = setInterval(function(){
+        followMouse(isOpposite)
+    }, INTERVAL_TIME);
      
 
     function getMouse(e) {
+        mouse.xprev = mouse.x;
+        mouse.yprev = mouse.y;
         mouse.x = e.pageX - window.innerWidth/2;
         mouse.y = e.pageY - window.innerHeight/2;
+        mouse.xDiff = mouse.x - mouse.xprev;
+        mouse.yDiff = mouse.y - mouse.yprev;
     }
     
-    function followMouse() {
-        let distX = (mouse.x/X_DIVISION - beepos.x);
-        let distY = (mouse.y/Y_DIVISION - beepos.y);
-        beepos.x += distX;
-        beepos.y += distY;
-        bee.style.left = beepos.x + "px";
-        bee.style.top = beepos.y + "px";
+    function followMouse(isOpposite=false) {
+        if(isOpposite){
+            beepos.x -= mouse.xDiff //X_DIVISION;
+            beepos.y -= mouse.yDiff;
+            bee.style.left = beepos.x + "px";
+            bee.style.top = beepos.y + "px";
+
+        }
+        else{
+            //let distX = (mouse.x/X_DIVISION - beepos.x);
+            //let distY = (mouse.y/Y_DIVISION - beepos.y);
+            beepos.x += mouse.xDiff //X_DIVISION;
+            beepos.y += mouse.yDiff;
+            bee.style.left = beepos.x + "px";
+            bee.style.top = beepos.y + "px";
+            
+        }
     }
     
     return intervalID;

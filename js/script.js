@@ -9,7 +9,7 @@ var volume = 0;
 var trtext = "", trbutt = "";
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
-var beeInterval = 0;
+let beeIntervals = [];
 
 initScale()
 initMenuAndTools()
@@ -177,7 +177,16 @@ new fullpage('#fullpage', {
 
         let zoomer = $(slide).find(".zoomer")
         if(zoomer && zoomer.length>0){
-            beeInterval = startBeeing(destination.item.id)
+            relatives.each(function(i,rel){
+                beeIntervals.push(startBeeing(rel,false))
+            })
+            
+            relativesfade.each(function(i,rel){
+                beeIntervals.push(startBeeing(rel,true))
+            })
+
+            //startBeeing($("#fffff")[0])
+            
         }
 
 
@@ -200,7 +209,11 @@ new fullpage('#fullpage', {
     }
 
     , onLeave: function (origin, destination, direction) {
-        clearInterval(beeInterval) 
+        for(beeInterv of beeIntervals){
+            clearInterval(beeInterv)
+        }
+        beeIntervals=[]
+
         
         scrollSound.play()
 
