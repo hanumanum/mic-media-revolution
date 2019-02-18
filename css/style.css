@@ -325,7 +325,18 @@ body{
   -moz-transform-origin: '0 0';     
   -ms-transform-origin: '0 0'; 
   -webkit-transform-origin: '0 0';
-  position: relative;
+  position: absolute;
+  
+}
+
+.fixer{
+  position: absolute;
+  height: 100vh;
+  border: 1px solid white;
+  top: 0;
+  left: 0;
+  display: flex;
+  
 }
 
 /* fade in animations */

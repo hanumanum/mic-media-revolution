@@ -112,24 +112,28 @@ function changeRatio(){
     browserWidth =  $(window).width();
     browserHeight = $(window).height();
     let ratio = (browserWidth / INITIAL_SIZE).toFixed(2);
+    let centerINIT = INITIAL_SIZE_HEIGHT/2
+    let centerNEW = browserHeight/2
 
     $(".zoomer").css({
-        "transform":"scale("+ratio+")",
+        "transform":"scale("+ratio+") translate(0px, -"+400+"px)",
         "transform-origin":"top left",
-        /*"top":browserHeight/4+"px"*/
     })
 
+    //$(".zoomer").css({"transform":})
+    
     /*
     $(".relatives , .relatives-fade").each(function(i,rel){
         let top = $(rel).data("top")
-        console.log(top)
-        $(rel).css({"top":top + browserHeight/5 + "px"})
+        $(rel).css({"top":top+(centerNEW -top) + "px"})
         
     })
     */
+    
+    
 
     let fptableCells = $(".zoomer").parent()
-    $(fptableCells).css({"vertical-align":"top"})
+    //$(fptableCells).css({"vertical-align":"top"})
  
     //savePositionsOfRelatives()
 
