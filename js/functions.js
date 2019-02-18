@@ -163,8 +163,8 @@ function centerVertically(blocks){
 
 function startBeeing(elem, isOpposite=false){
     const INTERVAL_TIME = 100;
-    const X_DIVISION = 5;
-    const Y_DIVISION = 5;
+    const X_DIVISION = 8;
+    const Y_DIVISION = 8;
     let bee = elem;
     let x0 = parseInt(elem.style.left);
     let y0 = parseInt(elem.style.top)
