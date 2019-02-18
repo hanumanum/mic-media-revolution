@@ -9,7 +9,7 @@ var volume = 0;
 var trtext = "", trbutt = "";
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
-
+var beeInterval = 0;
 
 initScale()
 initMenuAndTools()
@@ -177,7 +177,7 @@ new fullpage('#fullpage', {
 
         let zoomer = $(slide).find(".zoomer")
         if(zoomer && zoomer.length>0){
-            startBeeing(destination.item.id)
+            beeInterval = startBeeing(destination.item.id)
         }
 
 
@@ -200,6 +200,8 @@ new fullpage('#fullpage', {
     }
 
     , onLeave: function (origin, destination, direction) {
+        clearInterval(beeInterval) 
+        
         scrollSound.play()
 
         let slide = $("#" + origin.item.id);

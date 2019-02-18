@@ -162,6 +162,7 @@ function centerVertically(blocks){
 
 
 function startBeeing(elemID){
+    const INTERVAL_TIME = 100;
     var bee = document.getElementById(elemID);
     var beepos = { x: 0, y: 0 };
     var mouse = { x: 0, y: 0 };
@@ -169,7 +170,7 @@ function startBeeing(elemID){
     document.addEventListener("mousemove", getMouse);
 
     bee.style.position = "absolute"; 
-    setInterval(followMouse, 100);
+    let intervalID = setInterval(followMouse, INTERVAL_TIME);
      
 
     function getMouse(e) {
@@ -178,14 +179,15 @@ function startBeeing(elemID){
     }
     
     function followMouse() {
-        var distX = (mouse.x - beepos.x)/4;
-        var distY = (mouse.y - beepos.y)/4;
-        beepos.x += distX / 6;
+        var distX = (mouse.x/10 - beepos.x);
+        //var distY = (mouse.y - beepos.y)/4;
+        beepos.x += distX;
         //beepos.y += distY / 20;
         bee.style.left = beepos.x + "px";
         //bee.style.top = beepos.y + "px";
     }
     
+    return intervalID;
 }
 
 /*
