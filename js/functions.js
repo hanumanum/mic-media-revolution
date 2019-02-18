@@ -165,6 +165,7 @@ function startBeeing(elem, isOpposite=false){
     const INTERVAL_TIME = 100;
     const X_DIVISION = 8;
     const Y_DIVISION = 8;
+    const BROWSER_MARGIN = 50;
     let bee = elem;
     let x0 = parseInt(elem.style.left);
     let y0 = parseInt(elem.style.top)
@@ -181,6 +182,7 @@ function startBeeing(elem, isOpposite=false){
      
 
     function getMouse(e) {
+        console.log(mouse.x,mouse.y)
         mouse.xprev = mouse.x;
         mouse.yprev = mouse.y;
         mouse.x = e.pageX - window.innerWidth/2;
@@ -190,8 +192,15 @@ function startBeeing(elem, isOpposite=false){
     }
     
     function followMouse(isOpposite=false) {
-        //mouse.xDiff = (mouse.xDiff==0)?0:mouse.xDiff--;
-        //mouse.yDiff--;
+        if(mouse.x + window.innerWidth/2 < BROWSER_MARGIN || mouse.x+BROWSER_MARGIN>window.innerWidth/2){
+            mouse.xDiff = 0
+            mouse.yDiff = 0
+        }
+        if(mouse.y + window.innerHeight/2 < BROWSER_MARGIN || mouse.y+BROWSER_MARGIN>window.innerHeight/2){
+            mouse.xDiff = 0
+            mouse.yDiff = 0
+        }
+        
         if(isOpposite){
             beepos.x -= mouse.xDiff/X_DIVISION;
             beepos.y -= mouse.yDiff/Y_DIVISION;
