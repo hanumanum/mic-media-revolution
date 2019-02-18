@@ -164,7 +164,7 @@ new fullpage('#fullpage', {
                     clearInterval(animIntrval)
                 }
 
-            }, 350)
+            }, 200)
         }
 
 
@@ -175,6 +175,7 @@ new fullpage('#fullpage', {
             })
         }
 
+        /*
         let zoomer = $(slide).find(".zoomer")
         if(zoomer && zoomer.length>0){
             relatives.each(function(i,rel){
@@ -184,10 +185,9 @@ new fullpage('#fullpage', {
             relativesfade.each(function(i,rel){
                 beeIntervals.push(startBeeing(rel,true))
             })
-
-            //startBeeing($("#fffff")[0])
-            
+          
         }
+        */
 
 
         //followSlideLine()
