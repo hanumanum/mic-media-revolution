@@ -180,10 +180,10 @@ function startBeeing(elemID){
     function followMouse() {
         var distX = (mouse.x - beepos.x)/4;
         var distY = (mouse.y - beepos.y)/4;
-        beepos.x += distX / 10;
-        beepos.y += distY / 10;
+        beepos.x += distX / 6;
+        //beepos.y += distY / 20;
         bee.style.left = beepos.x + "px";
-        bee.style.top = beepos.y + "px";
+        //bee.style.top = beepos.y + "px";
     }
     
 }
