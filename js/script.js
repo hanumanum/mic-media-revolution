@@ -73,6 +73,13 @@ new fullpage('#fullpage', {
             player.play()
         }
 
+
+        var layeronbackgroundvideo = $(slide).find(".layeronbackgroundvideo")
+        if(layeronbackgroundvideo.length!==0){
+            adjustPersonSlide(layeronbackgroundvideo,true)
+        }
+        
+
         let quote = $(slide).find(".quote")
         let quote_autor = $(slide).find(".quote-autor")
         if (quote && quote_autor) {

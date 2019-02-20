@@ -130,13 +130,10 @@ function changeRatio(){
     })
     */
     
-    
-
-    let fptableCells = $(".zoomer").parent()
+    //let fptableCells = $(".zoomer").parent()
     //$(fptableCells).css({"vertical-align":"top"})
- 
-    //savePositionsOfRelatives()
-
+     //savePositionsOfRelatives()
+     adjustPersonSlides()
 }
 
 
@@ -163,6 +160,22 @@ function centerVertically(blocks){
     console.log(distance)
 }
 
+
+function adjustPersonSlides(){
+    var layeronbackgroundvideo = $(".layeronbackgroundvideo")
+    layeronbackgroundvideo.each(function(i, layer){
+        adjustPersonSlide(layer)
+    })
+}
+
+
+function adjustPersonSlide(layer, from=false){
+    let top = parseInt($(layer).prev()[0].offsetTop)
+    let height = parseInt($(layer).prev()[0].offsetHeight)
+    top = (top<10)?"12%":top+ height/5+"px";
+    $(layer).css("top",top)
+
+}
 
 
 function startBeeing(elem, isOpposite=false){
