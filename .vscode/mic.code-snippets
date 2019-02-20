@@ -1,0 +1,91 @@
+{
+    "title_page": {
+        "scope": "html",
+        "prefix": "mic_title_page",
+        "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\">",
+                    "\t<div class=\"chapter-head\">$3</div>",
+                    "\t<div class=\"chaper-slogan\">$4</div>",
+                "</div>"]
+    },
+    "full_page_video": {
+        "scope": "html",
+        "prefix": "mic_full_page_video",
+        "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\">",
+                    "\t<div class=\"custom-video\" id=\"$3\" data-plyr-provider=\"vimeo\" data-plyr-embed-id=\"$4\"></div>",
+                "</div>"]
+        }
+        ,
+    "quote": {
+            "scope": "html",
+            "prefix": "mic_quote",
+            "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\">",
+                        "\t<div class=\"quote\">$3</div>",
+                        "\t<div class=\"quote-autor\">$4</div>",
+                    "</div>"]
+            },
+    "becouse": {
+                "scope": "html",
+                "prefix": "mic_becouse",
+                "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\">",
+                            "<audio class=\"hidden-sound\" data-autoplay loop>",
+                                "\t<source src=\"audio/$3.mp3\" type=\"audio/ogg\">",
+                            "</audio>",
+                            
+                            "<div class=\"becouse\">I stood up</div>",
+                            "<ul class=\"becouse-list\">",
+                                "\t<li><span>$4</span> <span class=\"becouse-big\">$5</span></li>",
+                                "\t<li><span>$6</span> <span class=\"becouse-big\">$7</span></li>",
+                                "\t<li><span>$8</span> <span class=\"becouse-big\">$9</span></li>",
+                            "</ul>",
+                        "</div>"]
+                },
+    "person": {
+            "scope": "html",
+            "prefix": "mic_person",
+            "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\">",
+                                "<div class=\"backgroundvideo\" id=\"$3\" data-plyr-embed-id=\"$4\" data-plyr-provider=\"vimeo\"></div>",
+                                "<div class=\"layeronbackgroundvideo\">",
+                                    "<div class=\"divider\">",
+                                        "<div class=\"person-video person-video-left\">",
+                                            "\t<div width=\"525px\" height=\"303px\" class=\"fade-out personVideo\" id=\"$5\" data-plyr-embed-id=\"$6\" data-plyr-provider=\"vimeo\"></div>",
+                                            "\t<div class=\"translation-button\">translation</div>",
+                                        "</div>",
+                                    "</div>",
+                                    "<div class=\"divider\"></div>",
+                                    "<div class=\"clear\"></div>",
+                                    "<div class=\"divider\">",
+                                        "<div class=\"translation-text\">$7</div>",
+                                    "</div>",
+                                    "<div class=\"divider\">",
+                                        "<div class=\"person-title person-text-right\"> $8 </div>",
+                                        "<div class=\"person-text person-text-right\"> $9</div>",
+                                    "</div>",
+                                "</div>",
+                    "</div>"]
+            },
+    "gif": {
+        "scope": "html",
+        "prefix": "mic_gif",
+        "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\" data-background-image=\"img/gifs/$3\">",
+                    "\t<audio class=\"hidden-sound\" data-autoplay loop>",
+                    "\t\t<source src=\"audio/$4\" type=\"audio/ogg\">",
+                    "\t</audio>",
+                "</div>"]
+    },
+
+    "relatives": {
+        "scope": "html",
+        "prefix": "mic_relatives",
+        "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\" data-background-image=\"img/gifs/$3\">",
+                    "\t<div class=\"zoomer\">",
+                        "\t\t<img src=\"img/hear/ttl1_1_new.png\" class=\"relatives-fade\" style=\"top:167px;left:210px\">",
+                        "\t\t<img src=\"img/hear/img1.jpg\" class=\"relatives\" style=\"left: 390px; top: 345px; width:590px;\">",
+                        "\t\t<p class=\"relatives-fade bordered\" style=\"left: 967px; top: 614px; z-index: -1;\">Students protest ... </p>",
+                        "\t\t<div class=\"relatives\" style=\"top:140px;left:92px; width:258px; height: 449px;\">",
+                        "\t\t\t<div class=\"fall-video\" id=\"v287061841\" data-plyr-embed-id=\"287061841\" data-plyr-provider=\"vimeo\"></div>",
+                        "\t\t</div>",
+                    "\t</div>",
+                 "</div>"]
+    },
+
+}
