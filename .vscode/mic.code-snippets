@@ -63,7 +63,34 @@
                                 "</div>",
                     "</div>"]
             },
-    "gif": {
+        "person_left": {
+            "scope": "html",
+            "prefix": "mic_person_left",
+            "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\">",
+                        "\t<div class=\"backgroundvideo\" id=\"$2\" data-plyr-embed-id=\"$3\" data-plyr-provider=\"vimeo\"></div>",
+                        "\t<div class=\"layeronbackgroundvideo\">",
+                            "\t\t<div class=\"divider\"></div>",
+                            "\t\t<div class=\"divider\">",
+                                "\t\t\t<div class=\"person-video person-video-right\">",
+                                    "\t\t\t\t<div width=\"525px\" height=\"303px\" class=\"fade-out personVideo\" id=\"$4\" data-plyr-embed-id=\"$10\" data-plyr-provider=\"vimeo\"></div>",
+                                    "\t\t\t\t<div class=\"translation-button align-left\">translation</div>",
+                                "\t\t\t</div>",
+                            "\t\t</div>",
+                    
+                            "\t\t<div class=\"clear\"></div>",
+                            "\t\t<div class=\"divider\">",
+                                "\t\t\t<div class=\"align-right\">",
+                                    "\t\t\t\t<div class=\"person-title person-text-right\">$5</div>",
+                                    "\t\t\t\t<div class=\"person-text person-text-right\">$6</div>",
+                                "\t\t\t</div>",
+                            "\t\t</div>",
+                            "\t\t<div class=\"divider\">",
+                                "\t\t\t<div class=\"translation-text align-left\"></div>",
+                            "\t\t</div>",
+                        "\t</div>",
+                    "</div>"]
+            },
+        "gif": {
         "scope": "html",
         "prefix": "mic_gif",
         "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\" data-background-image=\"img/gifs/$3\">",

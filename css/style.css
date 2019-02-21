@@ -216,7 +216,7 @@ body{
 
 .becouse-list li span{
   text-align: left;
-  width: 150px;
+  min-width: 150px;
   display: inline-block;
 }
 
@@ -232,7 +232,6 @@ body{
 .person-title{
   font-size: 23px;
   font-weight: 500;
-  width: 46%;
   margin-bottom: 6px;
   text-align: left;
   opacity: 0;
@@ -257,7 +256,9 @@ body{
 
 }
 
-.person-text-right{margin-left: 57px;}
+.person-video-right{
+  float:left;
+}
 
 .relatives{
   position: absolute;
@@ -555,6 +556,7 @@ body{
   display: block;
   box-sizing: border-box;
   text-align: right;
+  padding: 4px;
 }
 
 .clear{
@@ -629,4 +631,13 @@ body{
   z-index: 99999;
   border:solid 1px white;
   box-sizing: border-box;
+}
+
+
+.align-left{
+  float:left;
+}
+
+.align-right{
+  float: right;
 }

@@ -67,10 +67,12 @@ new fullpage('#fullpage', {
         var backgroundVideo = $(slide).find(".backgroundvideo")
         if (backgroundVideo.length != 0) {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
-            player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false });
-            player.volume = 0
-            player.loop = true
-            player.play()
+            if(bckgrVidID){
+                player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false });
+                player.volume = 0
+                player.loop = true
+                player.play()
+            }
         }
 
 
@@ -122,6 +124,7 @@ new fullpage('#fullpage', {
 
         let bkgrURL = $(slide).attr("data-background-image")
         if (bkgrURL) {
+            $(slide).find(".backgroundvideo").css({"opacity":0.5})
             $(slide).css({
                 "background-image": 'url(' + bkgrURL + ')',
                 "background-size": "cover"
