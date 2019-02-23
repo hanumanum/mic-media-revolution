@@ -267,7 +267,10 @@ if (debug) {
                 console.log(
                     $(this).attr("src"),
                     "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;")
+                    
+                    copyTextToClipboard("left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;");
             }
+            
         });
     });
 
