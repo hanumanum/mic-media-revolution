@@ -63,7 +63,7 @@
                                 "</div>",
                     "</div>"]
             },
-        "person_left": {
+    "person_left": {
             "scope": "html",
             "prefix": "mic_person_left",
             "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\">",
@@ -90,7 +90,7 @@
                         "\t</div>",
                     "</div>"]
             },
-        "gif": {
+    "gif": {
         "scope": "html",
         "prefix": "mic_gif",
         "body": ["<div class=\"section\" id=\"$1\" data-anchor=\"$2\" data-background-image=\"img/gifs/$3\">",
@@ -114,5 +114,15 @@
                     "\t</div>",
                  "</div>"]
     },
-
+    "slider": {
+        "scope": "html",
+        "prefix": "mic_slider",
+        "body": ["<div class=\"slider-holder relatives-fade\" style=\"left:323px; top:122px; width:1300px; z-index: -1;\">",
+                "\t<div class=\"slider\">",
+                    "\t\t<div class=\"slider-image-bkgr\" style=\"background-image:url('img/$1')\"></div>",
+                    "\t\t<div class=\"slider-image-bkgr\" style=\"background-image:url('img/$2')\"></div>",
+                "\t</div>",
+                "</div>",]
+        },
 }
+

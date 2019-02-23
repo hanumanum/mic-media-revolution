@@ -641,3 +641,22 @@ body{
 .align-right{
   float: right;
 }
+
+
+.bx-wrapper{
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-pager.bx-default-pager a:focus {
+  background: #fff;
+}
+
+
+.slider-image-bkgr {
+  width:1300px;
+  height:650px;
+  background-size: cover;
+}

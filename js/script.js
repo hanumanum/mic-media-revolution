@@ -1,4 +1,4 @@
-let debug = false;
+let debug = true;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
 const POINTHEIGTH = 2
@@ -275,3 +275,10 @@ if (debug) {
 
 
 
+$(function(){
+    $('.slider').bxSlider({
+      mode: 'fade',
+      captions: false,
+      adaptiveHeight: true,
+    });
+  });
