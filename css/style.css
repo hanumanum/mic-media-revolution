@@ -237,17 +237,17 @@ body{
   opacity: 0;
   font-style: normal;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 27px;
 }
 
 .person-text{
-  font-size: 18px;
+  font-size: 20px;
   font-style: italic;
   font-weight: 400;
   width: 355px;
   text-align: left;
   opacity: 0;
-  line-height: 1.3em;
+  line-height: 26px;
 }
 
 .person-video{text-align: right;/* padding-right: 15%; */width: 70%;/* margin-left: 60%; */float: right;}
@@ -659,4 +659,9 @@ body{
   width:1300px;
   height:650px;
   background-size: cover;
+}
+
+.personVideo{
+  height: 330px !important;
+  widows: 575px !important;
 }
