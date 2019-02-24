@@ -20,20 +20,36 @@ iPad 3
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1000px) {
     .person-title{
-        font-size: 25px;
+        font-size: 26px;
+        margin-top: 19px;
     }
 
-}
+    .person-text{
+        font-size: 19px;
+        line-height: 22px;
+        width: 400px;
+    }
 
-/* Large screens ----------- */
-@media only screen  and (min-width : 1824px) {
-    .person-title{
-        font-size: 25px;
+    .align-right{
+        margin-right: 0px; 
     }
 }
+
 
 @media only screen  and (min-width : 2000px) {
     .person-title{
         font-size: 32px;
+        margin-top: 65px;
     }
+
+    .person-text{
+        font-size: 22px;
+        line-height: 26px;
+        width: 497px;
+    }
+
+    .align-right{
+        margin-right: 110px; 
+    }
+
 }

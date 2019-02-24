@@ -232,8 +232,6 @@ body{
 .person-title{
   font-size: 32px;
   font-weight: 500;
-  margin-top: 65px;
-
   text-align: left;
   opacity: 0;
   font-style: normal;
@@ -241,13 +239,10 @@ body{
 }
 
 .person-text{
-  font-size: 22px;
   font-style: italic;
   font-weight: 400;
-  width: 497px;
   text-align: left;
   opacity: 0;
-  line-height: 26px;
   letter-spacing: .2px;
   margin-top: 13px;
 }
@@ -654,7 +649,6 @@ body{
 
 .align-right{
   float: right;
-  margin-right: 110px;
 }
 
 
