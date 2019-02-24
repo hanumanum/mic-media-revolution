@@ -178,14 +178,17 @@ body{
   text-align: right;
   font-style: italic;
   font-weight: 500;
-  margin: 20px auto;
   opacity: 0;
+  /* float: right; */
+  margin: 42px 0 0 178px;
+  display: inline-block;
 }
 
 .quote-autor-profession{
   font-style: italic;
   font-size: 16px;
   font-weight: 300;
+  text-align: left;
 }
 
 /* end of Quote */
