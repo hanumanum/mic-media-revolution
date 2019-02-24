@@ -18,8 +18,11 @@ iPad 3
 
 
 /* Desktops and laptops ----------- */
-@media only screen  and (min-width : 1224px) {
-/* Styles */
+@media only screen  and (min-width : 1000px) {
+    .person-title{
+        font-size: 25px;
+    }
+
 }
 
 /* Large screens ----------- */
