@@ -661,7 +661,8 @@ body{
   background-size: cover;
 }
 
-.personVideo{
+
+.person-video{
   height: 330px !important;
   widows: 575px !important;
 }
