@@ -31,3 +31,9 @@ iPad 3
         font-size: 25px;
     }
 }
+
+@media only screen  and (min-width : 2000px) {
+    .person-title{
+        font-size: 32px;
+    }
+}
