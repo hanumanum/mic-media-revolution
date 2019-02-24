@@ -232,7 +232,7 @@ body{
 .person-title{
   font-size: 27px;
   font-weight: 500;
-  margin-bottom: 6px;
+  margin-bottom: 15px;
   text-align: left;
   opacity: 0;
   font-style: normal;
@@ -243,10 +243,11 @@ body{
   font-size: 20px;
   font-style: italic;
   font-weight: 400;
-  width: 355px;
+  width: 497px;
   text-align: left;
   opacity: 0;
   line-height: 26px;
+  letter-spacing: 1px;
 }
 
 .person-text-right{
@@ -255,10 +256,11 @@ body{
 
 .person-video{
   text-align: right;
-  /* padding-right: 15%; */
+  padding-right: 15%;
   width: 60%;
-  /* margin-left: 60%; */
+  margin-left: 60px;
   float: right;
+  margin-top: 66px;
 }
 
 .person-video-left{
@@ -649,7 +651,7 @@ body{
 
 .align-right{
   float: right;
-  margin-top:30px;
+  margin-right: 110px;
 }
 
 
