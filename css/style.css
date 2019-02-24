@@ -179,8 +179,6 @@ body{
   font-style: italic;
   font-weight: 500;
   opacity: 0;
-  /* float: right; */
-  margin: 42px 0 0 178px;
   display: inline-block;
 }
 
