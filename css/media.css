@@ -33,6 +33,18 @@ iPad 3
     .align-right{
         margin-right: 30px; 
     }
+
+    .quote{
+        width:28%;
+        font-size: 20px;
+        line-height: 24px;
+      
+    }
+
+    .quote-autor{
+        width:27%;
+        font-size: 18px;
+    }
 }
 
 
@@ -52,4 +64,15 @@ iPad 3
         margin-right: 110px; 
     }
 
+    .quote{
+        width:25%;
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .quote-autor{
+        width:27%;
+        font-size: 22px;
+      
+    }
 }
