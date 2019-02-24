@@ -250,7 +250,13 @@ body{
   line-height: 26px;
 }
 
-.person-video{text-align: right;/* padding-right: 15%; */width: 70%;/* margin-left: 60%; */float: right;}
+.person-video{
+  text-align: right;
+  /* padding-right: 15%; */
+  width: 60%;
+  /* margin-left: 60%; */
+  float: right;
+}
 
 .person-video-left{
 
@@ -663,6 +669,7 @@ body{
 
 
 .person-video{
-  height: 330px !important;
-  widows: 575px !important;
+  /*height: 330px !important;
+  width: 575px !important;
+  */
 }
