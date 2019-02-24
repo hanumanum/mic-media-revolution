@@ -230,7 +230,7 @@ body{
 
 
 .person-title{
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 500;
   margin-bottom: 15px;
   text-align: left;
@@ -240,18 +240,18 @@ body{
 }
 
 .person-text{
-  font-size: 20px;
+  font-size: 22px;
   font-style: italic;
   font-weight: 400;
   width: 497px;
   text-align: left;
   opacity: 0;
   line-height: 26px;
-  letter-spacing: 1px;
+  letter-spacing: .2px;
 }
 
 .person-text-right{
-  width:75%;
+  width:46%;
 }
 
 .person-video{
