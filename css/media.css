@@ -27,5 +27,7 @@ iPad 3
 
 /* Large screens ----------- */
 @media only screen  and (min-width : 1824px) {
-/* Styles */
+    .person-title{
+        font-size: 25px;
+    }
 }
