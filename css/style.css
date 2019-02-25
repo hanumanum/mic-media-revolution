@@ -708,7 +708,8 @@ body{
 	background: white;
 	border: none;
 	border-radius: 6px;
-	box-shadow: 5px 5px 2px 0 rgba(0,0,0,0.4);
+  box-shadow: 5px 5px 2px 0 rgba(0,0,0,0.4);
+  max-width: 300px;
 }
 
 .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content {

@@ -257,6 +257,11 @@ new fullpage('#fullpage', {
             }, 500)
         })
 
+
+        var allTooltips = $.tooltipster.instances();
+        $.each(allTooltips, function(i, instance){
+            instance.close();
+        });
     }
 
 });
@@ -298,9 +303,17 @@ $(function(){
 
 
 $(document).ready(function() {
-    $('.tooltip').tooltipster({
+    tooltips = $('.tooltip').tooltipster({
+        side: ['right', 'top'],
         trigger:"click",
         arrow: false,
-        theme: ['tooltipster-noir', 'tooltipster-noir-customized']
+        theme: ['tooltipster-noir', 'tooltipster-noir-customized'],
+        functionPosition: function(instance, helper, position){
+            position.coord.top-= position.size.height/2;
+            return position;
+        }
     });
+
+
+    console.log(tooltips)
 }); 
