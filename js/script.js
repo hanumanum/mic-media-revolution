@@ -68,13 +68,11 @@ new fullpage('#fullpage', {
             }
         }
 
-
         var backgroundVideo = $(slide).find(".backgroundvideo")
         if (backgroundVideo.length != 0) {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
             if(bckgrVidID){
                 player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false });
-                player.height = window.height
                 player.volume = 0
                 player.loop = true
                 player.play()

@@ -193,7 +193,7 @@ body{
 
 /* becouses */
 .becouse-container{
-  width:400px;
+  max-width:644px;
   margin:0 auto;
 }
 
