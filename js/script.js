@@ -3,6 +3,7 @@ const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
 const POINTHEIGTH = 2
 const TOPOFFSET = 60
+const LANG = "en"
 let scrollSound, iframe, iframePlayer;
 var player, playerPerson;
 var volume = 0;
@@ -61,8 +62,10 @@ new fullpage('#fullpage', {
         if (personVideo.length != 0) {
             let custVidID = $(personVideo[0]).attr("id")
             playerPerson = new Plyr('#' + custVidID, { 'autopause': false });
-            let tb = $(slide).find(".translation-button")[0]
-            $(tb).css("visibility","visible")
+            if(LANG === "en"){
+                let tb = $(slide).find(".translation-button")[0]
+                $(tb).css("visibility","visible")
+            }
         }
 
 
