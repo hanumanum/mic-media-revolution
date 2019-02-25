@@ -193,8 +193,8 @@ body{
 
 /* becouses */
 .becouse-container{
-  max-width:644px;
-  margin:0 auto;
+  /* margin:0 auto; */
+  display: inline-block;
 }
 
 .becouse{
@@ -205,30 +205,36 @@ body{
   margin-bottom: 44px;
   text-align: left;
   opacity: 0;
+  display: block;
 }
 
 .becouse-list{
   text-align: left;
   font-size: 2em;
   font-style: italic;
+  margin:0;
+  padding:0;
+  display: block;
 }
 
 .becouse-list li{
   list-style-type: none;
   opacity: 0;
-  padding-left:35px;
+  /* padding-left:35px; */
 }
 
-.becouse-list li span{
-  text-align: left;
-  min-width: 70px;
-  display: inline-block;
-}
 
 .becouse-list li .becouse-big{
   text-align: left;
   font-size: 40px;
   font-weight: 400;
+  margin-left: 130px;
+}
+
+
+
+.small-in-big{
+  font-size:30px;
 }
 /* end of becouses */
 
