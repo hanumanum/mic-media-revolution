@@ -1365,3 +1365,6 @@ a.plyr__control::after,a.plyr__control::before {
 .plyr [hidden] {
     display: none!important
 }
+
+
+.plyr, .plyr .plyr__video-embed iframe { max-height: 100vh; }

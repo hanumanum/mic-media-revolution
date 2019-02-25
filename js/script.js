@@ -61,6 +61,8 @@ new fullpage('#fullpage', {
         if (personVideo.length != 0) {
             let custVidID = $(personVideo[0]).attr("id")
             playerPerson = new Plyr('#' + custVidID, { 'autopause': false });
+            let tb = $(slide).find(".translation-button")[0]
+            $(tb).css("visibility","visible")
         }
 
 
@@ -69,6 +71,7 @@ new fullpage('#fullpage', {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
             if(bckgrVidID){
                 player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false });
+                player.height = window.height
                 player.volume = 0
                 player.loop = true
                 player.play()
@@ -285,3 +288,13 @@ $(function(){
       adaptiveHeight: true,
     });
   });
+
+
+$(function(){
+    let vidBackgrLayer = $("<div>").addClass("blackOverlay")
+    $(vidBackgrLayer).insertAfter(".backgroundvideo")
+});
+
+
+
+  
