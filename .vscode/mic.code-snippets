@@ -125,5 +125,11 @@
                 "\t</div>",
                 "</div>",]
         },
+    "mic_tooltip": {
+        "scope": "html",
+        "prefix": "mic_tooltip",
+        "body": ["<div class=\"info-button tooltip\" title=\"$1\"></div>"]
+        },
+       
 }
 

@@ -297,5 +297,10 @@ $(function(){
 });
 
 
-
-  
+$(document).ready(function() {
+    $('.tooltip').tooltipster({
+        trigger:"click",
+        arrow: false,
+        theme: ['tooltipster-noir', 'tooltipster-noir-customized']
+    });
+}); 

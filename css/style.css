@@ -690,3 +690,28 @@ body{
   height:650px;
   background-size: cover;
 }
+
+
+.info-button{
+  background-image: url("../img/icons/i-icon.png");
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  margin-bottom:10px;
+  cursor: pointer;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+
+.tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-box {
+	background: white;
+	border: none;
+	border-radius: 6px;
+	box-shadow: 5px 5px 2px 0 rgba(0,0,0,0.4);
+}
+
+.tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content {
+	color: black;
+	padding: 8px;
+}
