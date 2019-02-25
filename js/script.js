@@ -297,8 +297,14 @@ $(function(){
 
 
 $(function(){
-    let vidBackgrLayer = $("<div>").addClass("blackOverlay")
-    $(vidBackgrLayer).insertAfter(".backgroundvideo")
+    $(".backgroundvideo").each(function(i,vdiv){
+        let opacity = $(vdiv).attr("data-opacity")
+        let vidBackgrLayer = $("<div>").addClass("blackOverlay")
+        if(opacity!==undefined){
+            $(vidBackgrLayer).css("background-color","rgba(0,0,0," + opacity+")")
+        }
+        $(vidBackgrLayer).insertAfter($(this))
+    })
 });
 
 
