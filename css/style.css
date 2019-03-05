@@ -284,14 +284,7 @@ body{
   position: absolute;
   visibility: hidden;
   transition: transform .2s;
-  
 }
-
-/*
-.relatives:hover{
-  opacity: 1;  
-}
-*/
 
 .relatives-fade{
   position: absolute;

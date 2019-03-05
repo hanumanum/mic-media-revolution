@@ -115,10 +115,19 @@ function changeRatio(){
     let centerINIT = INITIAL_SIZE_HEIGHT/2
     let centerNEW = browserHeight/2
 
-    $(".zoomer").css({
-        "transform":"scale("+ratio+") translate(0px, -"+450+"px)",
-        "transform-origin":"top left",
-    })
+    if(debug){
+        $(".zoomer").css({
+            "transform":"translate(0px, -"+450+"px)",
+            "transform-origin":"top left",
+        })
+    }
+    else{
+        $(".zoomer").css({
+            "transform":"scale("+ratio+") translate(0px, -"+450+"px)",
+            "transform-origin":"top left",
+        })
+    
+    }
 
     //$(".zoomer").css({"transform":})
     
@@ -174,7 +183,6 @@ function adjustPersonSlide(layer, from=false){
     let height = parseInt($(layer).prev()[0].offsetHeight)
     top = (top<10)?"12%":top+ height/5+"px";
     $(layer).css("top",top)
-
 }
 
 
@@ -275,4 +283,48 @@ function copyTextToClipboard(text) {
     }, function (err) {
         //console.error('Async: Could not copy text: ', err);
     });
+}
+
+
+
+function initTooltips(){
+    $(document).ready(function() {
+        tooltips = $('.tooltip').tooltipster({
+            side: ['right', 'top'],
+            trigger:"click",
+            arrow: false,
+            theme: ['tooltipster-noir', 'tooltipster-noir-customized'],
+            functionPosition: function(instance, helper, position){
+                position.coord.top-= position.size.height/2;
+                return position;
+            }
+        });
+    
+        console.log(tooltips)
+    }); 
+}
+
+
+function initOpacityBackgrounds(){
+    $(function(){
+        $(".backgroundvideo").each(function(i,vdiv){
+            let opacity = $(vdiv).attr("data-opacity")
+            let vidBackgrLayer = $("<div>").addClass("blackOverlay")
+            if(opacity!==undefined){
+                $(vidBackgrLayer).css("background-color","rgba(0,0,0," + opacity+")")
+            }
+            $(vidBackgrLayer).insertAfter($(this))
+        })
+    });
+}
+
+
+function initBxSliders(){
+    $(function(){
+        $('.slider').bxSlider({
+          mode: 'fade',
+          captions: false,
+          adaptiveHeight: true,
+        });
+      });
 }

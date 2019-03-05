@@ -1,4 +1,4 @@
-let debug = false;
+let debug = true;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
 const POINTHEIGTH = 2
@@ -49,13 +49,12 @@ new fullpage('#fullpage', {
         }
 
 
-
-
         let fallVideo = $(slide).find(".fall-video")
         if (fallVideo.length != 0) {
-            let custVidID = $(fallVideo[0]).attr("id")
-            player = new Plyr('#' + custVidID);
-            player.volume = volume
+            fallVideo.each(function(i,fv){
+                let custVidID = $(fv).attr("id")
+                new Plyr('#' + custVidID);
+            })
         }
 
         let personVideo = $(slide).find(".personVideo")
@@ -169,10 +168,10 @@ new fullpage('#fullpage', {
             ind++
 
             let animIntrval = setInterval(function () {
-                if (!debug) {
-                    $(relatives[ind]).addClass("slideInDown")
-                    $(relatives[ind]).addClass("animation1")
-                }
+                
+                $(relatives[ind]).addClass("slideInDown")
+                $(relatives[ind]).addClass("animation1")
+                
                 ind++
                 if (ind == relatives.length) {
                     clearInterval(animIntrval)
@@ -268,58 +267,60 @@ new fullpage('#fullpage', {
 
 
 
+/*
+if(debug){
+    let currentRelative = {}
+    $(".relatives , .relatives-fade").click(function(){
+        currentRelative = $(this)
+        console.log("clicked",currentRelative)
+
+        $(document).keypress(function(e){
+            let ttop = parseInt($(currentRelative).position().top)
+            let lleft = parseInt($(currentRelative).position().left)
+            console.log("positions before",ttop,lleft)
+
+            if(e.charCode==115){ //s top
+                $(currentRelative).position().top=(ttop--) + "px"
+            } 
+            else if(e.charCode==119){ //w bottom
+                $(currentRelative).position().top=(ttop++) + "px"
+            }
+            else if(e.charCode==97){  //a left
+                $(currentRelative).position().left=(lleft--) + "px"     
+            }
+            else if(e.charCode==100){ //d right
+                $(currentRelative).position().left=(lleft++) + "px"
+            }
+
+            console.log("left:" + Math.round($(currentRelative).position().left) + "px; top:" + Math.round($(currentRelative).position().top) + "px;")
+            copyTextToClipboard("left:" + Math.round($(currentRelative).position().left) + "px; top:" + Math.round($(currentRelative).position().top) + "px;");
+        })
+    
+    })
+}
+*/
+
 
 if (debug) {
+    let relativesData = {}
+
     $(function () {
         $(".relatives , .relatives-fade").draggable({
             stop: function (event, ui) {
+                relativesData[$(this).attr("src")] = "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;" 
+                
                 console.log(
                     $(this).attr("src"),
                     "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;")
-                    
-                    copyTextToClipboard("left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;");
-            }
+                     //copyTextToClipboard("left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;");
+                     copyTextToClipboard(JSON.stringify(relativesData))                                
+                }
             
         });
     });
 
 }
 
-
-
-$(function(){
-    $('.slider').bxSlider({
-      mode: 'fade',
-      captions: false,
-      adaptiveHeight: true,
-    });
-  });
-
-
-$(function(){
-    $(".backgroundvideo").each(function(i,vdiv){
-        let opacity = $(vdiv).attr("data-opacity")
-        let vidBackgrLayer = $("<div>").addClass("blackOverlay")
-        if(opacity!==undefined){
-            $(vidBackgrLayer).css("background-color","rgba(0,0,0," + opacity+")")
-        }
-        $(vidBackgrLayer).insertAfter($(this))
-    })
-});
-
-
-$(document).ready(function() {
-    tooltips = $('.tooltip').tooltipster({
-        side: ['right', 'top'],
-        trigger:"click",
-        arrow: false,
-        theme: ['tooltipster-noir', 'tooltipster-noir-customized'],
-        functionPosition: function(instance, helper, position){
-            position.coord.top-= position.size.height/2;
-            return position;
-        }
-    });
-
-
-    console.log(tooltips)
-}); 
+initBxSliders()
+initOpacityBackgrounds()
+initTooltips()
