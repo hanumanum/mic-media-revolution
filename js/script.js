@@ -1,4 +1,4 @@
-let debug = false;
+let debug = true;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
 const POINTHEIGTH = 2
@@ -307,7 +307,7 @@ if (debug) {
     $(function () {
         $(".relatives , .relatives-fade").draggable({
             stop: function (event, ui) {
-                relativesData[$(this).attr("src")] = "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;" 
+                relativesData[$(this).prop("tagName") + ":" + $(this).attr("src")] = "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;" 
                 
                 console.log(
                     $(this).attr("src"),

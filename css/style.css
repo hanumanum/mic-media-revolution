@@ -168,6 +168,12 @@ body{
   display: none;
 }
 
+.visible-sound{
+  width: 600px;
+  height: 25px;
+  border-radius: 0px;
+}
+
 .quote{
   text-align: left;
   margin: auto auto;
@@ -709,4 +715,23 @@ body{
 .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content {
 	color: black;
 	padding: 8px;
+}
+
+
+.custom-text{
+  width:524px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.person-title-foraudios{
+  font-size: 27px;
+  font-weight: bold;
+  font-style: italic;
+  width:100%;
+}
+
+.single-video-holder{
+  width:60%;
+  margin: 0 auto;
 }

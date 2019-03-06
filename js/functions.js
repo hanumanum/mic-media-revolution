@@ -322,9 +322,9 @@ function initOpacityBackgrounds(){
 function initBxSliders(){
     $(function(){
         $('.slider').bxSlider({
-          mode: 'fade',
           captions: false,
           adaptiveHeight: true,
+          auto:true
         });
       });
 }
