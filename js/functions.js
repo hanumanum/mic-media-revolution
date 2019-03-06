@@ -322,6 +322,7 @@ function initOpacityBackgrounds(){
 function initBxSliders(){
     $(function(){
         $('.slider').bxSlider({
+          fade:true,
           captions: false,
           adaptiveHeight: true,
           auto:true
