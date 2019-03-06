@@ -324,3 +324,15 @@ if (debug) {
 initBxSliders()
 initOpacityBackgrounds()
 initTooltips()
+
+
+/*
+let leftOffset = 100;
+$(function() {
+    $(".relatives-fade, .relatives").each(function(rl){
+        let lt = parseInt($(rl).css("left"))
+        $(rl).css(lt-leftOffset + "px")
+        console.log("sdfds")
+    })
+})
+*/  
