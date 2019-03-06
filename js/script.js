@@ -1,4 +1,4 @@
-let debug = true;
+let debug = false;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
 const POINTHEIGTH = 2
