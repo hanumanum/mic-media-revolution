@@ -1,8 +1,6 @@
 let debug = false;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
-const POINTHEIGTH = 2
-const TOPOFFSET = 60
 const LANG = "en"
 let scrollSound, iframe, iframePlayer;
 var player, playerPerson;
@@ -11,6 +9,8 @@ var trtext = "", trbutt = "";
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
 let beeIntervals = [];
+let MENUOPENED = false;
+
 
 initScale()
 initMenuAndTools()
@@ -34,7 +34,7 @@ new fullpage('#fullpage', {
             player.volume = volume
             player.play()
             player.on("timeupdate", function (evnt) {
-                console.log(player.currentTime, player.duration)
+                //console.log(player.currentTime, player.duration)
                 if (player.currentTime > 0 && player.currentTime > player.duration - 0.3) {
                     console.log("sdf")
                     $(slide).find(".plyr__control").hide()
@@ -218,7 +218,7 @@ new fullpage('#fullpage', {
 
         //centerVertically(relativeBlocks)
         
-
+        slideLine()
         
     }
 

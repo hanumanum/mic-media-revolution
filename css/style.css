@@ -620,8 +620,19 @@ body{
 #slideLine{
   position: fixed;
   left: 8px;
-  top: 60px;
+  top: 50px;
   z-index: 9999;
+}
+
+#slideLineFirst{
+  position: fixed;
+  left: 8px;
+  top: 50px;
+  z-index: 9999;
+}
+
+#slideLineFirst>div{
+  border-bottom: 1px solid white;
 }
 
 
@@ -633,16 +644,16 @@ body{
 }
 
 .slideLinePoint{
-  border-bottom:dotted 1px white;
+  border-bottom:solid 1px gray;
   width:10px;
-  height: 2px;
+  height: 12px;
   cursor: pointer;
   left: 23px;
   box-sizing: border-box;
 }
 
 .seen{
-  border-left:dotted 1px white;
+  border-bottom:solid 1px white;
 }
 
 .adjuster{
@@ -652,6 +663,7 @@ body{
 .slideLinePointTitle{
   width: 25px;
   left: 9px;
+  font-size:14px;
 }
 
 #slideLineArrow{
