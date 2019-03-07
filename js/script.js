@@ -32,6 +32,7 @@ new fullpage('#fullpage', {
             let custVidID = $(customVideo[0]).attr("id")
             player = new Plyr('#' + custVidID);
             player.volume = volume
+            player.play()
             player.on("timeupdate", function (evnt) {
                 console.log(player.currentTime, player.duration)
                 if (player.currentTime > 0 && player.currentTime > player.duration - 0.3) {
@@ -324,15 +325,3 @@ if (debug) {
 initBxSliders()
 initOpacityBackgrounds()
 initTooltips()
-
-
-/*
-let leftOffset = 100;
-$(function() {
-    $(".relatives-fade, .relatives").each(function(rl){
-        let lt = parseInt($(rl).css("left"))
-        $(rl).css(lt-leftOffset + "px")
-        console.log("sdfds")
-    })
-})
-*/  

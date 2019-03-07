@@ -115,19 +115,20 @@ function changeRatio(){
     let centerINIT = INITIAL_SIZE_HEIGHT/2
     let centerNEW = browserHeight/2
 
+    /*
     if(debug){
         $(".zoomer").css({
             "transform":"translate(0px, -"+450+"px)",
             "transform-origin":"top left",
         })
     }
-    else{
+    else{ */
         $(".zoomer").css({
             "transform":"scale("+ratio+") translate(0px, -"+450+"px)",
             "transform-origin":"top left",
         })
     
-    }
+    //}
 
     //$(".zoomer").css({"transform":})
     
@@ -322,7 +323,8 @@ function initOpacityBackgrounds(){
 function initBxSliders(){
     $(function(){
         $('.slider').bxSlider({
-          fade:true,
+          keyboardEnabled:true,
+          mode: 'fade',
           captions: false,
           adaptiveHeight: true,
           auto:true
