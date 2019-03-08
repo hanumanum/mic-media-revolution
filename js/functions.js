@@ -43,7 +43,6 @@ function initMenuAndTools() {
 
 
     let lrMenuHeight = parseInt($(".lr-top-line").css("height"))
-
     $(".lr-menu-item").click(function(){
         $(".lr-menu-item").removeClass("lr-menu-item-active")
         $(this).addClass("lr-menu-item-active")
@@ -54,6 +53,15 @@ function initMenuAndTools() {
         
     })
 
+    $(document).scroll(function(){
+        $(".lr-section").each(function(i,lrSection){
+            if(isScrolledIntoView(lrSection)){
+                let currentSectionID = $(lrSection).attr("id")
+                $(".lr-menu-item").removeClass("lr-menu-item-active")
+                $("[data-src='" + currentSectionID + "']").addClass("lr-menu-item-active")      
+            }
+        })
+    })
 
 }
 
@@ -67,11 +75,6 @@ function slideLine() {
     let activeSection = fullpage_api.getActiveSection();
     let activeSectionIndex = activeSection.index
     let currentSectionIndex = 0;
-
-    /*
-    <div class="slideLinePoint slideLinePointTitle">about</div>
-    <div class="slideLinePoint slideLinePointTitle">intro</div>
-    */
 
     let aboutLink = $("<div>")
                             .text("about")
@@ -359,4 +362,17 @@ function initBxSliders() {
             auto: true
         });
     });
+}
+
+
+
+function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+
+    //return (elemTop <=docViewTop && elemTop>=docViewBottom);
+    return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
 }
