@@ -39,6 +39,22 @@ function initMenuAndTools() {
     }, function () {
         fullpage_api.setAllowScrolling(true, 'up, down');
     });
+
+
+
+    let lrMenuHeight = parseInt($(".lr-top-line").css("height"))
+
+    $(".lr-menu-item").click(function(){
+        $(".lr-menu-item").removeClass("lr-menu-item-active")
+        $(this).addClass("lr-menu-item-active")
+        let sectionID = $(this).data("src")
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#"+sectionID).offset().top - lrMenuHeight
+        }, 1000);
+        
+    })
+
+
 }
 
 
