@@ -31,7 +31,7 @@ function initMenuAndTools() {
 
     $("#button").click(function () {
         $(".slideLinePoint").slideToggle(300);
-        MENUOPENED = !MENUOPENED  
+        MENUOPENED = !MENUOPENED
     })
 
     $('.translation-text').hover(function () {
@@ -40,31 +40,84 @@ function initMenuAndTools() {
         fullpage_api.setAllowScrolling(true, 'up, down');
     });
 
+}
 
-
+function longReadMenuAndScroll() {
     let lrMenuHeight = parseInt($(".lr-top-line").css("height"))
-    $(".lr-menu-item").click(function(){
+    $(".lr-menu-item").click(function () {
         $(".lr-menu-item").removeClass("lr-menu-item-active")
         $(this).addClass("lr-menu-item-active")
         let sectionID = $(this).data("src")
         $([document.documentElement, document.body]).animate({
-            scrollTop: $("#"+sectionID).offset().top - lrMenuHeight
+            scrollTop: $("#" + sectionID).offset().top - lrMenuHeight
         }, 1000);
-        
+
     })
 
-    $(document).scroll(function(){
-        $(".lr-section").each(function(i,lrSection){
-            if(isScrolledIntoView(lrSection)){
-                let currentSectionID = $(lrSection).attr("id")
+    let scrollInf = {
+        lastScrollTop:0,
+        diff:0
+    }
+
+    let currentSectionID ="gegham"
+    const marginSteps = 20
+    $(document).scroll(function () {
+        $(".lr-section").each(function (i, lrSection) {
+            if (isScrolledIntoView(lrSection)) {
+                currentSectionID = $(lrSection).attr("id")
                 $(".lr-menu-item").removeClass("lr-menu-item-active")
-                $("[data-src='" + currentSectionID + "']").addClass("lr-menu-item-active")      
+                $("[data-src='" + currentSectionID + "']").addClass("lr-menu-item-active")
+            }
+            else{
+                $(lrSection).find("img").css("margin-top",0);
             }
         })
+
+        let expertImage = $("#"+currentSectionID).find(".lr-section-left img");
+        
+        scrollInf = scrollInfo(1, scrollInf, function (d) {
+            console.log(scrollInf)
+            let topMargin = parseInt(expertImage.css("margin-top"))
+            //topMargin+=scrollInf.diff;
+            
+            
+            if(d=="down"){
+                topMargin+=marginSteps
+            }
+            else{
+                topMargin-=marginSteps
+            }
+            
+
+            expertImage.css("margin-top",topMargin)
+
+        })
+
+
     })
 
 }
 
+function scrollInfo(delta = 5, lastScrollInfo, callback) {
+    var st = $(this).scrollTop();
+
+    if (Math.abs(lastScrollInfo.lastScrollTop - st) <= delta)
+        return lastScrollInfo;
+    
+    if (st > lastScrollInfo.lastScrollTop) {
+        callback("down")
+
+    } else {
+        
+        callback("up")
+    }
+
+
+    lastScrollInfo.diff=lastScrollInfo.lastScrollTop - st
+    lastScrollInfo.lastScrollTop = st;
+    return lastScrollInfo 
+    
+}
 
 function slideLine() {
     const anchores = ["s1", "s17", "s34", "s51"]
@@ -77,20 +130,20 @@ function slideLine() {
     let currentSectionIndex = 0;
 
     let aboutLink = $("<div>")
-                            .text("about")
-                            .addClass("slideLinePoint")
-                            .addClass("slideLinePointTitle")
-                            .addClass("seen")
-                            .css({"height": SLIDELINE_POINT_HEIGHT})
-    
+        .text("about")
+        .addClass("slideLinePoint")
+        .addClass("slideLinePointTitle")
+        .addClass("seen")
+        .css({ "height": SLIDELINE_POINT_HEIGHT })
+
     $("#slideLine").append(aboutLink)
 
     let introLink = $("<div>")
-                            .text("intro")
-                            .addClass("slideLinePoint")
-                            .addClass("slideLinePointTitle")
-                            .addClass("seen")
-                            .css({"height": SLIDELINE_POINT_HEIGHT})
+        .text("intro")
+        .addClass("slideLinePoint")
+        .addClass("slideLinePointTitle")
+        .addClass("seen")
+        .css({ "height": SLIDELINE_POINT_HEIGHT })
     $("#slideLine").append(introLink)
 
     setStateSliedLinePoints(aboutLink)
@@ -100,16 +153,16 @@ function slideLine() {
         let d = $("<div>")
         let anchor = $(section).attr("data-anchor")
 
-        d.addClass("slideLinePoint").css({ "height": heightOfSlideLinePoint  })
-        if(currentSectionIndex<=activeSectionIndex){
+        d.addClass("slideLinePoint").css({ "height": heightOfSlideLinePoint })
+        if (currentSectionIndex <= activeSectionIndex) {
             d.addClass("seen")
         }
-        
+
         d.attr("data-hanum-anchor", anchor)
 
         if (anchores.indexOf(anchor) > -1) {
             d.addClass("slideLinePointTitle")
-            d.css({ "height": SLIDELINE_POINT_HEIGHT  })
+            d.css({ "height": SLIDELINE_POINT_HEIGHT })
             d.text(anchoreTitles[anchores.indexOf(anchor)])
         }
 
@@ -120,25 +173,25 @@ function slideLine() {
         setStateSliedLinePoints(d)
 
         $("#slideLine").append(d)
-        
+
         currentSectionIndex++
     }
 
 }
 
 
-function setStateSliedLinePoints(p){
-    if(MENUOPENED){
-        p.css({"display":"block"})
-    }else{
-        p.css({"display":"none"})
+function setStateSliedLinePoints(p) {
+    if (MENUOPENED) {
+        p.css({ "display": "block" })
+    } else {
+        p.css({ "display": "none" })
     }
 
 }
 
 function calcDistance(sections) {
-    let h = $(window).height() - TOP_OFFSET_SLIDELINE - 4*SLIDELINE_POINT_HEIGHT
-    let distance = Math.round( h  / sections.length )
+    let h = $(window).height() - TOP_OFFSET_SLIDELINE - 4 * SLIDELINE_POINT_HEIGHT
+    let distance = Math.round(h / sections.length)
     return distance
 }
 
@@ -366,8 +419,7 @@ function initBxSliders() {
 
 
 
-function isScrolledIntoView(elem)
-{
+function isScrolledIntoView(elem) {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
 
