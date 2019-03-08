@@ -776,7 +776,7 @@ div{
   font-size: 23px;
   width: 336px;
   float: right;
-  padding: 25px 0px;
+  padding: 0 0 25px 0px;
   margin: 0px;
   font-style: italic;
   line-height: 25px;
@@ -788,6 +788,7 @@ div{
   margin:0px;
   padding-bottom: 15px;
 }
+
 
 .lr-section{
   width: 100%;
@@ -807,6 +808,7 @@ div{
    float:left;
    min-height: 200px;
    border-bottom: dashed 2px gray;
+   padding-top: 25px;
 }
 
 .lr-top-line{
@@ -853,11 +855,11 @@ div{
 .lr-image-name{
   font-size: 18px;
   font-weight: 700;
-  padding-left: 18px;
+  padding-left: 10px;
 }
 
 .lr-image-profession{
   font-size: 16px;
   font-weight: 400;
-  padding-left: 18px;
+  padding-left: 10px;
 }
