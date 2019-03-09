@@ -429,8 +429,7 @@ function initTooltips() {
                 return position;
             }
         });
-
-        console.log(tooltips)
+        //console.log(tooltips)
     });
 }
 
