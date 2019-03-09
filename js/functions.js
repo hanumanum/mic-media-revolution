@@ -8,17 +8,27 @@ function randomInt(min, max) {
 }
 
 
+function setSound(){
+    for(video of videosList){
+        video.volume = volume
+    }
+}
+
+
 function initMenuAndTools() {
     scrollSound = new Audio('scroll.mp3')
     scrollSound.volume = 0.2
 
-    $("#sound").click(function () {
+    /*
+    $("#sound").click(function (){
         $(this).toggleClass("sound-on").toggleClass("sound-off")
         volume = (volume == 0) ? 5 : 0
+        setSound()
     })
+    */
 
     $("#nav-arrow").click(function () {
-        fullpage_api.moveSectionDown();
+        fullpage_api.moveSectionDown()
     })
 
     $(".language-visible").hover(function () {
@@ -479,4 +489,27 @@ function setEqualHeightLrSections(){
          $(section).find(".lr-image-holder").css("height",$(section).css("height"))
          leftP.css("height",$(section).css("height"))
     })
+}
+
+
+function prepareVideos(videos, config){
+    let videosArray = []
+    if(typeof videos === "object"){
+        videos.each(function(i,fv){
+            let custVidID = $(fv).attr("id")
+            videosArray.push(new Plyr('#' + custVidID, config));
+            videosArray[i].on("ended",function(){
+                if(videosArray[i+1]!==undefined){
+                    videosArray[i+1].play()
+                }
+            })
+        })
+        videosArray[0].play()
+    }
+    else{
+
+    }
+
+
+    return videosArray;
 }

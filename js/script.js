@@ -4,14 +4,16 @@ const INITIAL_SIZE_HEIGHT = 1200;
 const LANG = "en"
 let scrollSound, iframe, iframePlayer;
 var player, playerPerson;
-var volume = 0;
+var volume = 10;
 var trtext = "", trbutt = "";
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
 let beeIntervals = [];
 let menuOpened = false;
+let videosList = [];
 
 
+setSound()
 initScale()
 initMenuAndTools()
 savePositionsOfRelatives()
@@ -29,16 +31,11 @@ new fullpage('#fullpage', {
 
         let customVideo = $(slide).find(".custom-video")
         if (customVideo.length != 0) {
-            let custVidID = $(customVideo[0]).attr("id")
-            player = new Plyr('#' + custVidID);
-            player.volume = volume
-            player.play()
-            player.on("timeupdate", function (evnt) {
-                //console.log(player.currentTime, player.duration)
-                if (player.currentTime > 0 && player.currentTime > player.duration - 0.3) {
-                    console.log("sdf")
+            videosList = prepareVideos(customVideo)
+            videosList[0].on("timeupdate", function (evnt) {
+                if (videosList[0].currentTime > 0 && videosList[0].currentTime > videosList[0].duration - 0.3) {
                     $(slide).find(".plyr__control").hide()
-                    player.pause()
+                    videosList[0].pause()
 
                     /*
                     setTimeout(function(){
@@ -52,16 +49,12 @@ new fullpage('#fullpage', {
 
         let fallVideo = $(slide).find(".fall-video")
         if (fallVideo.length != 0) {
-            fallVideo.each(function(i,fv){
-                let custVidID = $(fv).attr("id")
-                new Plyr('#' + custVidID);
-            })
+            videosList = prepareVideos(fallVideo, {'autopause': false})
         }
 
         let personVideo = $(slide).find(".personVideo")
         if (personVideo.length != 0) {
-            let custVidID = $(personVideo[0]).attr("id")
-            playerPerson = new Plyr('#' + custVidID, { 'autopause': false });
+            videosList = prepareVideos(personVideo, {'autopause': false})
             if(LANG === "en"){
                 let tb = $(slide).find(".translation-button")[0]
                 $(tb).css("visibility","visible")
@@ -72,11 +65,11 @@ new fullpage('#fullpage', {
         if (backgroundVideo.length != 0) {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
             if(bckgrVidID){
-                player = new Plyr('#' + bckgrVidID, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false });
-                player.volume = 0
-                player.loop = true
-                player.play()
+                let videosListBkgr = prepareVideos(backgroundVideo, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false })
+                videosListBkgr[0].volume = 0
+                videosList = videosList.concat(videosListBkgr);
             }
+            
         }
 
 
@@ -223,6 +216,12 @@ new fullpage('#fullpage', {
     }
 
     , onLeave: function (origin, destination, direction) {
+        for(ply of videosList){
+            ply.destroy()
+        }
+        videosList = [];
+
+        
         for(beeInterv of beeIntervals){
             clearInterval(beeInterv)
         }
@@ -265,6 +264,7 @@ new fullpage('#fullpage', {
     }
 
 });
+
 
 
 
