@@ -9,7 +9,7 @@ var trtext = "", trbutt = "";
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
 let beeIntervals = [];
-let MENUOPENED = false;
+let menuOpened = false;
 
 
 initScale()

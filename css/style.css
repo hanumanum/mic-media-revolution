@@ -818,6 +818,7 @@ div{
   height: 86px;
   top:0px;
   left:0px;
+  z-index:1;
 }
 
 .lr-menu{
@@ -845,11 +846,13 @@ div{
 }
 
 .lr-image-holder{
-  margin-top:30px;
+  margin:30px 15px 15px 15px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .lr-image-holder img{
-  width:90%;
+  width:223px;
 }
 
 .lr-image-name{

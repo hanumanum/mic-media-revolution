@@ -31,7 +31,7 @@ function initMenuAndTools() {
 
     $("#button").click(function () {
         $(".slideLinePoint").slideToggle(300);
-        MENUOPENED = !MENUOPENED
+        menuOpened = !menuOpened
     })
 
     $('.translation-text').hover(function () {
@@ -43,6 +43,9 @@ function initMenuAndTools() {
 }
 
 function longReadMenuAndScroll() {
+    // /$('.lr-image-holder').paroller();
+
+
     let lrMenuHeight = parseInt($(".lr-top-line").css("height"))
     $(".lr-menu-item").click(function () {
         $(".lr-menu-item").removeClass("lr-menu-item-active")
@@ -54,49 +57,90 @@ function longReadMenuAndScroll() {
 
     })
 
-    let scrollInf = {
-        lastScrollTop:0,
-        diff:0
-    }
 
+    
     let currentSectionID ="gegham"
-    const marginSteps = 20
+
+
     $(document).scroll(function () {
         $(".lr-section").each(function (i, lrSection) {
+            
             if (isScrolledIntoView(lrSection)) {
                 currentSectionID = $(lrSection).attr("id")
                 $(".lr-menu-item").removeClass("lr-menu-item-active")
                 $("[data-src='" + currentSectionID + "']").addClass("lr-menu-item-active")
+
+                let expertImage = $("#"+currentSectionID).find(".lr-section-left img")
+                //let topMargin = parseInt(expertImage.css("margin-top"))
+                //console.log(topMargin, newTop-prevTop)
+                //topMargin+=(newTop-prevTop)
+                //console.log(newTop-prevTop)
+                //expertImage.css({"position":"fixed", "top":"100px"})
+                //$(lrSection).find("img").css("position","static");
+                //console.log("in",currentSectionID)
             }
             else{
-                $(lrSection).find("img").css("margin-top",0);
+                //$(lrSection).find("img").css("position","static");
+                //console.log("out",currentSectionID)
             }
         })
 
-        let expertImage = $("#"+currentSectionID).find(".lr-section-left img");
-        
+        /*
         scrollInf = scrollInfo(1, scrollInf, function (d) {
             console.log(scrollInf)
-            let topMargin = parseInt(expertImage.css("margin-top"))
+            
             //topMargin+=scrollInf.diff;
             
             
             if(d=="down"){
-                topMargin+=marginSteps
+                
             }
             else{
                 topMargin-=marginSteps
             }
             
 
-            expertImage.css("margin-top",topMargin)
+            
 
         })
-
+        */
 
     })
 
 }
+
+
+function initParalaxForLongRead(){
+    let controller = new ScrollMagic.Controller();
+    let duration1 = 800
+    let duration2 = 1000
+    let offset2 = 1150
+    let duration3 = 970
+    let offset3 = 2550
+    let duration4 = 880
+    let offset4 = 3850
+    
+    $(function () { 
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration1 })
+            .setPin("#gegham .lr-image-holder", { pushFollowers: false })
+            //.addIndicators({ name: "1 (duration: " + duration1 + ")" }) // add indicators (requires plugin)
+            .addTo(controller);
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration2, offset: offset2 })
+            .setPin("#inga .lr-image-holder" , { pushFollowers: false })
+            //.addIndicators({ name: "2 (duration: " + duration2 + ")" }) // add indicators (requires plugin)
+            .addTo(controller);
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration3, offset: offset3 })
+            .setPin("#aghasi .lr-image-holder", { pushFollowers: false })
+            //.addIndicators({ name: "3 (duration: " + duration3 + ")" }) // add indicators (requires plugin)
+            .addTo(controller);
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration4, offset: offset4 })
+            .setPin("#lusine .lr-image-holder", { pushFollowers: false })
+            //.addIndicators({ name: "4 (duration: " + duration4 + ")" }) // add indicators (requires plugin)
+            .addTo(controller);
+    });
+   
+}
+
 
 function scrollInfo(delta = 5, lastScrollInfo, callback) {
     var st = $(this).scrollTop();
@@ -181,7 +225,7 @@ function slideLine() {
 
 
 function setStateSliedLinePoints(p) {
-    if (MENUOPENED) {
+    if (menuOpened) {
         p.css({ "display": "block" })
     } else {
         p.css({ "display": "none" })
@@ -420,11 +464,20 @@ function initBxSliders() {
 
 
 function isScrolledIntoView(elem) {
-    var docViewTop = $(window).scrollTop();
+    var docViewTop = $(window).scrollTop() - $(".lr-top-line").height();
     var docViewBottom = docViewTop + $(window).height();
 
     var elemTop = $(elem).offset().top;
 
     //return (elemTop <=docViewTop && elemTop>=docViewBottom);
     return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+
+function setEqualHeightLrSections(){
+    $(".lr-section").each(function(i,section){
+         let leftP = $(section).find(".lr-section-left")
+         $(section).find(".lr-image-holder").css("height",$(section).css("height"))
+         leftP.css("height",$(section).css("height"))
+    })
 }
