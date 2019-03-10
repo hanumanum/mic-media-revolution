@@ -8,8 +8,8 @@ function randomInt(min, max) {
 }
 
 
-function setSound(){
-    for(video of videosList){
+function setSound() {
+    for (video of videosList) {
         video.volume = volume
     }
 }
@@ -68,19 +68,19 @@ function longReadMenuAndScroll() {
     })
 
 
-    
-    let currentSectionID ="gegham"
+
+    let currentSectionID = "gegham"
 
 
     $(document).scroll(function () {
         $(".lr-section").each(function (i, lrSection) {
-            
+
             if (isScrolledIntoView(lrSection)) {
                 currentSectionID = $(lrSection).attr("id")
                 $(".lr-menu-item").removeClass("lr-menu-item-active")
                 $("[data-src='" + currentSectionID + "']").addClass("lr-menu-item-active")
 
-                let expertImage = $("#"+currentSectionID).find(".lr-section-left img")
+                let expertImage = $("#" + currentSectionID).find(".lr-section-left img")
                 //let topMargin = parseInt(expertImage.css("margin-top"))
                 //console.log(topMargin, newTop-prevTop)
                 //topMargin+=(newTop-prevTop)
@@ -89,7 +89,7 @@ function longReadMenuAndScroll() {
                 //$(lrSection).find("img").css("position","static");
                 //console.log("in",currentSectionID)
             }
-            else{
+            else {
                 //$(lrSection).find("img").css("position","static");
                 //console.log("out",currentSectionID)
             }
@@ -120,7 +120,7 @@ function longReadMenuAndScroll() {
 }
 
 
-function initParalaxForLongRead(){
+function initParalaxForLongRead() {
     let controller = new ScrollMagic.Controller();
     let duration1 = 800
     let duration2 = 1000
@@ -129,14 +129,14 @@ function initParalaxForLongRead(){
     let offset3 = 2550
     let duration4 = 880
     let offset4 = 3850
-    
-    $(function () { 
+
+    $(function () {
         new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration1 })
             .setPin("#gegham .lr-image-holder", { pushFollowers: false })
             //.addIndicators({ name: "1 (duration: " + duration1 + ")" }) // add indicators (requires plugin)
             .addTo(controller);
         new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration2, offset: offset2 })
-            .setPin("#inga .lr-image-holder" , { pushFollowers: false })
+            .setPin("#inga .lr-image-holder", { pushFollowers: false })
             //.addIndicators({ name: "2 (duration: " + duration2 + ")" }) // add indicators (requires plugin)
             .addTo(controller);
         new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration3, offset: offset3 })
@@ -148,7 +148,7 @@ function initParalaxForLongRead(){
             //.addIndicators({ name: "4 (duration: " + duration4 + ")" }) // add indicators (requires plugin)
             .addTo(controller);
     });
-   
+
 }
 
 
@@ -157,20 +157,20 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 
     if (Math.abs(lastScrollInfo.lastScrollTop - st) <= delta)
         return lastScrollInfo;
-    
+
     if (st > lastScrollInfo.lastScrollTop) {
         callback("down")
 
     } else {
-        
+
         callback("up")
     }
 
 
-    lastScrollInfo.diff=lastScrollInfo.lastScrollTop - st
+    lastScrollInfo.diff = lastScrollInfo.lastScrollTop - st
     lastScrollInfo.lastScrollTop = st;
-    return lastScrollInfo 
-    
+    return lastScrollInfo
+
 }
 
 function slideLine() {
@@ -428,46 +428,45 @@ function copyTextToClipboard(text) {
 
 
 function initTooltips() {
-    $(document).ready(function () {
-        tooltips = $('.tooltip').tooltipster({
-            side: ['right', 'top'],
-            trigger: "click",
-            arrow: false,
-            theme: ['tooltipster-noir', 'tooltipster-noir-customized'],
-            functionPosition: function (instance, helper, position) {
-                position.coord.top -= position.size.height / 2;
-                return position;
-            }
-        });
-        //console.log(tooltips)
+    tooltips = $('.tooltip').tooltipster({
+        side: ['right', 'top'],
+        trigger: "click",
+        arrow: false,
+        theme: ['tooltipster-noir', 'tooltipster-noir-customized'],
+        functionPosition: function (instance, helper, position) {
+            position.coord.top -= position.size.height / 2;
+            return position;
+        }
     });
+    //console.log(tooltips)
+
 }
 
 
 function initOpacityBackgrounds() {
-    $(function () {
-        $(".backgroundvideo").each(function (i, vdiv) {
-            let opacity = $(vdiv).attr("data-opacity")
-            let vidBackgrLayer = $("<div>").addClass("blackOverlay")
-            if (opacity !== undefined) {
-                $(vidBackgrLayer).css("background-color", "rgba(0,0,0," + opacity + ")")
-            }
-            $(vidBackgrLayer).insertAfter($(this))
-        })
-    });
+
+    $(".backgroundvideo").each(function (i, vdiv) {
+        let opacity = $(vdiv).attr("data-opacity")
+        let vidBackgrLayer = $("<div>").addClass("blackOverlay")
+        if (opacity !== undefined) {
+            $(vidBackgrLayer).css("background-color", "rgba(0,0,0," + opacity + ")")
+        }
+        $(vidBackgrLayer).insertAfter($(this))
+    })
+
 }
 
 
 function initBxSliders() {
-    $(function () {
-        $('.slider').bxSlider({
-            keyboardEnabled: true,
-            mode: 'fade',
-            captions: false,
-            adaptiveHeight: true,
-            auto: true
-        });
+
+    $('.slider').bxSlider({
+        keyboardEnabled: true,
+        mode: 'fade',
+        captions: false,
+        adaptiveHeight: true,
+        auto: true
     });
+
 }
 
 
@@ -483,30 +482,30 @@ function isScrolledIntoView(elem) {
 }
 
 
-function setEqualHeightLrSections(){
-    $(".lr-section").each(function(i,section){
-         let leftP = $(section).find(".lr-section-left")
-         $(section).find(".lr-image-holder").css("height",$(section).css("height"))
-         leftP.css("height",$(section).css("height"))
+function setEqualHeightLrSections() {
+    $(".lr-section").each(function (i, section) {
+        let leftP = $(section).find(".lr-section-left")
+        $(section).find(".lr-image-holder").css("height", $(section).css("height"))
+        leftP.css("height", $(section).css("height"))
     })
 }
 
 
-function prepareVideos(videos, config){
+function prepareVideos(videos, config) {
     let videosArray = []
-    if(typeof videos === "object"){
-        videos.each(function(i,fv){
+    if (typeof videos === "object") {
+        videos.each(function (i, fv) {
             let custVidID = $(fv).attr("id")
             videosArray.push(new Plyr('#' + custVidID, config));
-            videosArray[i].on("ended",function(){
-                if(videosArray[i+1]!==undefined){
-                    videosArray[i+1].play()
+            videosArray[i].on("ended", function () {
+                if (videosArray[i + 1] !== undefined) {
+                    videosArray[i + 1].play()
                 }
             })
         })
         videosArray[0].play()
     }
-    else{
+    else {
 
     }
 
@@ -516,7 +515,7 @@ function prepareVideos(videos, config){
 
 
 
-function initCoverPageEffects(){
+function initCoverPageEffects() {
     const LINE_TIME = 3000
     const LINE_TICK = 2;
     const LINE_TIME_OUT = 1000;
@@ -524,24 +523,40 @@ function initCoverPageEffects(){
     const TITLE_TIMEOUT = 500;
     const IMAGE_TIMEOUT = 1000;
 
-    setTimeout(function(){
+    setTimeout(function () {
         $(".cover-chapter-head").addClass("fadeIn animation4")
-    },TITLE_TIMEOUT)
+    }, TITLE_TIMEOUT)
 
-    setTimeout(function(){
+    setTimeout(function () {
         $(".cover-chapter-image").addClass("fadeIn animation4")
-    },IMAGE_TIMEOUT)
+    }, IMAGE_TIMEOUT)
 
 
-    setTimeout(function(){
-        $(".cover-chapter-line").css("display","block")
-        let titleLineInterval = setInterval(function(){
+    setTimeout(function () {
+        $(".cover-chapter-line").css("display", "block")
+        let titleLineInterval = setInterval(function () {
             let width = parseInt($(".cover-chapter-line").css("width"));
-            width+=(LINE_TIME/LINE_TICK)/TITLE_LINE_SIZE
-            $(".cover-chapter-line").css("width",width+"px");
-            if(width>=TITLE_LINE_SIZE){
+            width += (LINE_TIME / LINE_TICK) / TITLE_LINE_SIZE
+            $(".cover-chapter-line").css("width", width + "px");
+            if (width >= TITLE_LINE_SIZE) {
                 clearInterval(titleLineInterval)
             }
-        },LINE_TICK)
-    },LINE_TIME_OUT)
+        }, LINE_TICK)
+    }, LINE_TIME_OUT)
+}
+
+
+
+function initIntro() {
+    let introClosed = true;
+    $(".intro-right").animate({ "left": window.innerWidth }, "slow");
+    $("#more").click(function () {
+        if (introClosed) {
+            $(".intro-right").animate({ "left": "0px" }, "slow");
+        }
+        else {
+            $(".intro-right").animate({ "left": window.innerWidth }, "slow");
+        }
+        introClosed = !introClosed
+    })
 }

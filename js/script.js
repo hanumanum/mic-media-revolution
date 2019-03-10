@@ -24,13 +24,11 @@ new fullpage('#fullpage', {
     fadingEffectKey: "18DF4FFA-5D204426-AC93E15C-E7F303EF",
     verticalCentered: true,
     lazyLoading: true,
-    //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
-    //menu: '#nav'
     afterLoad: function (origin, destination, direction) {
-        if(destination.item.id==="cover"){
+        if (destination.item.id === "cover") {
             initCoverPageEffects();
         }
-        
+
 
         let slide = $("#" + destination.item.id);
 
@@ -54,35 +52,35 @@ new fullpage('#fullpage', {
 
         let fallVideo = $(slide).find(".fall-video")
         if (fallVideo.length != 0) {
-            videosList = prepareVideos(fallVideo, {'autopause': false})
+            videosList = prepareVideos(fallVideo, { 'autopause': false })
         }
 
         let personVideo = $(slide).find(".personVideo")
         if (personVideo.length != 0) {
-            videosList = prepareVideos(personVideo, {'autopause': false})
-            if(LANG === "en"){
+            videosList = prepareVideos(personVideo, { 'autopause': false })
+            if (LANG === "en") {
                 let tb = $(slide).find(".translation-button")[0]
-                $(tb).css("visibility","visible")
+                $(tb).css("visibility", "visible")
             }
         }
 
         var backgroundVideo = $(slide).find(".backgroundvideo")
         if (backgroundVideo.length != 0) {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
-            if(bckgrVidID){
+            if (bckgrVidID) {
                 let videosListBkgr = prepareVideos(backgroundVideo, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false })
                 videosListBkgr[0].volume = 0
                 videosList = videosList.concat(videosListBkgr);
             }
-            
+
         }
 
 
         var layeronbackgroundvideo = $(slide).find(".layeronbackgroundvideo")
-        if(layeronbackgroundvideo.length!==0){
-            adjustPersonSlide(layeronbackgroundvideo,true)
+        if (layeronbackgroundvideo.length !== 0) {
+            adjustPersonSlide(layeronbackgroundvideo, true)
         }
-        
+
 
         let quote = $(slide).find(".quote")
         let quote_autor = $(slide).find(".quote-autor")
@@ -126,7 +124,7 @@ new fullpage('#fullpage', {
 
         let bkgrURL = $(slide).attr("data-background-image")
         if (bkgrURL) {
-            $(slide).find(".backgroundvideo").css({"opacity":0.5})
+            $(slide).find(".backgroundvideo").css({ "opacity": 0.5 })
             $(slide).css({
                 "background-image": 'url(' + bkgrURL + ')',
                 "background-size": "cover"
@@ -167,10 +165,10 @@ new fullpage('#fullpage', {
             ind++
 
             let animIntrval = setInterval(function () {
-                
+
                 $(relatives[ind]).addClass("slideInDown")
                 $(relatives[ind]).addClass("animation1")
-                
+
                 ind++
                 if (ind == relatives.length) {
                     clearInterval(animIntrval)
@@ -215,24 +213,24 @@ new fullpage('#fullpage', {
 
 
         //centerVertically(relativeBlocks)
-        
+
         slideLine()
-        
+
     }
 
     , onLeave: function (origin, destination, direction) {
-        for(ply of videosList){
+        for (ply of videosList) {
             ply.destroy()
         }
         videosList = [];
 
-        
-        for(beeInterv of beeIntervals){
+
+        for (beeInterv of beeIntervals) {
             clearInterval(beeInterv)
         }
-        beeIntervals=[]
+        beeIntervals = []
 
-        
+
         scrollSound.play()
 
         let slide = $("#" + origin.item.id);
@@ -263,7 +261,7 @@ new fullpage('#fullpage', {
 
 
         var allTooltips = $.tooltipster.instances();
-        $.each(allTooltips, function(i, instance){
+        $.each(allTooltips, function (i, instance) {
             instance.close();
         });
     }
@@ -313,20 +311,24 @@ if (debug) {
     $(function () {
         $(".relatives , .relatives-fade").draggable({
             stop: function (event, ui) {
-                relativesData[$(this).prop("tagName") + ":" + $(this).attr("src")] = "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;" 
-                
+                relativesData[$(this).prop("tagName") + ":" + $(this).attr("src")] = "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;"
+
                 console.log(
                     $(this).attr("src"),
                     "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;")
-                     //copyTextToClipboard("left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;");
-                     copyTextToClipboard(JSON.stringify(relativesData))                                
-                }
-            
+                //copyTextToClipboard("left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;");
+                copyTextToClipboard(JSON.stringify(relativesData))
+            }
+
         });
     });
 
 }
 
-initBxSliders()
-initOpacityBackgrounds()
-initTooltips()
+
+$(function () {
+    initOpacityBackgrounds()
+    initBxSliders()
+    initTooltips()
+    initIntro()
+})
