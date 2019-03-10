@@ -2,7 +2,6 @@ const TOP_OFFSET_SLIDELINE = 50
 const SLIDELINE_POINT_HEIGHT = 18;
 const POINTHEIGTH = 5
 
-
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -174,8 +173,8 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 }
 
 function slideLine() {
-    const anchores = ["s1", "s17", "s34", "s51"]
-    const anchoreTitles = ["see", "hear", "speak", "act"]
+    const anchores = ["s1", "s17", "s34", "s51", "intro"]
+    const anchoreTitles = ["see", "hear", "speak", "act", "intro"]
     $("#slideLine").empty()
     let sections = $(".section")
     let heightOfSlideLinePoint = calcDistance(sections)
@@ -192,6 +191,7 @@ function slideLine() {
 
     $("#slideLine").append(aboutLink)
 
+    /*
     let introLink = $("<div>")
         .text("intro")
         .addClass("slideLinePoint")
@@ -199,9 +199,10 @@ function slideLine() {
         .addClass("seen")
         .css({ "height": SLIDELINE_POINT_HEIGHT })
     $("#slideLine").append(introLink)
+    */
 
     setStateSliedLinePoints(aboutLink)
-    setStateSliedLinePoints(introLink)
+    //setStateSliedLinePoints(introLink)
 
     for (let section of sections) {
         let d = $("<div>")
@@ -427,7 +428,7 @@ function copyTextToClipboard(text) {
 
 
 
-function initTooltips() {
+function initToolTips() {
     tooltips = $('.tooltip').tooltipster({
         side: ['right', 'top'],
         trigger: "click",
@@ -438,8 +439,15 @@ function initTooltips() {
             return position;
         }
     });
-    //console.log(tooltips)
 
+}
+
+
+function closeToolTips(){
+    let allTooltips = $.tooltipster.instances();
+    $.each(allTooltips, function (i, instance) {
+        instance.close();
+    });
 }
 
 
@@ -546,10 +554,9 @@ function initCoverPageEffects() {
 }
 
 
-
 function initIntro() {
     let introClosed = true;
-    $(".intro-right").animate({ "left": window.innerWidth }, "slow");
+    $(".intro-right").css({ "left": window.innerWidth });
     $("#more").click(function () {
         if (introClosed) {
             $(".intro-right").animate({ "left": "0px" }, "slow");
@@ -559,4 +566,23 @@ function initIntro() {
         }
         introClosed = !introClosed
     })
+}
+
+function initManualRepositions(){
+    let relativesData = {}
+    $(function () {
+        $(".relatives , .relatives-fade").draggable({
+            stop: function (event, ui) {
+                relativesData[$(this).prop("tagName") + ":" + $(this).attr("src")] = "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;"
+
+                console.log(
+                    $(this).attr("src"),
+                    "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;")
+                //copyTextToClipboard("left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;");
+                copyTextToClipboard(JSON.stringify(relativesData))
+            }
+
+        });
+    });
+
 }

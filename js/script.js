@@ -1,11 +1,8 @@
-let debug = false;
+const DEBUG = true;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
 const LANG = "en"
-let scrollSound, iframe, iframePlayer;
-var player, playerPerson;
-var volume = 10;
-var trtext = "", trbutt = "";
+let scrollSound; 
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
 let beeIntervals = [];
@@ -68,7 +65,7 @@ new fullpage('#fullpage', {
         if (backgroundVideo.length != 0) {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
             if (bckgrVidID) {
-                let videosListBkgr = prepareVideos(backgroundVideo, { 'controls': [], 'settings': ['loop'], 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false })
+                let videosListBkgr = prepareVideos(backgroundVideo, { 'controls': [], 'settings': ['loop'], 'loop':{ active: true }, 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false })
                 videosListBkgr[0].volume = 0
                 videosList = videosList.concat(videosListBkgr);
             }
@@ -117,7 +114,7 @@ new fullpage('#fullpage', {
         let person = $(slide).find(".person-title")
         let persontext = $(slide).find(".person-text")
         if (person && persontext) {
-            $(person[0]).addClass("fadeIn animation2")
+            $(person[0]).addClass("fadeIn animation3")
             $(persontext[0]).addClass("fadeIn animation5")
         }
 
@@ -237,17 +234,6 @@ new fullpage('#fullpage', {
         $(slide).find(".translation-button").off("click")
 
 
-        if (typeof (player) === "object") {
-            player.stop()
-            delete player
-        }
-
-        if (typeof (playerPerson) === "object") {
-            playerPerson.stop()
-            delete playerPerson
-        }
-
-
         let relatives = $(slide).find(".relatives")
         let relativesfade = $(slide).find(".relatives-fade")
         relatives.removeClass("slideInDown")
@@ -259,76 +245,21 @@ new fullpage('#fullpage', {
             }, 500)
         })
 
-
-        var allTooltips = $.tooltipster.instances();
-        $.each(allTooltips, function (i, instance) {
-            instance.close();
-        });
+        closeToolTips()
     }
 
 });
 
 
 
-
-/*
-if(debug){
-    let currentRelative = {}
-    $(".relatives , .relatives-fade").click(function(){
-        currentRelative = $(this)
-        console.log("clicked",currentRelative)
-
-        $(document).keypress(function(e){
-            let ttop = parseInt($(currentRelative).position().top)
-            let lleft = parseInt($(currentRelative).position().left)
-            console.log("positions before",ttop,lleft)
-
-            if(e.charCode==115){ //s top
-                $(currentRelative).position().top=(ttop--) + "px"
-            } 
-            else if(e.charCode==119){ //w bottom
-                $(currentRelative).position().top=(ttop++) + "px"
-            }
-            else if(e.charCode==97){  //a left
-                $(currentRelative).position().left=(lleft--) + "px"     
-            }
-            else if(e.charCode==100){ //d right
-                $(currentRelative).position().left=(lleft++) + "px"
-            }
-
-            console.log("left:" + Math.round($(currentRelative).position().left) + "px; top:" + Math.round($(currentRelative).position().top) + "px;")
-            copyTextToClipboard("left:" + Math.round($(currentRelative).position().left) + "px; top:" + Math.round($(currentRelative).position().top) + "px;");
-        })
-    
-    })
-}
-*/
-
-
-if (debug) {
-    let relativesData = {}
-
-    $(function () {
-        $(".relatives , .relatives-fade").draggable({
-            stop: function (event, ui) {
-                relativesData[$(this).prop("tagName") + ":" + $(this).attr("src")] = "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;"
-
-                console.log(
-                    $(this).attr("src"),
-                    "left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;")
-                //copyTextToClipboard("left:" + Math.round($(this).position().left) + "px; top:" + Math.round($(this).position().top) + "px;");
-                copyTextToClipboard(JSON.stringify(relativesData))
-            }
-
-        });
-    });
-
+if (DEBUG) {
+    initManualRepositions()
 }
 
 
 $(function () {
     initOpacityBackgrounds()
     initBxSliders()
-    initTooltips()
+    initToolTips()
     initIntro()
 })
