@@ -513,3 +513,35 @@ function prepareVideos(videos, config){
 
     return videosArray;
 }
+
+
+
+function initCoverPageEffects(){
+    const LINE_TIME = 3000
+    const LINE_TICK = 2;
+    const LINE_TIME_OUT = 1000;
+    const TITLE_LINE_SIZE = 400;
+    const TITLE_TIMEOUT = 500;
+    const IMAGE_TIMEOUT = 1000;
+
+    setTimeout(function(){
+        $(".cover-chapter-head").addClass("fadeIn animation4")
+    },TITLE_TIMEOUT)
+
+    setTimeout(function(){
+        $(".cover-chapter-image").addClass("fadeIn animation4")
+    },IMAGE_TIMEOUT)
+
+
+    setTimeout(function(){
+        $(".cover-chapter-line").css("display","block")
+        let titleLineInterval = setInterval(function(){
+            let width = parseInt($(".cover-chapter-line").css("width"));
+            width+=(LINE_TIME/LINE_TICK)/TITLE_LINE_SIZE
+            $(".cover-chapter-line").css("width",width+"px");
+            if(width>=TITLE_LINE_SIZE){
+                clearInterval(titleLineInterval)
+            }
+        },LINE_TICK)
+    },LINE_TIME_OUT)
+}

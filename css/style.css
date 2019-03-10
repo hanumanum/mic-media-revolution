@@ -862,3 +862,74 @@ div{
   font-weight: 400;
   padding-left: 10px;
 }
+
+
+
+.cover-chapter-head{
+  width:440px;
+  font-size: 33px;
+  text-align: center;
+  margin:0 auto 0 auto;
+  text-transform: uppercase;
+  font-weight: 100;
+  opacity: 0;
+}
+
+.cover-chapter-line{
+  width:0px;
+  border-bottom: solid 1px white;
+  margin:3px auto 25px auto;
+  display: none;
+
+}
+
+.cover-chapter-image{
+  background-image: url("../img/coverpage.jpg");
+  height: 30vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 25px;
+  opacity: 0; 
+}
+
+.cover-chapeter-para{
+  width:280px;
+  margin:0 auto;
+  text-align: left;
+  font-size:14px;
+}
+
+
+.intro-left{
+  /* width:680px; */
+  width:50%;
+  display: inline-block;
+  text-align: left;
+  padding:25px;
+}
+
+.intro-right{
+  width:550px;
+  width:40%;
+  display: inline-block;
+  text-align: left;
+  padding:10px 10px 10px 15px;
+  background-color: white;
+  color:black;
+  margin-top:25px;
+  font-size: 16px;
+}
+
+.intro-left-large{
+  font-size: 20px;
+}
+
+.intro-left img{
+  inline-size: 21px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.intro-left img:hover{
+  opacity: 1;
+}

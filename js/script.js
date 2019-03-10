@@ -27,6 +27,11 @@ new fullpage('#fullpage', {
     //anchors:['coversee', 'coverhear', 'coverspeak','coveract'],
     //menu: '#nav'
     afterLoad: function (origin, destination, direction) {
+        if(destination.item.id==="cover"){
+            initCoverPageEffects();
+        }
+        
+
         let slide = $("#" + destination.item.id);
 
         let customVideo = $(slide).find(".custom-video")
