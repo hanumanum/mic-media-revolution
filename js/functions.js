@@ -173,8 +173,9 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 }
 
 function slideLine() {
-    const anchores = ["s1", "s17", "s34", "s51", "intro"]
-    const anchoreTitles = ["see", "hear", "speak", "act", "intro"]
+    const anchores = ["s1", "s17", "s34", "s51", "intro","about","expertise"]
+    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","expertise"] : ["տես", "լսիր", "խոսա", "գործիր", "ինտրո","մասին","էքսպերտիզ"]
+    const anchoresSmalls = ["intro","about","expertise"]
     $("#slideLine").empty()
     let sections = $(".section")
     let heightOfSlideLinePoint = calcDistance(sections)
@@ -182,6 +183,7 @@ function slideLine() {
     let activeSectionIndex = activeSection.index
     let currentSectionIndex = 0;
 
+    /*
     let aboutLink = $("<div>")
         .text("about")
         .addClass("slideLinePoint")
@@ -190,7 +192,7 @@ function slideLine() {
         .css({ "height": SLIDELINE_POINT_HEIGHT })
 
     $("#slideLine").append(aboutLink)
-
+    */
     /*
     let introLink = $("<div>")
         .text("intro")
@@ -201,7 +203,7 @@ function slideLine() {
     $("#slideLine").append(introLink)
     */
 
-    setStateSliedLinePoints(aboutLink)
+    //setStateSliedLinePoints(aboutLink)
     //setStateSliedLinePoints(introLink)
 
     for (let section of sections) {
@@ -219,6 +221,10 @@ function slideLine() {
             d.addClass("slideLinePointTitle")
             d.css({ "height": SLIDELINE_POINT_HEIGHT })
             d.text(anchoreTitles[anchores.indexOf(anchor)])
+        }
+
+        if(anchoresSmalls.indexOf(anchor) > -1){
+            d.addClass("slideLinePointTitleSmall")
         }
 
         $(d).click(function () {

@@ -1,7 +1,3 @@
-const DEBUG = false;
-const INITIAL_SIZE = 1900;
-const INITIAL_SIZE_HEIGHT = 1200;
-const LANG = "en"
 let scrollSound; 
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
@@ -15,6 +11,12 @@ initScale()
 initMenuAndTools()
 savePositionsOfRelatives()
 
+$(function () {
+    initOpacityBackgrounds()
+    initToolTips()
+    initIntro()
+})
+
 
 new fullpage('#fullpage', {
     fadingEffect: true,
@@ -26,6 +28,9 @@ new fullpage('#fullpage', {
             initCoverPageEffects();
         }
 
+        if(destination.item.id=="expertise"){
+            window.location.assign(EXPERTISEPAGE)
+        }
 
         let slide = $("#" + destination.item.id);
 
@@ -133,7 +138,6 @@ new fullpage('#fullpage', {
 
         let relatives = $(slide).find(".relatives")
         let relativesfade = $(slide).find(".relatives-fade")
-        let relativeBlocks = $(slide).find(".relatives, .relatives-fade")
 
         if (relativesfade && relativesfade !== undefined) {
             setTimeout(function () {
@@ -215,9 +219,6 @@ new fullpage('#fullpage', {
 
         //let topForArrow = calcDistance($("section"))
 
-
-        //centerVertically(relativeBlocks)
-
         slideLine()
 
     }
@@ -228,14 +229,15 @@ new fullpage('#fullpage', {
         }
         videosList = [];
 
-
+        scrollSound.play()
+        /*
         for (beeInterv of beeIntervals) {
             clearInterval(beeInterv)
         }
         beeIntervals = []
+        */
 
-
-        scrollSound.play()
+        
 
         let slide = $("#" + origin.item.id);
         $(slide).find(".translation-button").off("click")
@@ -265,10 +267,3 @@ new fullpage('#fullpage', {
 if (DEBUG) {
     initManualRepositions()
 }
-
-
-$(function () {
-    initOpacityBackgrounds()
-    initToolTips()
-    initIntro()
-})
