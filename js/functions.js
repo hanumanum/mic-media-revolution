@@ -18,6 +18,8 @@ function initMenuAndTools() {
     scrollSound = new Audio('scroll.mp3')
     scrollSound.volume = 0.2
 
+    hoverSound = new Audio('../audio/homesound.mp3')
+    hoverSound.volume = 0.2
     /*
     $("#sound").click(function (){
         $(this).toggleClass("sound-on").toggleClass("sound-off")
@@ -173,9 +175,9 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 }
 
 function slideLine() {
-    const anchores = ["s1", "s17", "s34", "s51", "intro","about","expertise"]
-    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","expertise"] : ["տես", "լսիր", "խոսա", "գործիր", "ինտրո","մասին","էքսպերտիզ"]
-    const anchoresSmalls = ["intro","about","expertise"]
+    const anchores = ["s1", "s17", "s34", "s51", "intro","about","expertise","home"]
+    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","expertise","home"] : ["տես", "լսիր", "խոսա", "գործիր", "ինտրո","մասին","էքսպերտիզ","սկիզբ"]
+    const anchoresSmalls = ["intro","about","expertise","home"]
     $("#slideLine").empty()
     let sections = $(".section")
     let heightOfSlideLinePoint = calcDistance(sections)

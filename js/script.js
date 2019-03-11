@@ -1,4 +1,4 @@
-let scrollSound; 
+let scrollSound, hoverSound; 
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
 let beeIntervals = [];
@@ -295,7 +295,8 @@ $(function(){
     $(".box").mouseover(function(){
         $(".box").css("background-image","none");
         $("#sect4-right , #sect4-left").css("background-image","none")
-
+        hoverSound.currentTime = 0
+        hoverSound.play()
 
         let id = $(this).prop("id")
                         .substring(1)
