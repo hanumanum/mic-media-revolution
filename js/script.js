@@ -8,7 +8,7 @@ let browserHeight = $(window).height();
 let beeIntervals = [];
 let menuOpened = false;
 let videosList = [];
-
+let galleryes = [];
 
 setSound()
 initScale()
@@ -182,6 +182,13 @@ new fullpage('#fullpage', {
             })
         }
 
+
+        let gallery = $(slide).find(".slider")
+        if(gallery && gallery!==undefined && gallery.length>0) {
+            galleryes.push(initBxGallery(gallery))
+        }
+        
+
         /*
         let zoomer = $(slide).find(".zoomer")
         if(zoomer && zoomer.length>0){
@@ -246,6 +253,9 @@ new fullpage('#fullpage', {
         })
 
         closeToolTips()
+
+        galleryes = destroyBxGallery(galleryes)        
+        
     }
 
 });
@@ -259,7 +269,6 @@ if (DEBUG) {
 
 $(function () {
     initOpacityBackgrounds()
-    initBxSliders()
     initToolTips()
     initIntro()
 })

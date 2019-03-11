@@ -464,17 +464,23 @@ function initOpacityBackgrounds() {
 
 }
 
-
-function initBxSliders() {
-
-    $('.slider').bxSlider({
+function initBxGallery(elem) {
+    return elem.bxSlider({
         keyboardEnabled: true,
         mode: 'fade',
         captions: false,
         adaptiveHeight: true,
         auto: true
     });
+}
 
+function destroyBxGallery(gallerysArray){
+    console.log(gallerysArray)
+    for(gallery of gallerysArray){
+        gallery.destroySlider()
+    }
+    gallerysArray=[]
+    return galleryes
 }
 
 
