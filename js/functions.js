@@ -481,7 +481,6 @@ function initBxGallery(elem) {
 }
 
 function destroyBxGallery(gallerysArray){
-    console.log(gallerysArray)
     for(gallery of gallerysArray){
         gallery.destroySlider()
     }

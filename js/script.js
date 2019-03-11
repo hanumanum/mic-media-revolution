@@ -267,3 +267,5 @@ new fullpage('#fullpage', {
 if (DEBUG) {
     initManualRepositions()
 }
+
+
