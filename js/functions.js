@@ -526,10 +526,6 @@ function prepareVideos(videos, config) {
         })
         videosArray[0].play()
     }
-    else {
-
-    }
-
 
     return videosArray;
 }
