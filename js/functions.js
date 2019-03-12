@@ -189,7 +189,7 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 
 function slideLine() {
     const anchores = ["s1", "s17", "s34", "s51", "intro","about","expertise","home"]
-    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","expertise","home"] : ["տես", "լսիր", "խոսա", "գործիր", "ինտրո","մասին","էքսպերտիզ","սկիզբ"]
+    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","expertise","home"] : ["տեսնում եմ", "լսում եմ", "խոսում եմ", "գործում եմ", "ինտրո","մասին","փորձագիտական","սկիզբ"]
     const anchoresSmalls = ["intro","about","expertise","home"]
     $("#slideLine").empty()
     let sections = $(".section")

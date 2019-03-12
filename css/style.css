@@ -745,7 +745,7 @@ body{
 }
 
 .slideLinePointTitle{
-  width: 25px;
+  width: auto;
   left: 9px;
   font-size:14px;
   text-transform: uppercase;
