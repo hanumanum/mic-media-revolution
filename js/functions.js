@@ -123,32 +123,45 @@ function longReadMenuAndScroll() {
 
 function initParalaxForLongRead() {
     let controller = new ScrollMagic.Controller();
-    let duration1 = 800
-    let duration2 = 1000
-    let offset2 = 1150
-    let duration3 = 970
-    let offset3 = 2550
-    let duration4 = 880
-    let offset4 = 3850
+    let offset1 = 0
+    let duration1 = (LANG == "en")? 1400 : 0
 
-    $(function () {
-        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration1 })
-            .setPin("#gegham .lr-image-holder", { pushFollowers: false })
-            //.addIndicators({ name: "1 (duration: " + duration1 + ")" }) // add indicators (requires plugin)
-            .addTo(controller);
-        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration2, offset: offset2 })
-            .setPin("#inga .lr-image-holder", { pushFollowers: false })
-            //.addIndicators({ name: "2 (duration: " + duration2 + ")" }) // add indicators (requires plugin)
-            .addTo(controller);
-        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration3, offset: offset3 })
-            .setPin("#aghasi .lr-image-holder", { pushFollowers: false })
-            //.addIndicators({ name: "3 (duration: " + duration3 + ")" }) // add indicators (requires plugin)
-            .addTo(controller);
-        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration4, offset: offset4 })
-            .setPin("#lusine .lr-image-holder", { pushFollowers: false })
-            //.addIndicators({ name: "4 (duration: " + duration4 + ")" }) // add indicators (requires plugin)
-            .addTo(controller);
-    });
+    let offset2 = (LANG == "en")? 1800 :0
+    let duration2 = (LANG == "en") ? 1000 : 0
+    
+    let offset3 = (LANG == "en") ? 3200 : 0
+    let duration3 = (LANG == "en") ? 950 : 0
+    
+    let offset4 = (LANG == "en") ? 4500 : 0
+    let duration4 = (LANG == "en") ? 1200 : 0
+    
+    if(DEBUG){
+        makeScrollMagicSceneWithIndicators("gegham", duration1, offset1, 1)
+        makeScrollMagicSceneWithIndicators("inga", duration2, offset2, 2)
+        makeScrollMagicSceneWithIndicators("aghasi", duration3, offset3, 3)
+        makeScrollMagicSceneWithIndicators("lusine", duration4, offset4, 4)
+    }
+    else{
+        makeScrollMagicScene("gegham", duration1, offset1, 1)
+        makeScrollMagicScene("inga", duration2, offset2, 2)
+        makeScrollMagicScene("aghasi", duration3, offset3, 3)
+        makeScrollMagicScene("lusine", duration4, offset4, 4)
+    }
+
+    function makeScrollMagicScene(id, duration, offset, number){
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration, offset: offset })
+                .setPin("#"+ id +" .lr-image-holder", { pushFollowers: false })
+                .addTo(controller);
+
+    }
+
+    function makeScrollMagicSceneWithIndicators(id, duration, offset, number){
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration, offset: offset })
+                .setPin("#"+ id +" .lr-image-holder", { pushFollowers: false })
+                .addIndicators({ name: number+" (duration: offset " + duration +":"+offset + ")" }) // add indicators (requires plugin)
+                .addTo(controller);
+
+    }
 
 }
 

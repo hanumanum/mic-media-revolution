@@ -2,9 +2,12 @@
 initMenuAndTools()
 setEqualHeightLrSections()
 longReadMenuAndScroll()
-initParalaxForLongRead()
+
 
 $(function(){
+
+    initParalaxForLongRead()
+
     $("#button-back").click(function(){
         window.location.assign(INDEXPAGE)
     })
