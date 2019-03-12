@@ -116,6 +116,10 @@ body{
   font-size: 16px;
 }
 
+.invisible{
+  display: none;
+}
+
 #sect4-holder{
   /* background-color: #fff; */
   width:100%;
