@@ -1,11 +1,9 @@
 const DEBUG = false;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
-const LANG = "en";
 const EXPERTISEPAGE = (LANG == "en") ? "experience.html" : "experience_hy.html";
 const INDEXPAGE = (LANG == "en") ? "/" : "index_hy.html";
-var volume = 0;
-
+let volume = 0;
 
 
 window.fbAsyncInit = function () {
@@ -23,7 +21,6 @@ window.fbAsyncInit = function () {
   js.src = "//connect.facebook.net/en_US/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-
 
 
 window.onload = function () {

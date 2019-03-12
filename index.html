@@ -24,11 +24,13 @@
     <meta property="fb:app_id" content="355099071756589" />
 </head>
 
-<body>
-    <script src="js/config.js"></script>
+<body lang="en">
+    <script>
+        let LANG = document.getElementsByTagName("body")[0].getAttribute("lang");
+    </script>
+
     <div id="slideLine">
     </div>
-
 
     <div id="nav">
         <div id="button"></div>
@@ -112,10 +114,10 @@
                 The Velvet Revolution celebrated victory without casualties. But this is not what our story is about…
                         
             </div>
-            <img src = "img/box/act.jpg" class="invisible">
-            <img src = "img/box/hear.jpg" class="invisible">
-            <img src= "img/box/see.jpg" class="invisible">
-            <img src= "img/box/speak.jpg" class="invisible">
+            <img src="img/box/act.jpg" class="invisible">
+            <img src="img/box/hear.jpg" class="invisible">
+            <img src="img/box/see.jpg" class="invisible">
+            <img src="img/box/speak.jpg" class="invisible">
         </div>
 
         <div class="section" id="home" data-anchor="home">
@@ -1975,7 +1977,6 @@
     <script src="js/polyfill.min.js"></script>
     <script src="js/plyr.min.js"></script>
 
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
@@ -1987,7 +1988,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.6/dist/js/tooltipster.bundle.min.js"></script>
-
+    <script src="js/config.js"></script>    
     <script src="js/functions.js"></script>
     <script src="js/script.js"></script>
 </body>
