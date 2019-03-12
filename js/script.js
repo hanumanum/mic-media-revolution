@@ -9,12 +9,13 @@ let galleryes = [];
 setSound()
 initScale()
 initMenuAndTools()
-savePositionsOfRelatives()
+//savePositionsOfRelatives()
 
 $(function () {
     initOpacityBackgrounds()
     initToolTips()
     initIntro()
+    initHome()
 })
 
 
@@ -269,39 +270,7 @@ if (DEBUG) {
 }
 
 $(function(){
-    const boxes = {
-        act:{
-            backgroundImage:"img/box/act.gif",
-            selectorForChange:"#sect4-right",
-            background: "img/box/act.jpg"
-        },
-        speak:{
-            backgroundImage:"img/box/speak.gif",
-            selectorForChange:"#sect4-left",
-            background: "img/box/speak.jpg"
-        },
-        hear:{
-            backgroundImage:"img/box/hear.gif",
-            selectorForChange:"#sect4-left",
-            background: "img/box/hear.jpg"
-        },
-        see:{
-            backgroundImage:"img/box/see.gif",
-            selectorForChange:"#sect4-right",
-            background: "img/box/see.jpg"
-        }
-    }
-
-    $(".box").mouseover(function(){
-        $(".box").css("background-image","none");
-        $("#sect4-right , #sect4-left").css("background-image","none")
-        hoverSound.currentTime = 0
-        hoverSound.play()
-
-        let id = $(this).prop("id")
-                        .substring(1)
-                        .toLowerCase()
-        $(this).css("background-image","url("+boxes[id].backgroundImage+")")
-        $(boxes[id].selectorForChange).css("background-image","url("+boxes[id].background+")")
-    })
+     
 })
+
+

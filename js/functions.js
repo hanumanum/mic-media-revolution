@@ -599,3 +599,57 @@ function initManualRepositions(){
     });
 
 }
+
+
+function initHome(){
+    const boxes = {
+        act:{
+            backgroundImage:"img/box/act.gif",
+            selectorForChange:"#sect4-right",
+            background: "img/box/act.jpg",
+            anchor: "s51"
+        },
+        speak:{
+            backgroundImage:"img/box/speak.gif",
+            selectorForChange:"#sect4-left",
+            background: "img/box/speak.jpg",
+            anchor: "s34"
+        },
+        hear:{
+            backgroundImage:"img/box/hear.gif",
+            selectorForChange:"#sect4-left",
+            background: "img/box/hear.jpg",
+            anchor: "s17"
+        },
+        see:{
+            backgroundImage:"img/box/see.gif",
+            selectorForChange:"#sect4-right",
+            background: "img/box/see.jpg",
+            anchor: "s1"
+        }
+    }
+
+    $(".box").mouseover(function(){
+        $(".box").css("background-image","none");
+        $("#sect4-right , #sect4-left").css("background-image","none")
+        hoverSound.currentTime = 0
+        hoverSound.play()
+
+        let id = getId($(this)) 
+        $(this).css("background-image","url("+boxes[id].backgroundImage+")")
+        $(boxes[id].selectorForChange).css("background-image","url("+boxes[id].background+")")
+        
+    })
+
+    $(".box").click(function(){
+        let id = getId($(this))
+        fullpage_api.moveTo(boxes[id].anchor,0);
+    })
+
+    function getId(elem){
+        return $(elem).prop("id")
+                        .substring(1)
+                        .toLowerCase()
+    }
+
+}
