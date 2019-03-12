@@ -512,19 +512,24 @@ function setEqualHeightLrSections() {
 }
 
 
-function prepareVideos(videos, config) {
+function prepareVideos(videos, config, autoplay = true) {
     let videosArray = []
     if (typeof videos === "object") {
         videos.each(function (i, fv) {
             let custVidID = $(fv).attr("id")
             videosArray.push(new Plyr('#' + custVidID, config));
-            videosArray[i].on("ended", function () {
-                if (videosArray[i + 1] !== undefined) {
-                    videosArray[i + 1].play()
-                }
-            })
+            if(autoplay){
+                videosArray[i].on("ended", function () {
+                    if (videosArray[i + 1] !== undefined) {
+                        videosArray[i + 1].play()
+                    }
+                })
+            }
         })
-        videosArray[0].play()
+        
+        if(autoplay){
+            videosArray[0].play()
+        }
     }
 
     return videosArray;

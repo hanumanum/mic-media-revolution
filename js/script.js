@@ -56,7 +56,7 @@ new fullpage('#fullpage', {
 
         let fallVideo = $(slide).find(".fall-video")
         if (fallVideo.length != 0) {
-            videosList = prepareVideos(fallVideo, { 'autopause': false })
+            videosList = prepareVideos(fallVideo, { 'autopause': false }, false)
         }
 
         let personVideo = $(slide).find(".personVideo")
