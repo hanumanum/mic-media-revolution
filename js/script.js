@@ -21,7 +21,8 @@ $(function () {
 
 new fullpage('#fullpage', {
     fadingEffect: true,
-    fadingEffectKey: "18DF4FFA-5D204426-AC93E15C-E7F303EF",
+    fadingEffectKey:"dmVsdmV0c2tldGNoZXMubWVkaWEuYW1fbDRmWm1Ga2FXNW5SV1ptWldOMGxTNQ==",
+    //fadingEffectKey: "18DF4FFA-5D204426-AC93E15C-E7F303EF",
     verticalCentered: true,
     lazyLoading: true,
     afterLoad: function (origin, destination, direction) {
