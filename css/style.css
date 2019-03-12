@@ -102,6 +102,19 @@ body{
   text-transform: uppercase;
 }
 
+.about-contacts.bordered{
+  font-size: 14px;
+  animation: none;
+  margin-top: 18px;
+}
+
+.about-contacts a{
+  color: white;
+}
+
+.about-contacts a:hover{
+  font-size: 16px;
+}
 
 #sect4-holder{
   /* background-color: #fff; */
@@ -109,11 +122,38 @@ body{
   height:100vh;
 }
 
+#about-section-holder{
+  width:80%;
+  height:100vh;
+  margin: 0 auto;
+}
+
 #sect4-right, #sect4-left{
   width:50%;
   height:100vh;
   float:left;
   background-size: cover;
+}
+
+.about-columns{
+  width:32%;
+  height:100vh;
+  float:left;
+  padding: 50px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.about-logo{
+  width: 100%;
+  margin: 15px 0px;
+}
+
+.about-title{
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .box {
