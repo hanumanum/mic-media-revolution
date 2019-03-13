@@ -1,7 +1,45 @@
+@font-face {
+    font-family: 'Arian';
+    src: url('../fonts/arian_amu.woff')  format('truetype'), /* Safari, Android, iOS */
+}
+
+*{
+    font-family: 'Arian';
+}
+
+body{
+    font-family: 'Arian';
+}
+
+
+.intro-left-large{
+    font-size: 17px;
+}
+
+.intro-right{
+    font-size: 14px;
+}
+
+.intro-left{
+    font-size: 15px;
+}
+
 .box{
     font-size: 1em;
 }
 
+.quote{
+    font-size: 18px !important;
+}
+
+.quote-autor{
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+.quote-autor-profession{
+    font-size: 14px;
+}
 
 .lr-menu-item {
     font-size: 14px;
@@ -11,5 +49,24 @@
 
 
 .becouse-small{
-    font-size: 19px;
+    font-size: 17px;
+}
+
+
+.becouse{font-size: 23px;margin-bottom: 20px;}
+
+.becouse-list li .becouse-big{
+    font-size: 25px;
+    line-height: 35px;
+}
+
+.littleT{
+    font-size: 20px;
+    margin-left: -2px;
+}
+
+.person-title{font-size: 24px !important;}
+
+.person-text{
+    font-size: 17px !important;
 }
