@@ -70,3 +70,7 @@ body{
 .person-text{
     font-size: 19px !important;
 }
+
+.bordered{
+    font-size: 20px;
+}
