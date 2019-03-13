@@ -1,3 +1,10 @@
 .box{
     font-size: 1em;
 }
+
+
+.lr-menu-item {
+    font-size: 14px;
+    padding: 29px 0 0 5px;
+    vertical-align: top;
+}

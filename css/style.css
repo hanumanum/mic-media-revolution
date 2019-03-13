@@ -33,11 +33,11 @@ body{
     float: right;
 }
 
-#language.hy{
+.language.hy{
   background-image: url("../img/icons/hy.png");
 }
 
-#language.en{
+.language.en{
   background-image: url("../img/icons/en.png");
 }
 

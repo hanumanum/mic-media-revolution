@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 const INITIAL_SIZE = 1900;
 const INITIAL_SIZE_HEIGHT = 1200;
 const EXPERTISEPAGE = (LANG == "en") ? "experience.html" : "experience_hy.html";
