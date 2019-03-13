@@ -190,7 +190,7 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 
 function slideLine() {
     const anchores = ["s1", "s17", "s34", "s51", "intro","about","expertise","home"]
-    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","expertise","home"] : ["տեսնում եմ", "լսում եմ", "խոսում եմ", "գործում եմ", "ինտրո","մասին","փորձագիտական","սկիզբ"]
+    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","think","home"] : ["տեսնում եմ", "լսում եմ", "խոսում եմ", "գործում եմ", "ներածություն","մենք","մտածում եմ","սկիզբ"]
     const anchoresSmalls = ["intro","about","expertise","home"]
     $("#slideLine").empty()
     let sections = $(".section")
@@ -669,4 +669,14 @@ function initHome(){
                         .toLowerCase()
     }
 
+}
+
+
+function updateLanguageLink(currentAnchor){
+    let link = $(".language-hidden").parent()
+    let href = $(link).attr("href");
+    
+    let linkStart = href.split("#")[0]
+    linkStart+="#"+currentAnchor
+    $(link).attr("href",linkStart)
 }

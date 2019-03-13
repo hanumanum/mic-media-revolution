@@ -225,6 +225,9 @@ new fullpage('#fullpage', {
         //let topForArrow = calcDistance($("section"))
 
         slideLine()
+        
+        let currentAnchor = $(destination.item).data("anchor")
+        updateLanguageLink(currentAnchor)
 
     }
 
