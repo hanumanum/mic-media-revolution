@@ -62,11 +62,14 @@ new fullpage('#fullpage', {
         let personVideo = $(slide).find(".personVideo")
         if (personVideo.length != 0) {
             videosList = prepareVideos(personVideo, { 'autopause': false })
-            if (LANG === "en") {
-                let tb = $(slide).find(".translation-button")[0]
-                $(tb).css("visibility", "visible")
-            }
         }
+
+        if (LANG === "en") {
+            let tb = $(slide).find(".translation-button")[0]
+            $(tb).css("visibility", "visible")
+
+        }
+
 
         var backgroundVideo = $(slide).find(".backgroundvideo")
         if (backgroundVideo.length != 0) {
