@@ -493,7 +493,8 @@ function initBxGallery(elem) {
         mode: 'fade',
         captions: false,
         adaptiveHeight: true,
-        auto: true
+        auto: true,
+        stopAutoOnClick:true
     });
 }
 
