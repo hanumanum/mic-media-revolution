@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Arian';
-    src: url('../fonts/arian_amu.woff')  format('truetype'), /* Safari, Android, iOS */
+    src: url('../fonts/arian_amu.woff')
 }
 
 *{
