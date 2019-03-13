@@ -1,4 +1,5 @@
-const TOP_OFFSET_SLIDELINE = 50
+const TOP_OFFSET_SLIDELINE = 50;
+const BOTTOM_OFFSET_SLIDELINE = 60;
 const SLIDELINE_POINT_HEIGHT = 18;
 const POINTHEIGTH = 5
 
@@ -266,7 +267,7 @@ function setStateSliedLinePoints(p) {
 }
 
 function calcDistance(sections) {
-    let h = $(window).height() - TOP_OFFSET_SLIDELINE - 4 * SLIDELINE_POINT_HEIGHT
+    let h = $(window).height() - TOP_OFFSET_SLIDELINE - 4 * SLIDELINE_POINT_HEIGHT - BOTTOM_OFFSET_SLIDELINE
     let distance = Math.round(h / sections.length)
     return distance
 }
@@ -287,6 +288,7 @@ function followSlideLine() {
 function initScale() {
     $(window).on("resize", changeRatio)
     $(window).on("load", changeRatio)
+    $(window).on("resize", slideLine)
 }
 
 function savePositionsOfRelatives() {

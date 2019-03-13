@@ -273,8 +273,4 @@ if (DEBUG) {
     initManualRepositions()
 }
 
-$(function(){
-     
-})
-
 
