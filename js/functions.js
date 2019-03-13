@@ -18,7 +18,7 @@ function initMenuAndTools() {
     scrollSound = new Audio('scroll.mp3')
     scrollSound.volume = 0.2
 
-    hoverSound = new Audio('../audio/homesound.mp3')
+    hoverSound = new Audio('./audio/homesound.mp3')
     hoverSound.volume = 0.2
     /*
     $("#sound").click(function (){
