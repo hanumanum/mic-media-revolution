@@ -125,16 +125,16 @@ function longReadMenuAndScroll() {
 function initParalaxForLongRead() {
     let controller = new ScrollMagic.Controller();
     let offset1 = 0
-    let duration1 = (LANG == "en")? 1400 : 1700
+    let duration1 = (LANG == "en")? 1400 : 1550
 
-    let offset2 = (LANG == "en")? 1800 :2000
-    let duration2 = (LANG == "en") ? 1000 : 1200
+    let offset2 = (LANG == "en")? 1800 :1900
+    let duration2 = (LANG == "en") ? 1000 : 1000
     
-    let offset3 = (LANG == "en") ? 3200 : 3650
-    let duration3 = (LANG == "en") ? 950 : 1150
+    let offset3 = (LANG == "en") ? 3200 : 3300
+    let duration3 = (LANG == "en") ? 950 : 1050
     
-    let offset4 = (LANG == "en") ? 4500 : 5200
-    let duration4 = (LANG == "en") ? 1200 : 1200
+    let offset4 = (LANG == "en") ? 4500 : 4700
+    let duration4 = (LANG == "en") ? 1200 : 1100
     
     if(DEBUG){
         makeScrollMagicSceneWithIndicators("gegham", duration1, offset1, 1)
