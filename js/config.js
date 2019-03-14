@@ -35,7 +35,7 @@ window.onload = function () {
 }
 
 var twitterBtn = document.getElementById('twitter-button');
-var text = encodeURIComponent('Hey everyone, come & see how good I look!');
+var text = encodeURIComponent('');
 var shareUrl = 'https://twitter.com/intent/tweet?url=' + location.href + '&text=' + text;
 twitterBtn.href = shareUrl; // 1
 
