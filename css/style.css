@@ -144,7 +144,7 @@ body{
   float:left;
   padding: 50px;
   text-align: left;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .about-logo{
@@ -154,8 +154,8 @@ body{
 
 .about-title{
   font-weight: 400;
-  margin-top: 15px;
-  font-size: 13px;
+  margin-top: 10px;
+  font-size: 14px;
   font-weight: bold;
 }
 
