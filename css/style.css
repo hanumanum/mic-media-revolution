@@ -62,6 +62,7 @@ body{
 #nav-arrow{
   background-image: url("../img/icons/arrow.png");
   position: fixed;
+  text-align: -webkit-auto;
   bottom: 5px;
   left: 50%;
   margin-left: -16px;
@@ -72,6 +73,15 @@ body{
   background-size: contain;
   background-repeat: no-repeat;
   animation: pulse 5s infinite;
+  display: none;
+}
+
+#scrolldown{
+  position: fixed;
+  bottom: 46px;
+  left: 50%;
+  margin-left: -41px;
+  display: none;
 }
 
 #nav-arrow:hover{

@@ -1,4 +1,4 @@
-let scrollSound, hoverSound; 
+let scrollSound, hoverSound;
 let browserWidth = $(window).width();
 let browserHeight = $(window).height();
 let beeIntervals = [];
@@ -12,17 +12,20 @@ initMenuAndTools()
 //savePositionsOfRelatives()
 
 $(function () {
-    initOpacityBackgrounds()
-    initToolTips()
     initIntro()
     initHome()
+    initOpacityBackgrounds()
+    initToolTips()
 })
+
+
+//alert("loaded window")
+//console.log("")
 
 
 new fullpage('#fullpage', {
     fadingEffect: true,
-    fadingEffectKey:"dmVsdmV0c2tldGNoZXMubWVkaWEuYW1fbDRmWm1Ga2FXNW5SV1ptWldOMGxTNQ==",
-    //fadingEffectKey: "18DF4FFA-5D204426-AC93E15C-E7F303EF",
+    fadingEffectKey: "dmVsdmV0c2tldGNoZXMubWVkaWEuYW1fbDRmWm1Ga2FXNW5SV1ptWldOMGxTNQ==",
     verticalCentered: true,
     lazyLoading: true,
     afterLoad: function (origin, destination, direction) {
@@ -30,7 +33,7 @@ new fullpage('#fullpage', {
             initCoverPageEffects();
         }
 
-        if(destination.item.id=="expertise"){
+        if (destination.item.id == "expertise") {
             window.location.assign(EXPERTISEPAGE)
         }
 
@@ -75,7 +78,7 @@ new fullpage('#fullpage', {
         if (backgroundVideo.length != 0) {
             let bckgrVidID = $(backgroundVideo[0]).attr("id")
             if (bckgrVidID) {
-                let videosListBkgr = prepareVideos(backgroundVideo, { 'controls': [], 'settings': ['loop'], 'loop':{ active: true }, 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false })
+                let videosListBkgr = prepareVideos(backgroundVideo, { 'controls': [], 'settings': ['loop'], 'loop': { active: true }, 'clickToPlay': false, 'autoplay': true, 'muted': true, 'autopause': false })
                 videosListBkgr[0].volume = 0
                 videosList = videosList.concat(videosListBkgr);
             }
@@ -193,10 +196,10 @@ new fullpage('#fullpage', {
 
 
         let gallery = $(slide).find(".slider")
-        if(gallery && gallery!==undefined && gallery.length>0) {
+        if (gallery && gallery !== undefined && gallery.length > 0) {
             galleryes.push(initBxGallery(gallery))
         }
-        
+
 
         /*
         let zoomer = $(slide).find(".zoomer")
@@ -225,7 +228,7 @@ new fullpage('#fullpage', {
         //let topForArrow = calcDistance($("section"))
 
         slideLine()
-        
+
         let currentAnchor = $(destination.item).data("anchor")
         updateLanguageLink(currentAnchor)
 
@@ -245,7 +248,7 @@ new fullpage('#fullpage', {
         beeIntervals = []
         */
 
-        
+
 
         let slide = $("#" + origin.item.id);
         $(slide).find(".translation-button").off("click")
@@ -264,8 +267,8 @@ new fullpage('#fullpage', {
 
         closeToolTips()
 
-        galleryes = destroyBxGallery(galleryes)        
-        
+        galleryes = destroyBxGallery(galleryes)
+
     }
 
 });

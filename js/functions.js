@@ -1,5 +1,5 @@
 const TOP_OFFSET_SLIDELINE = 50;
-const BOTTOM_OFFSET_SLIDELINE = 60;
+const BOTTOM_OFFSET_SLIDELINE = 55;
 const SLIDELINE_POINT_HEIGHT = 18;
 const POINTHEIGTH = 5
 
@@ -581,6 +581,15 @@ function initCoverPageEffects() {
             }
         }, LINE_TICK)
     }, LINE_TIME_OUT)
+
+
+    window.onload = function () {
+       
+        $("#scrolldown").show("slow", function(){
+            $("#nav-arrow").show("slow");
+        });
+    }
+
 }
 
 
