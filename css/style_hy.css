@@ -75,3 +75,8 @@ body{
 .bordered{
     font-size: 20px;
 }
+
+.about-small{
+    font-size: 11px;
+    margin-top: 8px;
+}

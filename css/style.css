@@ -116,6 +116,11 @@ body{
   font-size: 16px;
 }
 
+.about-small{
+  font-size: 15px;
+  margin-top: 10px;
+}
+
 .invisible{
   display: none;
 }
