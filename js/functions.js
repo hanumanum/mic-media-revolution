@@ -125,42 +125,42 @@ function longReadMenuAndScroll() {
 function initParalaxForLongRead() {
     let controller = new ScrollMagic.Controller();
     let offset1 = 0
-    let duration1 = (LANG == "en")? 1400 : 1550
+    let duration1 = (LANG == "en") ? 1400 : 1550
 
-    let offset2 = (LANG == "en")? 1800 :1900
+    let offset2 = (LANG == "en") ? 1800 : 1900
     let duration2 = (LANG == "en") ? 1000 : 1000
-    
+
     let offset3 = (LANG == "en") ? 3200 : 3300
     let duration3 = (LANG == "en") ? 950 : 1050
-    
+
     let offset4 = (LANG == "en") ? 4500 : 4700
     let duration4 = (LANG == "en") ? 1200 : 1100
-    
-    if(DEBUG){
+
+    if (DEBUG) {
         makeScrollMagicSceneWithIndicators("gegham", duration1, offset1, 1)
         makeScrollMagicSceneWithIndicators("inga", duration2, offset2, 2)
         makeScrollMagicSceneWithIndicators("aghasi", duration3, offset3, 3)
         makeScrollMagicSceneWithIndicators("lusine", duration4, offset4, 4)
     }
-    else{
+    else {
         makeScrollMagicScene("gegham", duration1, offset1, 1)
         makeScrollMagicScene("inga", duration2, offset2, 2)
         makeScrollMagicScene("aghasi", duration3, offset3, 3)
         makeScrollMagicScene("lusine", duration4, offset4, 4)
     }
 
-    function makeScrollMagicScene(id, duration, offset, number){
+    function makeScrollMagicScene(id, duration, offset, number) {
         new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration, offset: offset })
-                .setPin("#"+ id +" .lr-image-holder", { pushFollowers: false })
-                .addTo(controller);
+            .setPin("#" + id + " .lr-image-holder", { pushFollowers: false })
+            .addTo(controller);
 
     }
 
-    function makeScrollMagicSceneWithIndicators(id, duration, offset, number){
+    function makeScrollMagicSceneWithIndicators(id, duration, offset, number) {
         new ScrollMagic.Scene({ triggerElement: "#trigger", duration: duration, offset: offset })
-                .setPin("#"+ id +" .lr-image-holder", { pushFollowers: false })
-                .addIndicators({ name: number+" (duration: offset " + duration +":"+offset + ")" }) // add indicators (requires plugin)
-                .addTo(controller);
+            .setPin("#" + id + " .lr-image-holder", { pushFollowers: false })
+            .addIndicators({ name: number + " (duration: offset " + duration + ":" + offset + ")" }) // add indicators (requires plugin)
+            .addTo(controller);
 
     }
 
@@ -189,9 +189,9 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 }
 
 function slideLine() {
-    const anchores = ["s1", "s17", "s34", "s51", "intro","about","expertise","home"]
-    const anchoreTitles = (LANG=="en") ? ["see", "hear", "speak", "act", "intro","about","think","home"] : ["տեսնում եմ", "լսում եմ", "խոսում եմ", "գործում եմ", "ներածություն","մենք","մտածում եմ","սկիզբ"]
-    const anchoresSmalls = ["intro","about","expertise","home"]
+    const anchores = ["s1", "s17", "s34", "s51", "intro", "about", "expertise", "home"]
+    const anchoreTitles = (LANG == "en") ? ["see", "hear", "speak", "act", "intro", "about", "think", "home"] : ["տեսնում եմ", "լսում եմ", "խոսում եմ", "գործում եմ", "ներածություն", "մենք", "մտածում եմ", "սկիզբ"]
+    const anchoresSmalls = ["intro", "about", "expertise", "home"]
     $("#slideLine").empty()
     let sections = $(".section")
     let heightOfSlideLinePoint = calcDistance(sections)
@@ -239,7 +239,7 @@ function slideLine() {
             d.text(anchoreTitles[anchores.indexOf(anchor)])
         }
 
-        if(anchoresSmalls.indexOf(anchor) > -1){
+        if (anchoresSmalls.indexOf(anchor) > -1) {
             d.addClass("slideLinePointTitleSmall")
         }
 
@@ -466,7 +466,7 @@ function initToolTips() {
 }
 
 
-function closeToolTips(){
+function closeToolTips() {
     let allTooltips = $.tooltipster.instances();
     $.each(allTooltips, function (i, instance) {
         instance.close();
@@ -494,15 +494,15 @@ function initBxGallery(elem) {
         captions: false,
         adaptiveHeight: true,
         auto: true,
-        stopAutoOnClick:true
+        stopAutoOnClick: true
     });
 }
 
-function destroyBxGallery(gallerysArray){
-    for(gallery of gallerysArray){
+function destroyBxGallery(gallerysArray) {
+    for (gallery of gallerysArray) {
         gallery.destroySlider()
     }
-    gallerysArray=[]
+    gallerysArray = []
     return galleryes
 }
 
@@ -534,7 +534,7 @@ function prepareVideos(videos, config, autoplay = true) {
         videos.each(function (i, fv) {
             let custVidID = $(fv).attr("id")
             videosArray.push(new Plyr('#' + custVidID, config));
-            if(autoplay){
+            if (autoplay) {
                 videosArray[i].on("ended", function () {
                     if (videosArray[i + 1] !== undefined) {
                         videosArray[i + 1].play()
@@ -542,8 +542,8 @@ function prepareVideos(videos, config, autoplay = true) {
                 })
             }
         })
-        
-        if(autoplay){
+
+        if (autoplay) {
             videosArray[0].play()
         }
     }
@@ -560,34 +560,44 @@ function initCoverPageEffects() {
     const TITLE_LINE_SIZE = 400;
     const TITLE_TIMEOUT = 500;
     const IMAGE_TIMEOUT = 1000;
-
-    setTimeout(function () {
-        $(".cover-chapter-head").addClass("fadeIn animation4")
-    }, TITLE_TIMEOUT)
-
-    setTimeout(function () {
-        $(".cover-chapter-image").addClass("fadeIn animation4")
-    }, IMAGE_TIMEOUT)
-
-
-    setTimeout(function () {
-        $(".cover-chapter-line").css("display", "block")
-        let titleLineInterval = setInterval(function () {
-            let width = parseInt($(".cover-chapter-line").css("width"));
-            width += (LINE_TIME / LINE_TICK) / TITLE_LINE_SIZE
-            $(".cover-chapter-line").css("width", width + "px");
-            if (width >= TITLE_LINE_SIZE) {
-                clearInterval(titleLineInterval)
-            }
-        }, LINE_TICK)
-    }, LINE_TIME_OUT)
-
+    const TIME_BEFORE_START = 1500;
 
     window.onload = function () {
-       
-        $("#scrolldown").show("slow", function(){
+
+        $(".cover-text").fadeOut(TIME_BEFORE_START)
+
+        setTimeout(function () {
+
+            setTimeout(function () {
+                $(".cover-chapter-head").addClass("fadeIn animation4")
+            }, TITLE_TIMEOUT)
+
+            setTimeout(function () {
+                $(".cover-chapter-image").addClass("fadeIn animation4")
+            }, IMAGE_TIMEOUT)
+
+
+            setTimeout(function () {
+                $(".cover-chapter-line").css("display", "block")
+                let titleLineInterval = setInterval(function () {
+                    let width = parseInt($(".cover-chapter-line").css("width"));
+                    width += (LINE_TIME / LINE_TICK) / TITLE_LINE_SIZE
+                    $(".cover-chapter-line").css("width", width + "px");
+                    if (width >= TITLE_LINE_SIZE) {
+                        clearInterval(titleLineInterval)
+                        showScrollbarAndNavArrow()
+                    }
+                }, LINE_TICK)
+            }, LINE_TIME_OUT)
+
+        }, TIME_BEFORE_START)
+    }
+
+    function showScrollbarAndNavArrow(){
+        $("#scrolldown").show("slow", function () {
             $("#nav-arrow").show("slow");
         });
+
     }
 
 }
@@ -607,7 +617,7 @@ function initIntro() {
     })
 }
 
-function initManualRepositions(){
+function initManualRepositions() {
     let relativesData = {}
     $(function () {
         $(".relatives , .relatives-fade").draggable({
@@ -627,65 +637,65 @@ function initManualRepositions(){
 }
 
 
-function initHome(){
+function initHome() {
     const boxes = {
-        act:{
-            backgroundImage:"img/box/act.gif",
-            selectorForChange:"#sect4-right",
+        act: {
+            backgroundImage: "img/box/act.gif",
+            selectorForChange: "#sect4-right",
             background: "img/box/act.jpg",
             anchor: "s51"
         },
-        speak:{
-            backgroundImage:"img/box/speak.gif",
-            selectorForChange:"#sect4-left",
+        speak: {
+            backgroundImage: "img/box/speak.gif",
+            selectorForChange: "#sect4-left",
             background: "img/box/speak.jpg",
             anchor: "s34"
         },
-        hear:{
-            backgroundImage:"img/box/hear.gif",
-            selectorForChange:"#sect4-left",
+        hear: {
+            backgroundImage: "img/box/hear.gif",
+            selectorForChange: "#sect4-left",
             background: "img/box/hear.jpg",
             anchor: "s17"
         },
-        see:{
-            backgroundImage:"img/box/see.gif",
-            selectorForChange:"#sect4-right",
+        see: {
+            backgroundImage: "img/box/see.gif",
+            selectorForChange: "#sect4-right",
             background: "img/box/see.jpg",
             anchor: "s1"
         }
     }
 
-    $(".box").mouseover(function(){
-        $(".box").css("background-image","none");
-        $("#sect4-right , #sect4-left").css("background-image","none")
+    $(".box").mouseover(function () {
+        $(".box").css("background-image", "none");
+        $("#sect4-right , #sect4-left").css("background-image", "none")
         hoverSound.currentTime = 0
         hoverSound.play()
 
-        let id = getId($(this)) 
-        $(this).css("background-image","url("+boxes[id].backgroundImage+")")
-        $(boxes[id].selectorForChange).css("background-image","url("+boxes[id].background+")")
-        
-    })
-
-    $(".box").click(function(){
         let id = getId($(this))
-        fullpage_api.moveTo(boxes[id].anchor,0);
+        $(this).css("background-image", "url(" + boxes[id].backgroundImage + ")")
+        $(boxes[id].selectorForChange).css("background-image", "url(" + boxes[id].background + ")")
+
     })
 
-    function getId(elem){
+    $(".box").click(function () {
+        let id = getId($(this))
+        fullpage_api.moveTo(boxes[id].anchor, 0);
+    })
+
+    function getId(elem) {
         return $(elem).prop("id")
-                        .substring(1)
-                        .toLowerCase()
+            .substring(1)
+            .toLowerCase()
     }
 
 }
 
 
-function updateLanguageLink(currentAnchor){
+function updateLanguageLink(currentAnchor) {
     let link = $(".language-hidden").parent()
     let href = $(link).attr("href");
-    
+
     let linkStart = href.split("#")[0]
-    linkStart+="#"+currentAnchor
-    $(link).attr("href",linkStart)
+    linkStart += "#" + currentAnchor
+    $(link).attr("href", linkStart)
 }

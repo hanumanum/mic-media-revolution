@@ -84,6 +84,14 @@ body{
   display: none;
 }
 
+.cover-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -333px;
+  font-size: 21px;
+}
+
 #nav-arrow:hover{
   opacity: 1;
   cursor: pointer;
