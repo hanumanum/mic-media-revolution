@@ -488,6 +488,16 @@ function initOpacityBackgrounds() {
 }
 
 function initBxGallery(elem) {
+    elem.html("")
+    let arrayName = elem.data("han-src-array")
+    for(let imgSrc of GALLERYSLIDERIMAGES[arrayName]){
+        let divWithImage = $("<div>")
+                                .addClass("slider-image-bkgr")
+                                .css("background-image","url('"+imgSrc+"')")
+        
+        elem.append(divWithImage)
+    }
+
     return elem.bxSlider({
         keyboardEnabled: true,
         mode: 'fade',
