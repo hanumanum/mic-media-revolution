@@ -5,6 +5,19 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
+#spinner {
+  width: 92px;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-left: -40px;
+}
+
+#spinner img {
+  width:100%;
+}
+
+
 #tools{
   position: fixed;
   right:20px;

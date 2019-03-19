@@ -11,6 +11,14 @@ body{
     font-family: 'Arian';
 }
 
+#spinner {
+    width: 92px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    margin-left: -72px;
+  }
+  
 
 .intro-left-large{
     font-size: 18px;

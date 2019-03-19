@@ -554,8 +554,8 @@ function prepareVideos(videos, config, autoplay = true) {
 
 
 function initCoverPageEffects() {
-    const LINE_TIME = 3000
-    const LINE_TICK = 2;
+    const LINE_TIME = 3000;
+    const LINE_TICK = 4;
     const LINE_TIME_OUT = 1000;
     const TITLE_LINE_SIZE = 400;
     const TITLE_TIMEOUT = 500;
@@ -564,7 +564,9 @@ function initCoverPageEffects() {
 
     window.onload = function () {
 
+
         $(".cover-text").fadeOut(TIME_BEFORE_START)
+        $("#spinner").fadeOut(TIME_BEFORE_START)
 
         setTimeout(function () {
 
@@ -597,9 +599,7 @@ function initCoverPageEffects() {
         $("#scrolldown").show("slow", function () {
             $("#nav-arrow").show("slow");
         });
-
     }
-
 }
 
 
