@@ -8,7 +8,7 @@ body{
 a{
   color: white;
   opacity: 0.8;
-  width: 100%;
+  /* width: 100%; */
 }
 
 a:hover, a:active{
