@@ -16,7 +16,7 @@ body{
     position: fixed;
     top: 30%;
     left: 50%;
-    margin-left: -72px;
+    margin-left: -52px;
   }
   
 
@@ -96,5 +96,5 @@ body{
 
 
 .cover-text{
-    margin-left: -436px;
+    margin-left: -150px;
 }

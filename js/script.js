@@ -3,6 +3,7 @@ let browserWidth = $(window).width();
 let browserHeight = $(window).height();
 let beeIntervals = [];
 let menuOpened = false;
+let menuForCurrentPageForced = false;
 let videosList = [];
 let galleryes = [];
 
@@ -32,6 +33,9 @@ new fullpage('#fullpage', {
         if (destination.item.id === "cover") {
             initCoverPageEffects();
         }
+        else{
+            $("#nav-arrow").show("slow");
+        }
 
         if (destination.item.id == "expertise") {
             window.location.assign(EXPERTISEPAGE)
@@ -46,12 +50,6 @@ new fullpage('#fullpage', {
                 if (videosList[0].currentTime > 0 && videosList[0].currentTime > videosList[0].duration - 0.3) {
                     $(slide).find(".plyr__control").hide()
                     videosList[0].pause()
-
-                    /*
-                    setTimeout(function(){
-                        fullpage_api.moveSectionDown();
-                    },200)
-                    */
                 }
             })
         }
@@ -227,11 +225,18 @@ new fullpage('#fullpage', {
 
         //let topForArrow = calcDistance($("section"))
 
-        slideLine()
-
         let currentAnchor = $(destination.item).data("anchor")
+        if(openSlideline(currentAnchor)){
+            setTimeout(function(){
+                slideLine()
+            }, TIME_BEFORE_SLIDELINE)
+            
+        }
+        else{
+            slideLine()
+        }
+        
         updateLanguageLink(currentAnchor)
-
     }
 
     , onLeave: function (origin, destination, direction) {

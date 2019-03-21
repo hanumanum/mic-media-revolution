@@ -2,6 +2,8 @@ const TOP_OFFSET_SLIDELINE = 50;
 const BOTTOM_OFFSET_SLIDELINE = 55;
 const SLIDELINE_POINT_HEIGHT = 18;
 const POINTHEIGTH = 5
+const TIME_BEFORE_SLIDELINE = 1000; 
+
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -188,6 +190,12 @@ function scrollInfo(delta = 5, lastScrollInfo, callback) {
 
 }
 
+function openSlideline(anchor){
+    const chapetrEnds = ["s16", "s33", "s50"]
+    menuForCurrentPageForced = (chapetrEnds.indexOf(anchor)>-1)?true:false;
+    return menuForCurrentPageForced
+}
+
 function slideLine() {
     const anchores = ["s1", "s17", "s34", "s51", "intro", "about", "expertise", "home"]
     const anchoreTitles = (LANG == "en") ? ["see", "hear", "speak", "act", "intro", "about", "think", "home"] : ["տեսնում եմ", "լսում եմ", "խոսում եմ", "գործում եմ", "ներածություն", "մենք", "մտածում եմ", "սկիզբ"]
@@ -199,28 +207,6 @@ function slideLine() {
     let activeSectionIndex = activeSection.index
     let currentSectionIndex = 0;
 
-    /*
-    let aboutLink = $("<div>")
-        .text("about")
-        .addClass("slideLinePoint")
-        .addClass("slideLinePointTitle")
-        .addClass("seen")
-        .css({ "height": SLIDELINE_POINT_HEIGHT })
-
-    $("#slideLine").append(aboutLink)
-    */
-    /*
-    let introLink = $("<div>")
-        .text("intro")
-        .addClass("slideLinePoint")
-        .addClass("slideLinePointTitle")
-        .addClass("seen")
-        .css({ "height": SLIDELINE_POINT_HEIGHT })
-    $("#slideLine").append(introLink)
-    */
-
-    //setStateSliedLinePoints(aboutLink)
-    //setStateSliedLinePoints(introLink)
 
     for (let section of sections) {
         let d = $("<div>")
@@ -247,7 +233,7 @@ function slideLine() {
             fullpage_api.moveTo(anchor);
         })
 
-        setStateSliedLinePoints(d)
+        setStateSlideLinePoints(d)
 
         $("#slideLine").append(d)
 
@@ -257,8 +243,11 @@ function slideLine() {
 }
 
 
-function setStateSliedLinePoints(p) {
+function setStateSlideLinePoints(p) {
     if (menuOpened) {
+        p.css({ "display": "block" })
+    }
+    else if (menuForCurrentPageForced){
         p.css({ "display": "block" })
     } else {
         p.css({ "display": "none" })
@@ -286,9 +275,10 @@ function followSlideLine() {
 
 
 function initScale() {
-    $(window).on("resize", changeRatio)
     $(window).on("load", changeRatio)
     $(window).on("resize", slideLine)
+    $(window).on("resize", changeRatio)
+   
 }
 
 function savePositionsOfRelatives() {
