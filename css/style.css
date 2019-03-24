@@ -755,6 +755,10 @@ a:hover, a:active{
   left: 8px;
   top: 50px;
   z-index: 9999;
+  /*
+  width: auto;
+  background-color: #000000d1;
+  */
 }
 
 #slideLineFirst{
