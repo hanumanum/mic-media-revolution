@@ -33,6 +33,8 @@ setTimeout(function () {
         verticalCentered: true,
         lazyLoading: true,
         afterLoad: function (origin, destination, direction) {
+            
+            
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
@@ -292,4 +294,8 @@ if (DEBUG) {
     initManualRepositions()
 }
 
+// let tabindex = $( "div[tabindex='0']")
+// if(tabindex){
+//     $("div.none").removeClass("none")
+// }
 
