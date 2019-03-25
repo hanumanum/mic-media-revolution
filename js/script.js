@@ -248,14 +248,13 @@ setTimeout(function () {
 
             updateLanguageLink(currentAnchor)
             
-            var dShow = $("div.active div.none")
+            let blockDiv = $("div.active div.none")
             setTimeout(()=>{
-                dShow.removeClass("none").addClass("show")
+                blockDiv.removeClass("none").addClass("show")
             },1000)
-                        }
-
+            }
         , onLeave: function (origin, destination, direction) {
-            var dShow = $("div.show").addClass("none").removeClass("show")
+            let noneDiv = $("div.show").addClass("none").removeClass("show")
             for (ply of videosList) {
                 ply.destroy()
             }
