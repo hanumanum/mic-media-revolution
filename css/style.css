@@ -3,6 +3,7 @@ body{
   color: white;
   font-family: 'Roboto';
   -webkit-font-smoothing:antialiased;
+  overflow: hidden;
 }
 
 a{
@@ -1100,3 +1101,10 @@ div{
   border: 1px white solid;
 }
 */
+.show{
+display: block;
+}
+.none{
+  display: none;
+  transition: 1s;
+}
