@@ -21,10 +21,9 @@ function checkMobile() {
 }
 
 function toggleMobileForRelatives() {
-    if (IS_MOBILE) {
+    if (!IS_MOBILE) {
         let zoomerIndex = 0
         let relativeIndex = 0
-
         screen.orientation.lock('landscape');
         $(".zoomer").each(function (i, zoomer) {
             $(zoomer).hide()
@@ -643,6 +642,7 @@ function initCoverPageEffects() {
 
 
 function initIntro() {
+     if(!IS_MOBILE){
     let introClosed = true;
     $(".intro-right").css({ "left": window.innerWidth });
     $("#more").click(function () {
@@ -655,7 +655,7 @@ function initIntro() {
         introClosed = !introClosed
     })
 }
-
+ }
 function initManualRepositions() {
     let relativesData = {}
     $(function () {
@@ -748,4 +748,13 @@ function setSound() {
     for (video of videosList) {
         video.volume = volume
     }
+}
+function initIntroMobile(){
+    $(".intro-right").append(`<div class="close"><i class="fas fa-times"></i></div>`)
+    $("#more").on("click",()=>{
+        $(".intro-right").css("right","8%")
+    })
+    $(".close").on("click",()=>{
+        $(".intro-right").css("right","-95%")
+    })
 }

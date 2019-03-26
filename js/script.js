@@ -14,11 +14,11 @@ $(function () {
     initIntro()
     initHome()
     initOpacityBackgrounds()
-
-
     if (IS_MOBILE) {
+        initIntroMobile()
         //toggleMobile()
         toggleMobileForRelatives()
+
     }
     else {
         initToolTips()
@@ -199,10 +199,25 @@ setTimeout(function () {
             if (trtext && trtext !== "undefined") {
                 $(slide).find(".translation-button").on("click", function () {
                     trtext.slideToggle(300);
+                    $(".scrolldown").fadeToggle(50)
+                    $(".scrollup").fadeToggle(50)
                 })
             }
-
-
+            let translationBox = $(".active .translation-text")
+            let scrollDownButton = $(".active div.scrolldown")
+            let scrollUpButton = $(".active div.scrollup")
+            // var height = ($(window).height()) / translationBox.height()
+            // height.toString()
+            // console.log(height)
+            // $(".scrollup").css("top",`${height}px`)
+            // $(".scrolldown").css("top",`${height * 2}px`)
+                scrollDownButton.on("click",function(){
+                    translationBox.animate({ scrollTop: translationBox[0].scrollTop+=200}, 1000);
+                })
+                scrollUpButton.on("click",function(){
+                    translationBox.animate({ scrollDown: translationBox[0].scrollTop-=200}, 1000);
+                    // return false;
+                })
             let gallery = $(slide).find(".slider")
             if (gallery && gallery !== undefined && gallery.length > 0) {
                 galleryes.push(initBxGallery(gallery))
