@@ -178,9 +178,7 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
-
-    }
-
+    
     .fp-controlArrow.fp-next{
         right: 0px;
         /* border-width: 13.5px 0 13.5px 18px; */
@@ -193,6 +191,8 @@
         transform: rotate(90deg);
     }
 
-    
+    .fp-section.active{
+        z-index: 500
+    }
 
 }

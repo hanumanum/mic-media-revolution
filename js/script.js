@@ -11,7 +11,7 @@ initScale()
 initMenuAndTools()
 
 $(function () {
-    initIntro()
+    
     initHome()
     initOpacityBackgrounds()
 
@@ -19,8 +19,10 @@ $(function () {
     if (IS_MOBILE) {
         //toggleMobile()
         toggleMobileForRelatives()
+        toogleMobileForIntro()
     }
     else {
+        initIntro()
         initToolTips()
     }
 })
