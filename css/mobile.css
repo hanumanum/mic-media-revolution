@@ -97,13 +97,13 @@
         background-color: black;
         text-align: left;
         display: none;
-        height: 79%;
+        height: 140%;
         padding: 11%;
         font-size: 16px;
         margin: auto;
         z-index: 100;
         position: absolute;
-        top: 78%;
+        bottom: -116%;
         overflow: hidden;
         padding-top: 1px;
     }
@@ -125,26 +125,26 @@
         background-image: url(../img/icons/arrow.png);
         transform: rotate(0deg);
         position: fixed;
-        top: 130%;
+        top: 143%;
         width: 42px;
         height: 22px;
-        background-size: 40px;
+        background-size: 39px;
         background-repeat: no-repeat;
-        right: 1%;
+        left: 87%;
     }
     .translation-scroll-button-left{
         background-image: url(../img/icons/arrow.png);
         transform: rotate(180deg);
         position: fixed;
-        top: 96%;
+        top: 104%;
         width: 42px;
         height: 22px;
-        background-size: 40px;
+        background-size: 39px;
         background-repeat: no-repeat;
-        right: 1%;
+        left: 86%;
     }
     .translation-close-button{
-        top: 69%;
+        top: 66%;
         padding-top: 6px;
         padding-left: 9px;
         right: 2%;
@@ -159,13 +159,16 @@
     .person-title{
         font-size: 0.9em;
         line-height: 1em;
-        padding: 13px 22px 3px 29px;
+        padding: 2%;
+        padding-left: 8%;
     }
 
     .person-text{
+        width: 100%;
         font-size: 0.9em;
-        line-height: 1em;
-        padding: 13px 22px 3px 29px;
+    line-height: 1em;
+    padding: 2%;
+    padding-left: 8%;
     }
 
     .person-text-right{
@@ -275,8 +278,10 @@
     padding: 10%;
     padding: 2% 5% 2% 5%;
     font-size: 18px;
+    text-align: left;
     }
     .introDivP p{
         margin: 0px;
+        padding: 10px;
     }
 }

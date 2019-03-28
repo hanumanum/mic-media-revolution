@@ -200,10 +200,13 @@ setTimeout(function () {
 
 
             let trtext = $(slide).find(".translation-text")
+           
             if (trtext && trtext !== "undefined") {
                 $(slide).find(".translation-button").on("click", function () {
                     scrollTransolation()
-                    trtext.fadeIn(300);
+                    trtext.fadeIn(50);
+                    $(".person-title").css("color","black")
+                    $(".person-text").css("color","black")
                 })
             }
             let gallery = $(slide).find(".slider")

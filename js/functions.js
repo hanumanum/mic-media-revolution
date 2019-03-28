@@ -22,6 +22,8 @@ function checkMobile() {
 
 
 function toogleMobileForIntro() {
+    console.log("ze")
+    $("#more").remove()
     let il = $("#introi").find(".intro-left");
     let ir = $("#introi").find(".intro-right");
     $(il).hide();
@@ -32,36 +34,39 @@ function toogleMobileForIntro() {
     let slide2 = $("<div>").addClass("slide")
     let slide3 = $("<div>").addClass("slide")
     let slide4 = $("<div>").addClass("slide")
+    let slide5 = $("<div>").addClass("slide")
+    let slide6 = $("<div>").addClass("slide")
     let pFirst = $(".intro-right").find("p:first-child")
     let pLast = $(".intro-right").find("p:last-child")
     for (let i = 0; i < $(paragrsil).length; i++) {
         if (i < 2) {
             slide1.append($(`<div class="introDivP">`).append($(paragrsil[i])))
         }
-        else {
+        else if (i > 2 && i < 5) {
             slide2.append($(`<div class="introDivP">`).append($(paragrsil[i])))
+        } else {
+            slide6.append($(`<div class="introDivP">`).append($(paragrsil[i])))
         }
     }
-    var ullength = Math.round($(paragrsir).length / 2)
     for (let i = 0; i < $(paragrsir).length; i++) {
         slide3.prepend($(pFirst))
-        if (i < ullength) {
+        if (i < 3) {
             slide3.append($(`<div class="introDivP">`).append($(paragrsir[i])))
         }
-        else {
+        else if (i > 3 && i < 6) {
             slide4.append($(`<div class="introDivP">`).append($(paragrsir[i])))
         }
-        slide4.append($(pLast))
+        else {
+            slide5.append($(`<div class="introDivP">`).append($(paragrsir[i])))
+        }
+        slide4.append($(`<div class="introDivP">`).append($(pLast)))
     }
     $("#introi").append(slide1)
     $("#introi").append(slide3)
+    $("#introi").append(slide5)
     $("#introi").append(slide4)
     $("#introi").append(slide2)
-    
-    // $("#introi").append($("<div>").addClass("slide").append(ir.html()))
-    $("#introi #more").click(function () {
-        fullpage_api.moveTo("intro", 2);
-    })
+    $("#introi").append(slide6)
 }
 
 function toggleMobileForRelatives() {
@@ -101,35 +106,38 @@ function toggleMobileForRelatives() {
 }
 
 function scrollTransolation() {
-    console.log("ds")
+var bool = $(".active .translation-text .translation-close-button")
     let trText = $(".active .translation-text")
-    if (trText) {
+    if (bool.length == 0) {
         $(trText).prepend(`<div class="translation-close-button"><i class="fas fa-times fa-2x"></i></div>`)
-        $(trText).append(`<div class="translation-scroll-button-right"></div>`)
-        $(trText).append(`<div class="translation-scroll-button-left"></div>`)
-  
+        $(trText).prepend(`<div class="translation-scroll-button-right"></div>`)
+        $(trText).prepend(`<div class="translation-scroll-button-left"></div>`)
+       
+    }
+    else{
+        console.log("d")
     }
     scrollTransolationClose()
     rightClick()
     leftClick()
-
     function scrollTransolationClose() {
-        $(".translation-close-button").on("click",()=>{
+        $(".translation-close-button").on("click", () => {
             $(".translation-text").fadeOut()
             $(".translation-close-button").remove()
             $(".translation-scroll-button-right").remove()
             $(".translation-scroll-button-left").remove()
-
+            $(".person-title").css("color","white")
+                    $(".person-text").css("color","white")   
         })
     }
-    function rightClick(){
-        $(".translation-scroll-button-right").on("click",()=>{
-            trText[0].scrollTop = trText[0].scrollTop+=50
+    function rightClick() {
+        $(".translation-scroll-button-right").on("click", () => {
+            trText[0].scrollTop = trText[0].scrollTop += 50
         })
     }
-    function leftClick(){
-        $(".translation-scroll-button-left").on("click",()=>{
-            trText[0].scrollTop = trText[0].scrollTop-=50
+    function leftClick() {
+        $(".translation-scroll-button-left").on("click", () => {
+            trText[0].scrollTop = trText[0].scrollTop -= 50
         })
     }
 }
