@@ -99,10 +99,9 @@
     }
 
     .person-title{
-        font-size: 1.3em;
+        font-size: 0.9em;
         line-height: 1em;
-        padding: 24px 7px 2px 7px;
-        text-align: center !important;
+        padding: 13px 22px 3px 29px;
     }
 
     .person-text{
@@ -179,9 +178,7 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
-
-    }
-
+    
     .fp-controlArrow.fp-next{
         right: 0px;
         /* border-width: 13.5px 0 13.5px 18px; */
@@ -194,6 +191,8 @@
         transform: rotate(90deg);
     }
 
-    
+    .fp-section.active{
+        z-index: 500
+    }
 
 }

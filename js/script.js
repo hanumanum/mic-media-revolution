@@ -11,7 +11,7 @@ initScale()
 initMenuAndTools()
 
 $(function () {
-    initIntro()
+    
     initHome()
     initOpacityBackgrounds()
 
@@ -19,8 +19,10 @@ $(function () {
     if (IS_MOBILE) {
         //toggleMobile()
         toggleMobileForRelatives()
+        toogleMobileForIntro()
     }
     else {
+        initIntro()
         initToolTips()
     }
 })
@@ -33,6 +35,8 @@ setTimeout(function () {
         verticalCentered: true,
         lazyLoading: true,
         afterLoad: function (origin, destination, direction) {
+            
+            
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
@@ -245,9 +249,14 @@ setTimeout(function () {
             }
 
             updateLanguageLink(currentAnchor)
-        }
-
+            
+            let blockDiv = $("div.active div.none")
+            setTimeout(()=>{
+                blockDiv.removeClass("none").addClass("show")
+            },1000)
+            }
         , onLeave: function (origin, destination, direction) {
+            let noneDiv = $("div.show").addClass("none").removeClass("show")
             for (ply of videosList) {
                 ply.destroy()
             }
@@ -292,4 +301,8 @@ if (DEBUG) {
     initManualRepositions()
 }
 
+// let tabindex = $( "div[tabindex='0']")
+// if(tabindex){
+//     $("div.none").removeClass("none")
+// }
 

@@ -20,16 +20,45 @@ function checkMobile() {
     */
 }
 
+
+function toogleMobileForIntro(){
+    let il = $("#introi").find(".intro-left");
+    let ir = $("#introi").find(".intro-right");
+
+    $(il).hide();
+    $(ir).hide();
+    
+    let paragrs = $(il).find("p");
+    let slide1 = $("<div>").addClass("slide")
+    let slide2 = $("<div>").addClass("slide")
+    
+    for(let i=0; i<$(paragrs).length; i++){
+        if(i<3){
+            slide1.append($(paragrs[i]))
+        }
+        else{
+            slide2.append($(paragrs[i]))
+        }
+    }
+
+    $("#introi").append(slide1)
+    $("#introi").append(slide2)
+    $("#introi").append($("<div>").addClass("slide").append(ir.html()))
+    $("#introi #more").click(function(){
+        fullpage_api.moveTo("intro",2);
+    })
+}
+
 function toggleMobileForRelatives() {
     if (IS_MOBILE) {
         let zoomerIndex = 0
         let relativeIndex = 0
 
-        screen.orientation.lock('landscape');
+        //screen.orientation.lock('landscape');
         $(".zoomer").each(function (i, zoomer) {
             $(zoomer).hide()
 
-            let relatives = $(zoomer).find(".relatives, .relatives-fade")
+            let relatives = $(zoomer).find(".relatives-fade,.relatives")
             $(relatives).each(function (z, relative) {
                 let isTTL = ($(relative).data("src") || "").indexOf("ttl") > -1
                 if (isTTL) {
@@ -46,7 +75,7 @@ function toggleMobileForRelatives() {
 
                 relativeIndex++;
             })
-
+            
             zoomerIndex++;
         })
 
@@ -321,7 +350,7 @@ function initScale() {
 }
 
 function savePositionsOfRelatives() {
-    $(".relatives , .relatives-fade").each(function (i, rel) {
+    $(".relatives-fade,.relatives ").each(function (i, rel) {
         let top = parseInt($(rel).css("top"))
         $(rel).data("top", top)
     })
@@ -645,6 +674,7 @@ function initCoverPageEffects() {
 function initIntro() {
     let introClosed = true;
     $(".intro-right").css({ "left": window.innerWidth });
+
     $("#more").click(function () {
         if (introClosed) {
             $(".intro-right").animate({ "left": "0px" }, "slow");

@@ -1100,3 +1100,10 @@ div{
   border: 1px white solid;
 }
 */
+.show{
+display: block;
+}
+.none{
+  display: none;
+  transition: 1s;
+}
