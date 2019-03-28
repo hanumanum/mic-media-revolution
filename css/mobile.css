@@ -35,13 +35,13 @@
     }
 
     .becouse-list{
-        font-size: 1.9em;
+        font-size: 1.5em;
         font-weight: bolder;
         /* width: 99%; */
     }
 
     .small-in-big{
-        font-size: 0.8em;
+        font-size: 1.2em;
     }
 
     .becouse-list li .becouse-big{
@@ -99,10 +99,9 @@
     }
 
     .person-title{
-        font-size: 1.3em;
+        font-size: 0.9em;
         line-height: 1em;
-        padding: 24px 7px 2px 7px;
-        text-align: center !important;
+        padding: 13px 22px 3px 29px;
     }
 
     .person-text{
@@ -155,7 +154,7 @@
 
 
     .intro-left{
-        font-size: 17px;
+        font-size: 12px;
         width:100%;
         /* display: none; */
     }
@@ -164,18 +163,9 @@
         font-size: 12px;
         
     }
-    #more{
-        z-index: 10;
-    }
+
     .intro-right{
-    margin: auto;
-    width: 87vw;
-    position: absolute;
-    top: 14%;
-    right: -95%;
-    height: 78%;
-    overflow: scroll;
-    transition: 0.3s;
+        display: none;
     }
 
     .fp-controlArrow{

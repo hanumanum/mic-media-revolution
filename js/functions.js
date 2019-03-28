@@ -21,14 +21,16 @@ function checkMobile() {
 }
 
 function toggleMobileForRelatives() {
-    if (!IS_MOBILE) {
+    if (IS_MOBILE) {
         let zoomerIndex = 0
         let relativeIndex = 0
+
         screen.orientation.lock('landscape');
         $(".zoomer").each(function (i, zoomer) {
             $(zoomer).hide()
 
-            let relatives = $(zoomer).find(".relatives, .relatives-fade")
+            let relatives = $(zoomer).find(".relatives-fade,.relatives")
+            console.log(relatives)
             $(relatives).each(function (z, relative) {
                 let isTTL = ($(relative).data("src") || "").indexOf("ttl") > -1
                 if (isTTL) {
@@ -45,7 +47,7 @@ function toggleMobileForRelatives() {
 
                 relativeIndex++;
             })
-
+            
             zoomerIndex++;
         })
 
@@ -320,7 +322,7 @@ function initScale() {
 }
 
 function savePositionsOfRelatives() {
-    $(".relatives , .relatives-fade").each(function (i, rel) {
+    $(".relatives-fade,.relatives ").each(function (i, rel) {
         let top = parseInt($(rel).css("top"))
         $(rel).data("top", top)
     })
@@ -642,7 +644,6 @@ function initCoverPageEffects() {
 
 
 function initIntro() {
-     if(!IS_MOBILE){
     let introClosed = true;
     $(".intro-right").css({ "left": window.innerWidth });
     $("#more").click(function () {
@@ -655,7 +656,7 @@ function initIntro() {
         introClosed = !introClosed
     })
 }
- }
+
 function initManualRepositions() {
     let relativesData = {}
     $(function () {
@@ -748,13 +749,4 @@ function setSound() {
     for (video of videosList) {
         video.volume = volume
     }
-}
-function initIntroMobile(){
-    $(".intro-right").append(`<div class="close"><i class="fas fa-times"></i></div>`)
-    $("#more").on("click",()=>{
-        $(".intro-right").css("right","8%")
-    })
-    $(".close").on("click",()=>{
-        $(".intro-right").css("right","-95%")
-    })
 }
