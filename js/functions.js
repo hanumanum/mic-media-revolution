@@ -35,7 +35,7 @@ function toogleMobileForIntro() {
     let pFirst = $(".intro-right").find("p:first-child")
     let pLast = $(".intro-right").find("p:last-child")
     for (let i = 0; i < $(paragrsil).length; i++) {
-        if (i < 3) {
+        if (i < 2) {
             slide1.append($(`<div class="introDivP">`).append($(paragrsil[i])))
         }
         else {
@@ -54,9 +54,10 @@ function toogleMobileForIntro() {
         slide4.append($(pLast))
     }
     $("#introi").append(slide1)
-    $("#introi").append(slide2)
     $("#introi").append(slide3)
     $("#introi").append(slide4)
+    $("#introi").append(slide2)
+    
     // $("#introi").append($("<div>").addClass("slide").append(ir.html()))
     $("#introi #more").click(function () {
         fullpage_api.moveTo("intro", 2);
@@ -65,7 +66,7 @@ function toogleMobileForIntro() {
 
 function toggleMobileForRelatives() {
     if (IS_MOBILE) {
-
+        // videoWidth()
         let zoomerIndex = 0
         let relativeIndex = 0
 
@@ -100,18 +101,20 @@ function toggleMobileForRelatives() {
 }
 
 function scrollTransolation() {
+    console.log("ds")
     let trText = $(".active .translation-text")
     if (trText) {
         $(trText).prepend(`<div class="translation-close-button"><i class="fas fa-times fa-2x"></i></div>`)
         $(trText).append(`<div class="translation-scroll-button-right"></div>`)
         $(trText).append(`<div class="translation-scroll-button-left"></div>`)
+  
     }
     scrollTransolationClose()
     rightClick()
     leftClick()
+
     function scrollTransolationClose() {
         $(".translation-close-button").on("click",()=>{
-
             $(".translation-text").fadeOut()
             $(".translation-close-button").remove()
             $(".translation-scroll-button-right").remove()

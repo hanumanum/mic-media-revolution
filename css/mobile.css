@@ -97,13 +97,13 @@
         background-color: black;
         text-align: left;
         display: none;
-        height: 90%;
+        height: 79%;
         padding: 11%;
         font-size: 16px;
         margin: auto;
         z-index: 100;
         position: absolute;
-        top: 70%;
+        top: 78%;
         overflow: hidden;
         padding-top: 1px;
     }
@@ -134,7 +134,7 @@
     }
     .translation-scroll-button-left{
         background-image: url(../img/icons/arrow.png);
-        transform: rotate(179deg);
+        transform: rotate(180deg);
         position: fixed;
         top: 96%;
         width: 42px;
@@ -195,7 +195,23 @@
         height: unset !important;
         border: none;
     }
+    /* .relatives-for-mobile {
+    position: static !important;
+        width: 100% !important;
 
+        top: unset !important;
+        left: unset !important;
+        visibility: visible;
+        display: block;
+        z-index: unset !important;
+        font-size: 17px;
+        padding: 0%;
+        margin: 0px auto;
+        box-sizing: border-box;
+        opacity: 1;
+        height: unset !important;
+        border: none;
+    } */
     img.relatives-for-mobile{
         width: 98% !important;
     }

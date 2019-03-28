@@ -17,9 +17,11 @@ $(function () {
 
 
     if (IS_MOBILE) {
+        scrollTransolation()
         //toggleMobile()
         toggleMobileForRelatives()
         toogleMobileForIntro()
+     
     }
     else {
         initIntro()
@@ -36,7 +38,7 @@ setTimeout(function () {
         lazyLoading: true,
         afterLoad: function (origin, destination, direction) {
             
-            
+    
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
