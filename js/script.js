@@ -205,7 +205,11 @@ setTimeout(function () {
                 $(slide).find(".translation-button").on("click", function () {
                     scrollTransolation()
                     trtext.fadeIn(200);
-                    calculateButtonPosition()
+                    let left = trtext[0].offsetLeft
+                    let width = trtext[0].offsetWidth - 40
+                    let size = left + width;
+                    let scrollNavButton = size / $(window).width() * 100
+                    $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
                     if (IS_MOBILE) {
                         $(".person-title").css("color", "black")
                         $(".person-text").css("color", "black")

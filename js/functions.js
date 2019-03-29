@@ -840,10 +840,3 @@ function setSound() {
         video.volume = volume
     }
 }
-function calculateButtonPosition() {
-    let left = trtext[0].offsetLeft
-    let width = trtext[0].offsetWidth - 40
-    let size = left + width;
-    let scrollNavButton = size / $(window).width() * 100
-    $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
-}
