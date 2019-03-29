@@ -699,49 +699,62 @@ a:hover, a:active{
 
 
 .translation-text{
-    width: 61%;
-    overflow-y: scroll;
-    float: right;
-    background-color: rgba(0, 0, 0, 0.90);
-    text-align: left;
-    display: none;
-    height: 202px;
-    padding: 10px;
-    font-size: 16px;
-    line-height: 19px;
-    margin-left:30px;
-    margin-right: 30px
+  width: 61%;
+  overflow-y: scroll;
+  float: right;
+  background-color: rgba(0, 0, 0, 0.90);
+  text-align: left;
+  display: none;
+  height: 202px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 19px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-right: 43px;
+  overflow: hidden;
   }
-  .translation-scroll-button-right{
-    background-image: url(../img/icons/arrow.png);
-    transform: rotate(0deg);
-    position: relative;
-    top: 96%;
+  .scroll-nav-button{
+    width: 35px;
+    position: absolute;
+    left: 80%;
+    height: 184px;
+  }
+  .translation-close-button{
+    display: inline-block;
+    background-image: url(../img/icons/close.png);
     width: 42px;
     height: 22px;
-    background-size: 40px;
+    background-size: 21px;
     background-repeat: no-repeat;
-    left: 85%;
-
+    position: relative;
+    left: 4px;
+  }
+  .translation-scroll-button-right{
+    display: inline-block;
+    background-image: url(../img/icons/arrow.png);
+    transform: rotate(0deg);
+    width: 29px;
+    height: 22px;
+    background-size: 29px;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 105px;
 }
 .translation-scroll-button-left{
+  display: inline-block;
   background-image: url(../img/icons/arrow.png);
   transform: rotate(180deg);
-  position: relative;
-  /* top: 96%; */
-  width: 42px;
+  width: 29px;
   height: 22px;
-  background-size: 40px;
+  background-size: 29px;
   background-repeat: no-repeat;
-  left: 85%;
+  /* margin-top: 32px; */
+  position: relative;
+  top: 10px;
+}
 
-}
-.translation-close-button{
-    top: 69%;
-    padding-top: 6px;
-    padding-left: 9px;
-    right: 2%;
-}
+
 .divider{
   height:50%;
   width:50%;

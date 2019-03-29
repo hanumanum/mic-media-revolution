@@ -106,29 +106,41 @@ function toggleMobileForRelatives() {
 }
 
 function scrollTransolation() {
-var bool = $(".active .translation-text .translation-close-button")
+    let bool = $(".active .translation-text .translation-close-button")
     let trText = $(".active .translation-text")
     if (bool.length == 0) {
-        $(trText).prepend(`<div class="translation-close-button"><i class="fas fa-times fa-2x"></i></div>`)
-        $(trText).prepend(`<div class="translation-scroll-button-right"></div>`)
-        $(trText).prepend(`<div class="translation-scroll-button-left"></div>`)
-       
-    }
-    else{
-        console.log("d")
+        if (IS_MOBILE) {
+            $(trText).prepend(`<div class="translation-close-button"></div>`)
+            $(trText).prepend(`<div class="translation-scroll-button-right"></div>`)
+            $(trText).prepend(`<div class="translation-scroll-button-left"></div>`)
+        }
+        else {
+            $(trText).prepend(`<div class="scroll-nav-button">`)
+            $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
+            $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
+            $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
+        }
     }
     scrollTransolationClose()
     rightClick()
     leftClick()
     function scrollTransolationClose() {
+        
         $(".translation-close-button").on("click", () => {
+            if(IS_MOBILE){
             $(".translation-text").fadeOut()
             $(".translation-close-button").remove()
             $(".translation-scroll-button-right").remove()
             $(".translation-scroll-button-left").remove()
-            $(".person-title").css("color","white")
-                    $(".person-text").css("color","white")   
+            $(".person-title").css("color", "white")
+            $(".person-text").css("color", "white")
+            }
+            else{
+                $(".translation-text").fadeOut()
+                $(".scroll-nav-button").remove()
+            }
         })
+    
     }
     function rightClick() {
         $(".translation-scroll-button-right").on("click", () => {
@@ -827,4 +839,11 @@ function setSound() {
     for (video of videosList) {
         video.volume = volume
     }
+}
+function calculateButtonPosition() {
+    let left = trtext[0].offsetLeft
+    let width = trtext[0].offsetWidth - 40
+    let size = left + width;
+    let scrollNavButton = size / $(window).width() * 100
+    $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
 }

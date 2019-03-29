@@ -91,63 +91,54 @@
         bottom: -10%;
     }
     .translation-text {
-        width: 100%;
-        /* overflow-y: scroll; */
-        /* float: right; */
+        width: 100%; 
         background-color: black;
         text-align: left;
         display: none;
-        height: 140%;
+        height: 75%;
         padding: 11%;
         font-size: 16px;
         margin: auto;
         z-index: 100;
         position: absolute;
-        bottom: -116%;
+        bottom: -52%;
         overflow: hidden;
         padding-top: 1px;
     }
     .translation-close-button{
-        width: 10%;
-        height: 14%;
-        /* background-color: grey; */
+        width: 21px;
+        height: 24px;
         position: fixed;
-        top: 112%;
-        right: 0%;
-        padding-left: 2%;
+        top: 78%;
+        right: 3%;
         padding-top: -2%;
-        opacity: 0.9;
-        background-size: 44px;
+        background-size: 22px;
         background-repeat: no-repeat;
-        
+        /* left: initial; */
     }
     .translation-scroll-button-right{
         background-image: url(../img/icons/arrow.png);
         transform: rotate(0deg);
         position: fixed;
         top: 143%;
-        width: 42px;
-        height: 22px;
-        background-size: 39px;
+        width: 34px;
+        height: 19px;
+        background-size: 34px;
         background-repeat: no-repeat;
-        left: 87%;
+        left: 90%;
+        margin: 3px;
     }
     .translation-scroll-button-left{
         background-image: url(../img/icons/arrow.png);
         transform: rotate(180deg);
         position: fixed;
         top: 104%;
-        width: 42px;
-        height: 22px;
-        background-size: 39px;
+        width: 34px;
+        height: 19px;
+        background-size: 34px;
         background-repeat: no-repeat;
-        left: 86%;
-    }
-    .translation-close-button{
-        top: 66%;
-        padding-top: 6px;
-        padding-left: 9px;
-        right: 2%;
+        left: 90%;
+        margin: 3px;
     }
     .person-video{
         width: 100%;
