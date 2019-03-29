@@ -11,7 +11,7 @@ initScale()
 initMenuAndTools()
 
 $(function () {
-    
+
     initHome()
     initOpacityBackgrounds()
 
@@ -21,7 +21,7 @@ $(function () {
         //toggleMobile()
         toggleMobileForRelatives()
         toogleMobileForIntro()
-     
+
     }
     else {
         initIntro()
@@ -37,8 +37,8 @@ setTimeout(function () {
         verticalCentered: true,
         lazyLoading: true,
         afterLoad: function (origin, destination, direction) {
-            
-    
+
+
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
@@ -150,33 +150,33 @@ setTimeout(function () {
             }
 
             if (!IS_MOBILE) {
-            let bordered = $(slide).find(".bordered")
-            bordered.addClass("fadeIn").addClass("animation2")
+                let bordered = $(slide).find(".bordered")
+                bordered.addClass("fadeIn").addClass("animation2")
 
-            let relatives = $(slide).find(".relatives")
-            let relativesfade = $(slide).find(".relatives-fade")
+                let relatives = $(slide).find(".relatives")
+                let relativesfade = $(slide).find(".relatives-fade")
 
-            if (relativesfade && relativesfade !== undefined) {
-                setTimeout(function () {
-                    let ind = 0
-                    $(relativesfade[ind]).addClass("fadeIn")
-                    $(relativesfade[ind]).addClass("animation1")
-                    ind++
-
-                    let animIntrval = setInterval(function () {
+                if (relativesfade && relativesfade !== undefined) {
+                    setTimeout(function () {
+                        let ind = 0
                         $(relativesfade[ind]).addClass("fadeIn")
                         $(relativesfade[ind]).addClass("animation1")
-
                         ind++
 
-                        if (ind == relativesfade.length) {
-                            clearInterval(animIntrval)
-                        }
-                    }, 250)
-                }, 500)
-            }
+                        let animIntrval = setInterval(function () {
+                            $(relativesfade[ind]).addClass("fadeIn")
+                            $(relativesfade[ind]).addClass("animation1")
 
-            
+                            ind++
+
+                            if (ind == relativesfade.length) {
+                                clearInterval(animIntrval)
+                            }
+                        }, 250)
+                    }, 500)
+                }
+
+
                 if (relatives && relatives !== undefined) {
                     let ind = 0;
                     $(relatives[ind]).addClass("slideInDown")
@@ -200,13 +200,20 @@ setTimeout(function () {
 
 
             let trtext = $(slide).find(".translation-text")
-           
+
             if (trtext && trtext !== "undefined") {
                 $(slide).find(".translation-button").on("click", function () {
                     scrollTransolation()
-                    trtext.fadeIn(50);
-                    $(".person-title").css("color","black")
-                    $(".person-text").css("color","black")
+                    trtext.fadeIn(200);
+                    let left = trtext[0].offsetLeft
+                    let width = trtext[0].offsetWidth - 40
+                    let size = left + width;
+                    let scrollNavButton = size / $(window).width() * 100
+                    $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
+                    if (IS_MOBILE) {
+                        $(".person-title").css("color", "black")
+                        $(".person-text").css("color", "black")
+                    }
                 })
             }
             let gallery = $(slide).find(".slider")
@@ -253,14 +260,15 @@ setTimeout(function () {
             }
 
             updateLanguageLink(currentAnchor)
-            
+
             let blockDiv = $("div.active div.none")
-            setTimeout(()=>{
+            setTimeout(() => {
                 blockDiv.removeClass("none").addClass("show")
-            },1000)
-            }
+            }, 1000)
+        }
         , onLeave: function (origin, destination, direction) {
             let noneDiv = $("div.show").addClass("none").removeClass("show")
+            $(".translation-text").fadeOut("50")
             for (ply of videosList) {
                 ply.destroy()
             }
