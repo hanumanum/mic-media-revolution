@@ -17,9 +17,11 @@ $(function () {
 
 
     if (IS_MOBILE) {
+        scrollTransolation()
         //toggleMobile()
         toggleMobileForRelatives()
         toogleMobileForIntro()
+     
     }
     else {
         initIntro()
@@ -36,7 +38,7 @@ setTimeout(function () {
         lazyLoading: true,
         afterLoad: function (origin, destination, direction) {
             
-            
+    
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
@@ -198,13 +200,15 @@ setTimeout(function () {
 
 
             let trtext = $(slide).find(".translation-text")
+           
             if (trtext && trtext !== "undefined") {
                 $(slide).find(".translation-button").on("click", function () {
-                    trtext.slideToggle(300);
+                    scrollTransolation()
+                    trtext.fadeIn(50);
+                    $(".person-title").css("color","black")
+                    $(".person-text").css("color","black")
                 })
             }
-
-
             let gallery = $(slide).find(".slider")
             if (gallery && gallery !== undefined && gallery.length > 0) {
                 galleryes.push(initBxGallery(gallery))

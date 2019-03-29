@@ -77,7 +77,7 @@ body{
 
 .person-text{
     font-size: 19px !important;
-    width: 450px !important;
+    /* width: 450px !important; */
 }
 
 .bordered{
@@ -97,4 +97,7 @@ body{
 
 .cover-text{
     margin-left: -150px;
+}
+.introDivP{
+    font-size: 16px;
 }
