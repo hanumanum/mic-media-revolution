@@ -171,13 +171,6 @@ function initMenuAndTools() {
         $(".slideLinePoint").slideToggle(300);
         menuOpened = !menuOpened
     })
-
-    $('.translation-text').hover(function () {
-        fullpage_api.setAllowScrolling(false, 'up, down');
-    }, function () {
-        fullpage_api.setAllowScrolling(true, 'up, down');
-    });
-
 }
 
 function longReadMenuAndScroll() {
