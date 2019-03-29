@@ -21,7 +21,7 @@ $(function () {
         //toggleMobile()
         toggleMobileForRelatives()
         toogleMobileForIntro()
-
+        footerForMobile()
     }
     else {
         initIntro()

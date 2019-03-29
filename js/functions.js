@@ -125,22 +125,22 @@ function scrollTransolation() {
     rightClick()
     leftClick()
     function scrollTransolationClose() {
-        
+
         $(".translation-close-button").on("click", () => {
-            if(IS_MOBILE){
-            $(".translation-text").fadeOut()
-            $(".translation-close-button").remove()
-            $(".translation-scroll-button-right").remove()
-            $(".translation-scroll-button-left").remove()
-            $(".person-title").css("color", "white")
-            $(".person-text").css("color", "white")
+            if (IS_MOBILE) {
+                $(".translation-text").fadeOut()
+                $(".translation-close-button").remove()
+                $(".translation-scroll-button-right").remove()
+                $(".translation-scroll-button-left").remove()
+                $(".person-title").css("color", "white")
+                $(".person-text").css("color", "white")
             }
-            else{
+            else {
                 $(".translation-text").fadeOut()
                 $(".scroll-nav-button").remove()
             }
         })
-    
+
     }
     function rightClick() {
         $(".translation-scroll-button-right").on("click", () => {
@@ -840,3 +840,23 @@ function setSound() {
         video.volume = volume
     }
 }
+function footerForMobile() {
+    // $(".about-columns").hide()
+    let team = $(".about-columns:first-child");
+    let Communicationsupport = $(".about-columns:nth-child(2)");
+    let logos = $(".about-columns:nth-child(3)");
+    $(logos).find("p").css("width", "100%")
+    $(logos).find("img").css("width", "100%")
+    let side1 = $("<div>").addClass("slide");
+    let side2 = $("<div>").addClass("slide");
+    let side3 = $("<div>").addClass("slide");
+    $(side1).append($(team))
+    $(side2).append($(Communicationsupport))
+    $(side3).append($(logos))
+    $("#about-section").append($(side1))
+    $("#about-section").append($(side2))
+    $("#about-section").append($(side3))
+}
+// function experienceMobile(){
+
+// }
