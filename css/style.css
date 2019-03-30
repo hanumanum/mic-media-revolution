@@ -885,7 +885,9 @@ a:hover, a:active{
 .slider-image-bkgr {
   width:1300px;
   height:650px;
-  background-size: cover;
+  background-size: 100%;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
 }
 
 

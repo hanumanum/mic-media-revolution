@@ -86,69 +86,32 @@
         padding: 0;
         text-align: center;
     }
-
-    .translation-button{
-        position: absolute;
-        right: 0%;
-        bottom: -10%;
-    }
-    .translation-text {
-        width: 100%; 
-        background-color: black;
-        text-align: left;
-        display: none;
-        height: 75%;
-        padding: 11%;
-        font-size: 16px;
-        margin: auto;
-        z-index: 100;
-        position: absolute;
-        bottom: -52%;
-        overflow: hidden;
-        padding-top: 1px;
-    }
-    .translation-close-button{
-        width: 21px;
-        height: 24px;
-        position: fixed;
-        top: 78%;
-        right: 3%;
-        padding-top: -2%;
-        background-size: 22px;
-        background-repeat: no-repeat;
-        /* left: initial; */
-    }
-    .translation-scroll-button-right{
-        background-image: url(../img/icons/arrow.png);
-        transform: rotate(0deg);
-        position: fixed;
-        top: 143%;
-        width: 34px;
-        height: 19px;
-        background-size: 34px;
-        background-repeat: no-repeat;
-        left: 90%;
-        margin: 3px;
-    }
-    .translation-scroll-button-left{
-        background-image: url(../img/icons/arrow.png);
-        transform: rotate(180deg);
-        position: fixed;
-        top: 104%;
-        width: 34px;
-        height: 19px;
-        background-size: 34px;
-        background-repeat: no-repeat;
-        left: 90%;
-        margin: 3px;
-    }
     .person-video{
         width: 100%;
         float: none;
         text-align: left;
         margin: 0;
     }
-
+    .translation-button{
+        position: absolute;
+        right: 0%;
+        bottom: -10%;
+    }
+    .translation-text {
+        width: 100%;
+        background-color: black;
+        text-align: left;
+        display: none;
+        height: 85%;
+        padding: 11%;
+        font-size: 16px;
+        margin: auto;
+        z-index: 100;
+        position: absolute;
+        bottom: -58%;
+        overflow: hidden;
+        padding-top: 1px;
+    }
     .person-title{
         font-size: 0.9em;
         line-height: 1em;

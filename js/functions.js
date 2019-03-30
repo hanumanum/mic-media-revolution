@@ -109,38 +109,23 @@ function scrollTransolation() {
     let bool = $(".active .translation-text .translation-close-button")
     let trText = $(".active .translation-text")
     if (bool.length == 0) {
-        if (IS_MOBILE) {
-            $(trText).prepend(`<div class="translation-close-button"></div>`)
-            $(trText).prepend(`<div class="translation-scroll-button-right"></div>`)
-            $(trText).prepend(`<div class="translation-scroll-button-left"></div>`)
-        }
-        else {
-            $(trText).prepend(`<div class="scroll-nav-button">`)
-            $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
-            $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
-            $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
-        }
+        $(trText).prepend(`<div class="scroll-nav-button">`)
+        $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
+        $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
+        $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
     }
     scrollTransolationClose()
     rightClick()
     leftClick()
     function scrollTransolationClose() {
-
         $(".translation-close-button").on("click", () => {
-            if (IS_MOBILE) {
-                $(".translation-text").fadeOut()
-                $(".translation-close-button").remove()
-                $(".translation-scroll-button-right").remove()
-                $(".translation-scroll-button-left").remove()
-                $(".person-title").css("color", "white")
-                $(".person-text").css("color", "white")
-            }
-            else {
-                $(".translation-text").fadeOut()
-                $(".scroll-nav-button").remove()
-            }
+            $(".translation-text").fadeOut()
+            $(".translation-close-button").remove()
+            $(".translation-scroll-button-right").remove()
+            $(".translation-scroll-button-left").remove()
+            $(".person-title").css("color", "white")
+            $(".person-text").css("color", "white")
         })
-
     }
     function rightClick() {
         $(".translation-scroll-button-right").on("click", () => {
