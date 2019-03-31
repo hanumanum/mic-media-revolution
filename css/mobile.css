@@ -29,7 +29,7 @@
     }
 
     .becouse{
-        font-size: 1.2em;
+        font-size: 18px;
         margin-bottom: 26px;
         width: 90%;
     }
@@ -43,7 +43,7 @@
         font-size: 1.2em;
     } */
     .becouse-list li .becouse-big{
-        font-size: .8em;
+        font-size: 18px;
         margin-left: 80px;
         /* word-spacing: 0px; */
         /* padding: 0 0; */

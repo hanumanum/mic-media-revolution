@@ -70,7 +70,7 @@ function toogleMobileForIntro() {
 
 function toggleMobileForRelatives() {
     if (IS_MOBILE) {
-
+        
         // videoWidth()
         let zoomerIndex = 0
         let relativeIndex = 0
@@ -169,6 +169,7 @@ function initMenuAndTools() {
     })
 
     $("#button").click(function () {
+        menuMobile()
         $(".slideLinePoint").slideToggle(300);
         menuOpened = !menuOpened
     })
@@ -852,10 +853,15 @@ function footerForMobile() {
 // }
 function audioPositionMobile() {
     var audiotag = $(".active .visible-sound");
-    var trbotton = $(".active .translation-button");
+    var trbotton = $(".active  #slideID25_158 .translation-button");
     $(".active div.person-title-foraudios").append($(audiotag));
     $(".active div.person-title-foraudios").append($(trbotton));
     $(trbotton).removeAttr("style")
     $(trbotton).addClass("trbotton")
     $(audiotag).removeClass("relatives-fade");
+}
+function menuMobile(){
+    var menuline = $("#slideLine .slideLinePoint")
+    $(menuline).css("border-color","black")
+    
 }

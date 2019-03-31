@@ -22,7 +22,6 @@ $(function () {
         toggleMobileForRelatives()
         toogleMobileForIntro()
         footerForMobile()
-        
     }
     else {
         initIntro()
@@ -66,6 +65,7 @@ setTimeout(function () {
 
 
             let fallVideo = $(slide).find(".fall-video")
+            // $(".slide .relatives").css("height","128px")
             if (fallVideo.length != 0) {
                 videosList = prepareVideos(fallVideo, { 'autopause': false }, false)
             }
