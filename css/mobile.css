@@ -29,7 +29,7 @@
     }
 
     .becouse{
-        font-size: 1.2em;
+        font-size: 18px;
         margin-bottom: 26px;
         width: 90%;
     }
@@ -43,7 +43,7 @@
         font-size: 1.2em;
     } */
     .becouse-list li .becouse-big{
-        font-size: .6em;
+        font-size: 18px;
         margin-left: 80px;
         /* word-spacing: 0px; */
         /* padding: 0 0; */
@@ -69,7 +69,9 @@
         float:none;
         padding: 25px 13px;
     }
-
+    .active .about-columns p:first-child{
+        width: 100%;
+    }
     .about-contacts.bordered{
         width:100%;
     }
@@ -84,69 +86,42 @@
         padding: 0;
         text-align: center;
     }
-
-    .translation-button{
-        position: absolute;
-        right: 0%;
-        bottom: -10%;
-    }
-    .translation-text {
-        width: 100%; 
-        background-color: black;
-        text-align: left;
-        display: none;
-        height: 75%;
-        padding: 11%;
-        font-size: 16px;
-        margin: auto;
-        z-index: 100;
-        position: absolute;
-        bottom: -52%;
-        overflow: hidden;
-        padding-top: 1px;
-    }
-    .translation-close-button{
-        width: 21px;
-        height: 24px;
-        position: fixed;
-        top: 78%;
-        right: 3%;
-        padding-top: -2%;
-        background-size: 22px;
-        background-repeat: no-repeat;
-        /* left: initial; */
-    }
-    .translation-scroll-button-right{
-        background-image: url(../img/icons/arrow.png);
-        transform: rotate(0deg);
-        position: fixed;
-        top: 143%;
-        width: 34px;
-        height: 19px;
-        background-size: 34px;
-        background-repeat: no-repeat;
-        left: 90%;
-        margin: 3px;
-    }
-    .translation-scroll-button-left{
-        background-image: url(../img/icons/arrow.png);
-        transform: rotate(180deg);
-        position: fixed;
-        top: 104%;
-        width: 34px;
-        height: 19px;
-        background-size: 34px;
-        background-repeat: no-repeat;
-        left: 90%;
-        margin: 3px;
-    }
     .person-video{
         width: 100%;
         float: none;
         text-align: left;
         margin: 0;
     }
-
+    .visible-sound {
+        height: 103px;
+        margin: auto;
+        padding: 0px;
+        width: 104%;
+        float: right;
+    }
+    .person-title-foraudios{
+        width: 100%;
+    }
+    .translation-button{
+        position: absolute;
+        right: 0%;
+        bottom: -10%;
+    }
+    .translation-text {
+        width: 100%;
+        background-color: #000000;
+        text-align: left;
+        display: none;
+        height: 70%;
+        padding: 11%;
+        font-size: 16px;
+        margin: auto;
+        z-index: 100;
+        position: absolute;
+        overflow: hidden;
+        padding-top: 1px;
+        margin-top: 10px;
+    }
     .person-title{
         font-size: 0.9em;
         line-height: 1em;
@@ -167,11 +142,25 @@
         margin-left: 0px;
     }
 
-    #slideLine{
-        
-    }
+    .bx-wrapper .bx-controls-direction a {
+        position: absolute;
+        top: 41%;
+        margin-top: -16px;
+        outline: 0;
+        width: 32px;
+        height: 32px;
+        text-indent: -9999px;
+        z-index: 9999;
+      }
 
-    
+    .trbotton{
+        position: absolute;
+        left: 37%;
+        top: 46%;
+        visibility: visible;
+        height: 19px;
+        width: 80px;
+    }
     .relatives-for-mobile{
         position: static !important;
         width: 92% !important;
@@ -182,11 +171,10 @@
         display: block;
         z-index: unset !important;
         font-size: 17px;
-        padding: 8%;
+        /* padding: 8%; */
         margin: 0px auto;
         box-sizing: border-box;
         opacity: 1;
-        height: unset !important;
         border: none;
     }
     /* .relatives-for-mobile {
@@ -207,7 +195,7 @@
         border: none;
     } */
     img.relatives-for-mobile{
-        width: 98% !important;
+        width: 77% !important;
     }
 
     .hidden-for-mobile{

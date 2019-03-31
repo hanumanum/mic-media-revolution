@@ -22,7 +22,6 @@ function checkMobile() {
 
 
 function toogleMobileForIntro() {
-    console.log("ze")
     $("#more").remove()
     let il = $("#introi").find(".intro-left");
     let ir = $("#introi").find(".intro-right");
@@ -71,6 +70,7 @@ function toogleMobileForIntro() {
 
 function toggleMobileForRelatives() {
     if (IS_MOBILE) {
+        
         // videoWidth()
         let zoomerIndex = 0
         let relativeIndex = 0
@@ -100,7 +100,6 @@ function toggleMobileForRelatives() {
             zoomerIndex++;
         })
 
-
         $(".zoomer").remove()
     }
 }
@@ -108,14 +107,14 @@ function toggleMobileForRelatives() {
 function scrollTransolation() {
     let bool = $(".active .translation-text .translation-close-button")
     let trText = $(".active .translation-text")
+    let snb = $(trText).find(`div.scroll-nav-button`)
     if (bool.length == 0) {
-        if (IS_MOBILE) {
-            $(trText).prepend(`<div class="translation-close-button"></div>`)
-            $(trText).prepend(`<div class="translation-scroll-button-right"></div>`)
-            $(trText).prepend(`<div class="translation-scroll-button-left"></div>`)
-        }
-        else {
+        if (snb.length >= 0) {
             $(trText).prepend(`<div class="scroll-nav-button">`)
+            $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
+            $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
+            $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
+        }else{
             $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
             $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
             $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
@@ -125,31 +124,21 @@ function scrollTransolation() {
     rightClick()
     leftClick()
     function scrollTransolationClose() {
-        
         $(".translation-close-button").on("click", () => {
-            if(IS_MOBILE){
             $(".translation-text").fadeOut()
-            $(".translation-close-button").remove()
-            $(".translation-scroll-button-right").remove()
-            $(".translation-scroll-button-left").remove()
+            $(".scroll-nav-button").remove()
             $(".person-title").css("color", "white")
             $(".person-text").css("color", "white")
-            }
-            else{
-                $(".translation-text").fadeOut()
-                $(".scroll-nav-button").remove()
-            }
         })
-    
     }
     function rightClick() {
         $(".translation-scroll-button-right").on("click", () => {
-            trText[0].scrollTop = trText[0].scrollTop += 50
+            trText[0].scrollTop = trText[0].scrollTop += 70
         })
     }
     function leftClick() {
         $(".translation-scroll-button-left").on("click", () => {
-            trText[0].scrollTop = trText[0].scrollTop -= 50
+            trText[0].scrollTop = trText[0].scrollTop -= 70
         })
     }
 }
@@ -640,7 +629,7 @@ function destroyBxGallery(gallerysArray) {
 
 
 function isScrolledIntoView(elem) {
-    var docViewTop = $(window).scrollTop() - $(".lr-top-line").height();
+    var docViewTop = $(window).scrollTop() - $(".lr-top-line").height()
     var docViewBottom = docViewTop + $(window).height();
 
     var elemTop = $(elem).offset().top;
@@ -656,6 +645,7 @@ function setEqualHeightLrSections() {
         $(section).find(".lr-image-holder").css("height", $(section).css("height"))
         leftP.css("height", $(section).css("height"))
     })
+    // $(".lr-section:nth-child(4)").css("height","500px")
 }
 
 
@@ -839,4 +829,33 @@ function setSound() {
     for (video of videosList) {
         video.volume = volume
     }
+}
+function footerForMobile() {
+    // $(".about-columns").hide()
+    let team = $(".about-columns:first-child");
+    let Communicationsupport = $(".about-columns:nth-child(2)");
+    let logos = $(".about-columns:nth-child(3)");
+    $(logos).find("p").css("width", "100%")
+    $(logos).find("img").css("width", "100%")
+    let side1 = $("<div>").addClass("slide");
+    let side2 = $("<div>").addClass("slide");
+    let side3 = $("<div>").addClass("slide");
+    $(side1).append($(team))
+    $(side2).append($(Communicationsupport))
+    $(side3).append($(logos))
+    $("#about-section").append($(side1))
+    $("#about-section").append($(side2))
+    $("#about-section").append($(side3))
+}
+// function experienceMobile(){
+
+// }
+function audioPositionMobile() {
+    var audiotag = $(".active .visible-sound");
+    var trbotton = $(".active  #slideID25_158 .translation-button");
+    $(".active div.person-title-foraudios").append($(audiotag));
+    $(".active div.person-title-foraudios").append($(trbotton));
+    $(trbotton).removeAttr("style")
+    $(trbotton).addClass("trbotton")
+    $(audiotag).removeClass("relatives-fade");
 }
