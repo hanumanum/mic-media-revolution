@@ -17,10 +17,12 @@ $(function () {
 
 
     if (IS_MOBILE) {
+        
         scrollTransolation()
         //toggleMobile()
         toggleMobileForRelatives()
         toogleMobileForIntro()
+        
         footerForMobile()
     }
     else {

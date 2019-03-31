@@ -169,7 +169,6 @@ function initMenuAndTools() {
     })
 
     $("#button").click(function () {
-        menuMobile()
         $(".slideLinePoint").slideToggle(300);
         menuOpened = !menuOpened
     })
@@ -859,9 +858,4 @@ function audioPositionMobile() {
     $(trbotton).removeAttr("style")
     $(trbotton).addClass("trbotton")
     $(audiotag).removeClass("relatives-fade");
-}
-function menuMobile(){
-    var menuline = $("#slideLine .slideLinePoint")
-    $(menuline).css("border-color","black")
-    
 }
