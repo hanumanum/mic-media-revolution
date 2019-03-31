@@ -22,6 +22,7 @@ $(function () {
         toggleMobileForRelatives()
         toogleMobileForIntro()
         footerForMobile()
+        
     }
     else {
         initIntro()
@@ -198,11 +199,17 @@ setTimeout(function () {
 
             }
 
-
+            function trtextPosition() {
+                let personVideo = $(slide).find(".person-video");
+                let translationText = $(slide).find(".translation-text");
+                let translationTextPosition = 100 -  (personVideo[0].offsetHeight / $(window).height() * 100);
+                $(translationText).css("height", `${translationTextPosition}%`)
+            }
             let trtext = $(slide).find(".translation-text")
 
             if (trtext && trtext !== "undefined") {
                 $(slide).find(".translation-button").on("click", function () {
+                    
                     scrollTransolation()
                     trtext.fadeIn(200);
                     let left = trtext[0].offsetLeft
@@ -211,6 +218,7 @@ setTimeout(function () {
                     let scrollNavButton = size / $(window).width() * 100
                     $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
                     if (IS_MOBILE) {
+                        trtextPosition()
                         $(".person-title").css("color", "black")
                         $(".person-text").css("color", "black")
                     }
@@ -247,7 +255,9 @@ setTimeout(function () {
             */
 
             //let topForArrow = calcDistance($("section"))
-
+            if(IS_MOBILE){
+                audioPositionMobile()
+            }
             let currentAnchor = $(destination.item).data("anchor")
             if (openSlideline(currentAnchor)) {
                 setTimeout(function () {

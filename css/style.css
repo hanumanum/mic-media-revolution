@@ -303,12 +303,11 @@ a:hover, a:active{
   display: none;
 }
 
-.visible-sound{
+.visible-sound {
   width: 600px;
-  height: 25px;
+  height: 56px;
   border-radius: 0px;
 }
-
 .quote{
   text-align: left;
   margin: auto auto;
@@ -365,17 +364,17 @@ a:hover, a:active{
 }
 
 
-.becouse-list li .becouse-big{
+.becouse-list li .becouse-big {
   text-align: left;
-  font-size: 40px;
+  font-size: 33px;
   font-weight: 400;
   margin-left: 130px;
 }
 
 
 
-.small-in-big{
-  font-size:21px;
+.small-in-big {
+  font-size: 22px;
   font-weight: 100;
   margin-right: 14px;
 }
@@ -432,7 +431,7 @@ a:hover, a:active{
 .bordered{
   width: 20%;
   border: 2px white solid;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   font-style: normal;
   text-align: left;
@@ -489,7 +488,7 @@ a:hover, a:active{
   -ms-transform-origin: '0 0'; 
   -webkit-transform-origin: '0 0';
   position: absolute;
-  
+  width: 100%;
 }
 
 .fixer{
@@ -716,7 +715,7 @@ a:hover, a:active{
   }
   .scroll-nav-button{
     width: 35px;
-    position: absolute;
+    position: fixed;
     left: 80%;
     height: 184px;
   }
@@ -739,7 +738,7 @@ a:hover, a:active{
     background-size: 29px;
     background-repeat: no-repeat;
     position: relative;
-    top: 105px;
+    top: 95px;
 }
 .translation-scroll-button-left{
   display: inline-block;
@@ -886,7 +885,7 @@ a:hover, a:active{
   width:1300px;
   height:650px;
   background-size: 100%;
-  background-position-y: 50%;
+  background-position-y: 38%;
   background-repeat: no-repeat;
 }
 
@@ -1041,7 +1040,9 @@ div{
   background-repeat: no-repeat;
   background-size: contain;
 }
-
+.lr-section:last-child .lr-image-holder{
+bottom: 160px;
+}
 .lr-image-holder img{
   width:223px;
 }

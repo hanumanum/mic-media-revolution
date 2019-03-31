@@ -43,7 +43,7 @@
         font-size: 1.2em;
     } */
     .becouse-list li .becouse-big{
-        font-size: .6em;
+        font-size: .8em;
         margin-left: 80px;
         /* word-spacing: 0px; */
         /* padding: 0 0; */
@@ -92,6 +92,16 @@
         text-align: left;
         margin: 0;
     }
+    .visible-sound {
+        height: 103px;
+        margin: auto;
+        padding: 0px;
+        width: 104%;
+        float: right;
+    }
+    .person-title-foraudios{
+        width: 100%;
+    }
     .translation-button{
         position: absolute;
         right: 0%;
@@ -99,18 +109,18 @@
     }
     .translation-text {
         width: 100%;
-        background-color: black;
+        background-color: #000000;
         text-align: left;
         display: none;
-        height: 85%;
+        height: 70%;
         padding: 11%;
         font-size: 16px;
         margin: auto;
         z-index: 100;
         position: absolute;
-        bottom: -58%;
         overflow: hidden;
         padding-top: 1px;
+        margin-top: 10px;
     }
     .person-title{
         font-size: 0.9em;
@@ -132,11 +142,25 @@
         margin-left: 0px;
     }
 
-    #slideLine{
-        
-    }
+    .bx-wrapper .bx-controls-direction a {
+        position: absolute;
+        top: 41%;
+        margin-top: -16px;
+        outline: 0;
+        width: 32px;
+        height: 32px;
+        text-indent: -9999px;
+        z-index: 9999;
+      }
 
-    
+    .trbotton{
+        position: absolute;
+        left: 37%;
+        top: 46%;
+        visibility: visible;
+        height: 19px;
+        width: 80px;
+    }
     .relatives-for-mobile{
         position: static !important;
         width: 92% !important;
@@ -147,11 +171,10 @@
         display: block;
         z-index: unset !important;
         font-size: 17px;
-        padding: 8%;
+        /* padding: 8%; */
         margin: 0px auto;
         box-sizing: border-box;
         opacity: 1;
-        height: unset !important;
         border: none;
     }
     /* .relatives-for-mobile {
