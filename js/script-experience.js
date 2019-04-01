@@ -4,9 +4,14 @@ setEqualHeightLrSections()
 longReadMenuAndScroll()
 
 
+
 $(function () {
     
-    initParalaxForLongRead()
+    if (!IS_MOBILE) {
+        initParalaxForLongRead()
+    }
+   
+    
 
     $("#button-back").click(function () {
         window.location.assign(INDEXPAGE)

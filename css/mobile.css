@@ -300,7 +300,19 @@
     .lr-section-right {
         width: 100%;
         padding: 10px;
+        float:none;
     }
+
+    .lr-section-left{
+        float:none;
+        width: 100%;
+    }
+
+    .lr-image-holder{
+        height: 80vh;
+        background-size: cover; 
+    }
+
     .lr-section-right blockquote {
         float: none;
         width: 100%;
