@@ -18,8 +18,7 @@ $(function () {
 
     if (IS_MOBILE) {
         
-        scrollTransolation()
-        //toggleMobile()
+        //scrollTranslation()
         toggleMobileForRelatives()
         toogleMobileForIntro()
         
@@ -67,9 +66,8 @@ setTimeout(function () {
 
 
             let fallVideo = $(slide).find(".fall-video")
-            // $(".slide .relatives").css("height","128px")
             if (fallVideo.length != 0) {
-                videosList = prepareVideos(fallVideo, { 'autopause': false }, false)
+                videosList = prepareVideos(fallVideo, { 'autopause': false, 'clickToPlay':true }, false)
             }
 
             let personVideo = $(slide).find(".personVideo")
@@ -212,7 +210,7 @@ setTimeout(function () {
             if (trtext && trtext !== "undefined") {
                 $(slide).find(".translation-button").on("click", function () {
                     
-                    scrollTransolation()
+                    scrollTranslation()
                     trtext.fadeIn(200);
                     let left = trtext[0].offsetLeft
                     let width = trtext[0].offsetWidth - 40
@@ -279,7 +277,7 @@ setTimeout(function () {
             }, 1000)
         }
         , onLeave: function (origin, destination, direction) {
-            let noneDiv = $("div.show").addClass("none").removeClass("show")
+            //let noneDiv = $("div.show").addClass("none").removeClass("show")
             $(".translation-text").fadeOut("50")
             for (ply of videosList) {
                 ply.destroy()
@@ -315,6 +313,11 @@ setTimeout(function () {
 
             galleryes = destroyBxGallery(galleryes)
 
+        },
+        onSlideLeave:function(){
+            for(let v of videosList){
+                v.stop()
+            }
         }
 
     });
