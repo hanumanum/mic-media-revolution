@@ -21,6 +21,7 @@ function checkMobile() {
 }
 
 
+
 function toogleMobileForIntro() {
     $("#more").remove()
     let il = $("#introi").find(".intro-left");
@@ -104,7 +105,7 @@ function toggleMobileForRelatives() {
     }
 }
 
-function scrollTransolation() {
+function scrollTranslation() {
     let bool = $(".active .translation-text .translation-close-button")
     let trText = $(".active .translation-text")
     let snb = $(trText).find(`div.scroll-nav-button`)
@@ -657,6 +658,7 @@ function prepareVideos(videos, config, autoplay = true) {
         videos.each(function (i, fv) {
             let custVidID = $(fv).attr("id")
             videosArray.push(new Plyr('#' + custVidID, config));
+            /*
             if (autoplay) {
                 videosArray[i].on("ended", function () {
                     if (videosArray[i + 1] !== undefined) {
@@ -664,6 +666,7 @@ function prepareVideos(videos, config, autoplay = true) {
                     }
                 })
             }
+            */
         })
 
         if (autoplay) {

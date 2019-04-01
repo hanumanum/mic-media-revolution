@@ -1,4 +1,9 @@
 @media only screen and (min-width: 320px) and (max-width: 500px) {
+
+    .slide.fp-slide.fp-table.active{
+        z-index:150000
+    }
+
     .cover-chapter-head{
         width:200px !important;
         font-size: 1.6em !important;
