@@ -1040,9 +1040,7 @@ div{
   background-repeat: no-repeat;
   background-size: contain;
 }
-.lr-section:last-child .lr-image-holder{
-bottom: 160px;
-}
+
 .lr-image-holder img{
   width:223px;
 }
@@ -1094,7 +1092,6 @@ bottom: 160px;
   text-align: left;
   font-size:14px;
 }
-
 
 .intro-left{
   width:680px;

@@ -32,7 +32,9 @@ window.onload = function () {
       href: location.href
     }, function (response) { });
   }
+  // experienceMobile()
 }
+
 
 var twitterBtn = document.getElementById('twitter-button');
 var text = encodeURIComponent('');

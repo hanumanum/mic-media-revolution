@@ -640,11 +640,13 @@ function isScrolledIntoView(elem) {
 
 
 function setEqualHeightLrSections() {
+    if(!IS_MOBILE){
     $(".lr-section").each(function (i, section) {
         let leftP = $(section).find(".lr-section-left")
         $(section).find(".lr-image-holder").css("height", $(section).css("height"))
         leftP.css("height", $(section).css("height"))
     })
+}
     // $(".lr-section:nth-child(4)").css("height","500px")
 }
 
