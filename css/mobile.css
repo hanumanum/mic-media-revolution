@@ -72,7 +72,7 @@
     .about-columns{
         width: 100%;
         float:none;
-        padding: 25px 13px;
+        padding: 25px 13px 59px 17px;
     }
     .active .about-columns p:first-child{
         width: 100%;
@@ -286,7 +286,7 @@
         position: fixed;
         background-color: black;
         width: 100%;
-        height: 86px;
+        height: 78px;
         top: 0px;
         left: 0px;
         z-index: 1;
@@ -299,22 +299,38 @@
     }
     .lr-section-right {
         width: 100%;
-        padding: 10px;
+        padding: 18px;
         float:none;
     }
 
     .lr-section-left{
         float:none;
         width: 100%;
+        padding: 1px;
     }
 
     .lr-image-holder{
-        height: 80vh;
-        background-size: cover; 
+        height: 66vh;
+        background-size: contain; 
     }
-
     .lr-section-right blockquote {
         float: none;
         width: 100%;
     }
+.lr-menu-item {
+    font-size: 21px;
+    padding: 2px 0 10px 0px;
+    color: black;
+    display: block;
+    width: 90%;
+    border-bottom: 1px solid black;
+    margin: auto;
+}
+    .lr-menu-item-proff {
+        font-size: 18px;
+        font-weight: normal;
+    }
+    .lr-menu-item:hover, .lr-menu-item-active {
+        color:black;
+      }
 }
