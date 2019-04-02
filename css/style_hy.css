@@ -3,11 +3,11 @@
     src: url('../fonts/arian_amu.woff')
 }
 
-*{
+* {
     font-family: 'Arian';
 }
 
-body{
+body {
     font-family: 'Arian';
 }
 
@@ -17,35 +17,34 @@ body{
     top: 30%;
     left: 50%;
     margin-left: -52px;
-  }
-  
+}
 
-.intro-left-large{
+.intro-left-large {
     font-size: 18px;
 }
 
-.intro-right{
+.intro-right {
     font-size: 14px;
 }
 
-.intro-left{
+.intro-left {
     font-size: 16px;
 }
 
-.box{
+.box {
     font-size: 1em;
 }
 
-.quote{
+.quote {
     font-size: 21px !important;
 }
 
-.quote-autor{
+.quote-autor {
     font-size: 18px !important;
     font-weight: bold;
 }
 
-.quote-autor-profession{
+.quote-autor-profession {
     font-size: 16px;
 }
 
@@ -55,49 +54,52 @@ body{
     vertical-align: top;
 }
 
-
-.becouse-small{
+.becouse-small {
     font-size: 18px;
 }
 
+.becouse {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
 
-.becouse{font-size: 23px;margin-bottom: 20px;}
-
-.becouse-list li .becouse-big{
+.becouse-list li .becouse-big {
     font-size: 27px;
     line-height: 35px;
 }
 
-.littleT{
+.littleT {
     font-size: 20px;
     margin-left: -2px;
 }
 
-.person-title{font-size: 26px !important;}
+.person-title {
+    font-size: 26px !important;
+}
 
-.person-text{
+.person-text {
     font-size: 19px !important;
     /* width: 450px !important; */
 }
 
-.bordered{
+.bordered {
     font-size: 18px;
 }
 
-.about-small{
+.about-small {
     font-size: 13px;
     margin-top: 8px;
 }
 
-#scrolldown{
+#scrolldown {
     margin-left: -27px;
     /* text-transform: uppercase; */
 }
 
-
-.cover-text{
+.cover-text {
     margin-left: -150px;
 }
-.introDivP{
+
+.introDivP {
     font-size: 16px;
 }

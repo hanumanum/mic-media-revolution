@@ -1,57 +1,48 @@
 /* Desktops and laptops ----------- */
-@media only screen  and (min-width : 1000px) {
-    .person-title{
+
+@media only screen and (min-width: 1000px) {
+    .person-title {
         font-size: 26px;
         margin-top: 40px;
     }
-
-    .person-text{
+    .person-text {
         font-size: 19px;
         line-height: 22px;
         width: 400px;
     }
-
-    .align-right{
-        margin-right: 30px; 
+    .align-right {
+        margin-right: 30px;
     }
-
-    .quote{
-        width:354px;
+    .quote {
+        width: 354px;
         font-size: 20px;
         line-height: 24px;
-      
     }
-
-    .quote-autor{
+    .quote-autor {
         font-size: 18px;
         margin: 42px 0 0 178px;
     }
 }
 
-
-@media only screen  and (min-width : 2000px) {
-    .person-title{
+@media only screen and (min-width: 2000px) {
+    .person-title {
         font-size: 32px;
         margin-top: 65px;
     }
-
-    .person-text{
+    .person-text {
         font-size: 22px;
         line-height: 26px;
         width: 497px;
     }
-
-    .align-right{
-        margin-right: 110px; 
+    .align-right {
+        margin-right: 110px;
     }
-
-    .quote{
-        width:25%;
+    .quote {
+        width: 25%;
         font-size: 26px;
         line-height: 32px;
     }
-
-    .quote-autor{
+    .quote-autor {
         font-size: 22px;
         margin: 42px 0 0 440px;
     }

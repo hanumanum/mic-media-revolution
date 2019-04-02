@@ -1,97 +1,81 @@
 @media only screen and (min-width: 320px) and (max-width: 500px) {
-
-    .slide.fp-slide.fp-table.active{
-        z-index:150000
+    .slide.fp-slide.fp-table.active {
+        z-index: 150000
     }
-
-    .cover-chapter-head{
-        width:200px !important;
+    .cover-chapter-head {
+        width: 200px !important;
         font-size: 1.6em !important;
     }
-
-    #about{
+    #about {
         font-size: 14px !important;
     }
-
-    .tool{
-        width:35px;
+    .tool {
+        width: 35px;
         height: 35px;
     }
-
-    .quote{
-        width:78%;        
+    .quote {
+        width: 78%;
     }
-
-    .quote-autor{
+    .quote-autor {
         text-align: right;
         width: 75%;
         margin-top: 15px;
     }
-
-    .quote-autor-profession{
-        width:100%;
+    .quote-autor-profession {
+        width: 100%;
         text-align: right;
     }
-
-    .becouse{
+    .becouse {
         font-size: 17px;
         margin-bottom: 26px;
         width: 90%;
     }
-
-    .becouse-list{
+    .becouse-list {
         font-weight: bolder;
         /* width: 99%; */
     }
-
     /* .small-in-big{
         font-size: 1.2em;
     } */
-    .becouse-list li .becouse-big{
+    .becouse-list li .becouse-big {
         font-size: 17px;
         margin-left: 75px;
         /* word-spacing: 0px; */
         /* padding: 0 0; */
         /* line-height: .5em; */
     }
-
-    
-    .glux{
+    .glux {
         text-align: right;
         padding-right: 20px;
         /* padding-top: 10px; */
     }
-
-    #about-section-holder{
+    #about-section-holder {
         height: auto;
         width: 100%;
         margin-top: 25px;
         /* margin-bottom: 25px; */
     }
-
-    .about-columns{
+    .about-columns {
         width: 100%;
-        float:none;
+        float: none;
         padding: 25px 13px 59px 17px;
     }
-    .active .about-columns p:first-child{
+    .active .about-columns p:first-child {
         width: 100%;
     }
-    .about-contacts.bordered{
-        width:100%;
+    .about-contacts.bordered {
+        width: 100%;
     }
-
-    .info-button{
+    .info-button {
         display: none;
     }
-
-    .divider{
-        width:initial;
+    .divider {
+        width: initial;
         float: none;
         padding: 0;
         text-align: center;
     }
-    .person-video{
+    .person-video {
         width: 100%;
         float: none;
         text-align: left;
@@ -104,10 +88,10 @@
         width: 104%;
         float: right;
     }
-    .person-title-foraudios{
+    .person-title-foraudios {
         width: 100%;
     }
-    .translation-button{
+    .translation-button {
         position: absolute;
         right: 0%;
         bottom: -10%;
@@ -127,26 +111,23 @@
         padding-top: 1px;
         margin-top: 10px;
     }
-    .person-title{
+    .person-title {
         font-size: 0.9em;
         line-height: 1em;
         padding: 2%;
         padding-left: 8%;
     }
-
-    .person-text{
+    .person-text {
         width: 100%;
         font-size: 0.9em;
-    line-height: 1em;
-    padding: 2%;
-    padding-left: 8%;
+        line-height: 1em;
+        padding: 2%;
+        padding-left: 8%;
     }
-
-    .person-text-right{
+    .person-text-right {
         text-align: left;
         margin-left: 0px;
     }
-
     .bx-wrapper .bx-controls-direction a {
         position: absolute;
         top: 41%;
@@ -156,9 +137,8 @@
         height: 32px;
         text-indent: -9999px;
         z-index: 9999;
-      }
-
-    .trbotton{
+    }
+    .trbotton {
         position: absolute;
         left: 37%;
         top: 46%;
@@ -166,7 +146,7 @@
         height: 19px;
         width: 80px;
     }
-    .relatives-for-mobile{
+    .relatives-for-mobile {
         position: static !important;
         width: 92% !important;
         /* margin-top: 0px; */
@@ -199,28 +179,23 @@
         height: unset !important;
         border: none;
     } */
-    img.relatives-for-mobile{
+    img.relatives-for-mobile {
         width: 100% !important;
     }
-
-    .hidden-for-mobile{
+    .hidden-for-mobile {
         visibility: hidden;
         display: none;
     }
-    
-
-    .prevZoomer{
+    .prevZoomer {
         width: 100%;
         margin: 55px 0;
     }
-
-
-    .intro-left{
+    .intro-left {
         font-size: 12px;
-        width:100%;
+        width: 100%;
         /* display: none; */
     }
-/* 
+    /* 
     .intro-left-large{
         font-size: 12px;
         
@@ -228,13 +203,12 @@
     /* .intro-left-large{
         padding: 10px
     } */
-    .intro-right{
+    .intro-right {
         display: none;
     }
-
-    .fp-controlArrow{
+    .fp-controlArrow {
         top: 100%;
-        border:none !important;
+        border: none !important;
         /* border-color: transparent #ffffff96 transparent transparent; */
         background-image: url(../img/icons/arrow.png);
         width: 25px !important;
@@ -242,29 +216,26 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
-    
-    .fp-controlArrow.fp-next{
+    .fp-controlArrow.fp-next {
         right: 0px;
         /* border-width: 13.5px 0 13.5px 18px; */
         transform: rotate(-90deg);
     }
-
     .fp-controlArrow.fp-prev {
         left: 0px;
         /* border-width: 16.5px 18px 13.5px 0; */
         transform: rotate(90deg);
     }
-
-    .fp-section.active{
+    .fp-section.active {
         z-index: 500
     }
-    .introDivP{
-    padding: 10%;
-    padding: 2% 5% 2% 5%;
-    font-size: 16px;
-    text-align: left;
+    .introDivP {
+        padding: 10%;
+        padding: 2% 5% 2% 5%;
+        font-size: 16px;
+        text-align: left;
     }
-    .introDivP p{
+    .introDivP p {
         margin: 0px;
         /* padding: 10px; */
     }
@@ -281,7 +252,7 @@
         width: 700px;
         margin: 0 auto;
         display: none;
-    } 
+    }
     .lr-top-line {
         position: fixed;
         background-color: black;
@@ -300,37 +271,35 @@
     .lr-section-right {
         width: 100%;
         padding: 18px;
-        float:none;
+        float: none;
     }
-
-    .lr-section-left{
-        float:none;
+    .lr-section-left {
+        float: none;
         width: 100%;
         padding: 1px;
     }
-
-    .lr-image-holder{
+    .lr-image-holder {
         height: 66vh;
-        background-size: contain; 
+        background-size: contain;
     }
     .lr-section-right blockquote {
         float: none;
         width: 100%;
     }
-.lr-menu-item {
-    font-size: 21px;
-    padding: 2px 0 10px 0px;
-    color: black;
-    display: block;
-    width: 90%;
-    border-bottom: 1px solid black;
-    margin: auto;
-}
+    .lr-menu-item {
+        font-size: 21px;
+        padding: 2px 0 10px 0px;
+        color: black;
+        display: block;
+        width: 90%;
+        border-bottom: 1px solid black;
+        margin: auto;
+    }
     .lr-menu-item-proff {
         font-size: 18px;
         font-weight: normal;
     }
     .lr-menu-item:hover, .lr-menu-item-active {
-        color:black;
-      }
+        color: black;
+    }
 }
