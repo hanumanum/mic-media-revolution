@@ -422,10 +422,10 @@ a:hover, a:active {
   opacity: 0;
 }
 
-.bordered {
+.bordered{
   width: 20%;
   border: 2px white solid;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   font-style: normal;
   text-align: left;
@@ -435,6 +435,7 @@ a:hover, a:active {
   min-width: 260px;
   /*-moz-box-sizing: border-box; */
 }
+
 
 .backgroundvideo {
   position: absolute;
@@ -473,15 +474,13 @@ a:hover, a:active {
   transform: translate3d(0, 0, 0);
 }
 
-.zoomer {
+.zoomer{
   transform-origin: '0 0';
-  -moz-transform-origin: '0 0';
-  -ms-transform-origin: '0 0';
+  -moz-transform-origin: '0 0';     
+  -ms-transform-origin: '0 0'; 
   -webkit-transform-origin: '0 0';
   position: absolute;
-  width: 80%;
 }
-
 .fixer {
   position: absolute;
   height: 100vh;
@@ -1121,7 +1120,7 @@ div {
 */
 
 .show {
-  display: unset;
+  display: inline-block;
 }
 
 .none {

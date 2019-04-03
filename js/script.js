@@ -220,13 +220,15 @@ setTimeout(function () {
                     var activeData = $(".active").data("anchor");
                     console.log(left, width, windowWidth, activeData)
                     if (activeData == "s58") {
-                        scrollNavButton = size / windowWidth * 100 + (width / windowWidth * 100) - 1;
+                        scrollNavButton = size ;
+                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
                     } else if (activeData == "s67") {
-                        scrollNavButton = size / windowWidth * 100 + (width / windowWidth * 118) ;
+                        scrollNavButton = size
+                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
                     } else {
                         scrollNavButton = size / windowWidth * 100;
+                        $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
                     }
-                    $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
                     if (IS_MOBILE) {
                         trtextPosition()
                         $(".person-title").css("color", "black")
