@@ -25,10 +25,6 @@
 }
 
 @media only screen and (min-width: 2000px) {
-    .person-title {
-        font-size: 32px;
-        margin-top: 65px;
-    }
     .person-text {
         font-size: 22px;
         line-height: 26px;
