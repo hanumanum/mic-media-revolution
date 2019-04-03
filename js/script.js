@@ -216,14 +216,16 @@ setTimeout(function () {
                     let width = trtext[0].offsetWidth - 40
                     let size = left + width;
                     let scrollNavButton;
-                    console.log(left, width, $(window).width())
-                    if (size < $(window).width()) {
-                        scrollNavButton = size / $(window).width() * 100;
+                    var windowWidth = $(window).width()
+                    var activeData = $(".active").data("anchor");
+                    console.log(left, width, windowWidth, activeData)
+                    if (activeData == "s58") {
+                        scrollNavButton = size / windowWidth * 100 + (width / windowWidth * 100) - 1;
+                    } else if (activeData == "s67") {
+                        scrollNavButton = size / windowWidth * 100 + (width / windowWidth * 118) ;
                     } else {
-                        scrollNavButton = size / $(window).width() * 100 + 26;
+                        scrollNavButton = size / windowWidth * 100;
                     }
-
-
                     $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
                     if (IS_MOBILE) {
                         trtextPosition()
