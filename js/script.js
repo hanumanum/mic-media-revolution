@@ -17,11 +17,11 @@ $(function () {
 
 
     if (IS_MOBILE) {
-        
+
         //scrollTranslation()
         toggleMobileForRelatives()
         toogleMobileForIntro()
-        
+
         footerForMobile()
     }
     else {
@@ -67,7 +67,7 @@ setTimeout(function () {
 
             let fallVideo = $(slide).find(".fall-video")
             if (fallVideo.length != 0) {
-                videosList = prepareVideos(fallVideo, { 'autopause': false, 'clickToPlay':true }, false)
+                videosList = prepareVideos(fallVideo, { 'autopause': false, 'clickToPlay': true }, false)
             }
 
             let personVideo = $(slide).find(".personVideo")
@@ -202,21 +202,33 @@ setTimeout(function () {
             function trtextPosition() {
                 let personVideo = $(slide).find(".person-video");
                 let translationText = $(slide).find(".translation-text");
-                let translationTextPosition = 100 -  (personVideo[0].offsetHeight / $(window).height() * 100);
+                let translationTextPosition = 100 - (personVideo[0].offsetHeight / $(window).height() * 100);
                 $(translationText).css("height", `${translationTextPosition}%`)
             }
             let trtext = $(slide).find(".translation-text")
 
             if (trtext && trtext !== "undefined") {
                 $(slide).find(".translation-button").on("click", function () {
-                    
+
                     scrollTranslation()
                     trtext.fadeIn(200);
                     let left = trtext[0].offsetLeft
                     let width = trtext[0].offsetWidth - 40
                     let size = left + width;
-                    let scrollNavButton = size / $(window).width() * 100
-                    $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
+                    let scrollNavButton;
+                    var windowWidth = $(window).width()
+                    var activeData = $(".active").data("anchor");
+                    console.log(left, width, windowWidth, activeData)
+                    if (activeData == "s58") {
+                        scrollNavButton = size ;
+                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
+                    } else if (activeData == "s67") {
+                        scrollNavButton = size
+                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
+                    } else {
+                        scrollNavButton = size / windowWidth * 100;
+                        $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
+                    }
                     if (IS_MOBILE) {
                         trtextPosition()
                         $(".person-title").css("color", "black")
@@ -255,7 +267,7 @@ setTimeout(function () {
             */
 
             //let topForArrow = calcDistance($("section"))
-            if(IS_MOBILE){
+            if (IS_MOBILE) {
                 audioPositionMobile()
             }
             let currentAnchor = $(destination.item).data("anchor")
@@ -270,14 +282,14 @@ setTimeout(function () {
             }
 
             updateLanguageLink(currentAnchor)
-
-            let blockDiv = $("div.active div.none")
+            $(".translation-button").addClass("none")
+            let blockDiv = $(".active .none")
             setTimeout(() => {
-                blockDiv.removeClass("none").addClass("show")
+                $(blockDiv).removeClass("none").addClass("show")
             }, 1000)
         }
         , onLeave: function (origin, destination, direction) {
-            //let noneDiv = $("div.show").addClass("none").removeClass("show")
+            $("div.show").addClass("none").removeClass("show")
             $(".translation-text").fadeOut("50")
             for (ply of videosList) {
                 ply.destroy()
@@ -314,8 +326,8 @@ setTimeout(function () {
             galleryes = destroyBxGallery(galleryes)
 
         },
-        onSlideLeave:function(){
-            for(let v of videosList){
+        onSlideLeave: function () {
+            for (let v of videosList) {
                 v.stop()
             }
         }
