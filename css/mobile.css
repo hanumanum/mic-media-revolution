@@ -37,13 +37,19 @@
     /* .small-in-big{
         font-size: 1.2em;
     } */
-    .becouse-list li .becouse-big {
-        font-size: 17px;
-        margin-left: 75px;
-        /* word-spacing: 0px; */
-        /* padding: 0 0; */
-        /* line-height: .5em; */
-    }
+    .small-in-big {
+    font-size: 17px;
+    font-weight: 100;
+    margin-right: 14px;
+}
+.becouse-list li .becouse-big {
+    font-size: 17px;
+    margin-left: 75px;
+    /* word-spacing: 0px; */
+    /* padding: 0 0; */
+    /* line-height: .5em; */
+}
+
     .glux {
         text-align: right;
         padding-right: 20px;
@@ -109,7 +115,8 @@
         position: absolute;
         overflow: hidden;
         padding-top: 1px;
-        margin-top: 10px;
+        margin-top: 14px;
+        top: 64%;
     }
     .person-title {
         font-size: 0.9em;
@@ -137,6 +144,23 @@
         height: 32px;
         text-indent: -9999px;
         z-index: 9999;
+    }
+    .fp-tableCell .relatives {
+        width: 100% !important;
+    }
+    .fp-tableCell .slider-holder {
+        width: 100% !important;
+    }
+ /*   .relatives > .plyr {
+        width: 65% !important;
+        margin: auto;
+    }*/
+    #is49 .plyr,#is57 .plyr,#is62 .plyr,#is8 .plyr{
+        width: 65% !important;
+        margin: auto;
+    }
+    #is62 .plyr,#is8 .plyr{
+        margin-top: 18%;
     }
     .trbotton {
         position: absolute;
