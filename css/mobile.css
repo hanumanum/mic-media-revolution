@@ -359,4 +359,12 @@
         top: 57%;
         left: 8%;
     }
+
+    .slideLinePoint{
+        border-bottom: none;
+    }
+
+    .slideLinePointTitle{
+        border-bottom: solid white 1px;
+    }
 }

@@ -37,6 +37,7 @@ setTimeout(function () {
         fadingEffectKey: "dmVsdmV0c2tldGNoZXMubWVkaWEuYW1fbDRmWm1Ga2FXNW5SV1ptWldOMGxTNQ==",
         verticalCentered: true,
         lazyLoading: true,
+        loopHorizontal:false,
         afterLoad: function (origin, destination, direction) {
             if (destination.item.id === "cover") {
                 initCoverPageEffects();

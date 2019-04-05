@@ -349,7 +349,14 @@ function slideLine() {
         }
 
         $(d).click(function () {
-            fullpage_api.moveTo(anchor);
+            if(!IS_MOBILE){
+                fullpage_api.moveTo(anchor);
+            }
+            else if(d.hasClass("slideLinePointTitle")){
+                fullpage_api.moveTo(anchor);
+            }
+            
+
         })
 
         setStateSlideLinePoints(d)
