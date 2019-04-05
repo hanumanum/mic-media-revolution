@@ -38,8 +38,6 @@ setTimeout(function () {
         verticalCentered: true,
         lazyLoading: true,
         afterLoad: function (origin, destination, direction) {
-
-
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
@@ -219,7 +217,7 @@ setTimeout(function () {
                     var activeData = $(".active").data("anchor");
                     console.log(left, width, windowWidth, activeData)
                     if (activeData == "s58") {
-                        scrollNavButton = size ;
+                        scrollNavButton = size;
                         $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
                     } else if (activeData == "s67") {
                         scrollNavButton = size
@@ -286,6 +284,26 @@ setTimeout(function () {
             setTimeout(() => {
                 $(blockDiv).removeClass("none").addClass("show")
             }, 1000)
+            if (IS_MOBILE) {
+                if ($("#is58.active").length == 1) {
+                    console.log($("#is58.active").length)
+                    let audio = $("#is58 audio.visible-sound")
+                    $(audio).removeClass("relatives-fade")
+                    $(audio).css("width", "100% !important;")
+                    $("#is58 .person-title").append($(audio))
+                    $("#slideID25_157").remove()
+                }
+                if ($("#is67.active").length == 1) {
+                    console.log($("#is67.active").length)
+                    let audio = $("#is67 audio.visible-sound")
+                    $(audio).removeClass("relatives-fade")
+                    $(audio).css("width", "100% !important;")
+                    $("#is67 .person-title").append($(audio))
+                    $("#slideID30_186").remove()
+                }
+
+            }
+
         }
         , onLeave: function (origin, destination, direction) {
             $("div.show").addClass("none").removeClass("show")
