@@ -331,11 +331,11 @@
         background-position-y: 48% !important;
     }
     /* s58,s67 */
-    #is58 .person-text {
+    #is58 .person-text-mobile {
         width: 100% !important;
         padding: 0px;
     }
-    #is58 .person-title {
+    #is58 .person-title-mobile {
         padding: 10px;
     }
     #is58 audio {
@@ -349,7 +349,7 @@
         width: 100% !important;
         padding: 0px;
     }
-    #is67 .person-title {
+    #is67 .person-title-mobile {
         padding: 10px;
     }
     #is67 audio {
@@ -367,4 +367,13 @@
     .slideLinePointTitle{
         border-bottom: solid white 1px;
     }
+    .person-title-mobile{
+        font-size: 32px;
+        font-weight: 500;
+        text-align: left;
+        opacity: 1;
+        font-style: normal;
+        line-height: 34px;
+    }
+
 }

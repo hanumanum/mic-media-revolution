@@ -17,6 +17,11 @@ $(function () {
 
 
     if (IS_MOBILE) {
+        $("#is58 .zoomer").remove()
+        $("#is67 .zoomer").remove()
+        $("#is58").html($("#is58 .mobile-hack").show().html())
+        
+        //$("#is67 .mobile-hack").show()
 
         //scrollTranslation()
         toggleMobileForRelatives()
@@ -27,6 +32,7 @@ $(function () {
     else {
         initIntro()
         initToolTips()
+        $(".mobile-hack").remove()
     }
 })
 
@@ -37,7 +43,7 @@ setTimeout(function () {
         fadingEffectKey: "dmVsdmV0c2tldGNoZXMubWVkaWEuYW1fbDRmWm1Ga2FXNW5SV1ptWldOMGxTNQ==",
         verticalCentered: true,
         lazyLoading: true,
-        loopHorizontal:false,
+        loopHorizontal: false,
         afterLoad: function (origin, destination, direction) {
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
@@ -282,24 +288,26 @@ setTimeout(function () {
             updateLanguageLink(currentAnchor)
             $(".translation-button").addClass("none")
             let blockDiv = $(".active .none")
+
+
             setTimeout(() => {
                 $(blockDiv).removeClass("none").addClass("show")
             }, 1000)
+
+
             if (IS_MOBILE) {
+
                 if ($("#is58.active").length == 1) {
-                    console.log($("#is58.active").length)
-                    let audio = $("#is58 audio.visible-sound")
-                    $(audio).removeClass("relatives-fade")
-                    $(audio).css("width", "100% !important;")
-                    $("#is58 .person-title").append($(audio))
-                    $("#slideID25_157").remove()
+                    $("#is58 .zoomer").remove()
+                    $("#is58 .mobile-hack").show()
+
                 }
                 if ($("#is67.active").length == 1) {
                     console.log($("#is67.active").length)
                     let audio = $("#is67 audio.visible-sound")
                     $(audio).removeClass("relatives-fade")
                     $(audio).css("width", "100% !important;")
-                    $("#is67 .person-title").append($(audio))
+                    $("#is67 .person-title-mobile").append($(audio))
                     $("#slideID30_186").remove()
                 }
 

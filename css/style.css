@@ -1127,3 +1127,7 @@ div {
   display: none;
   transition: 1s;
 }
+
+.mobile-hack{
+  opacity: 0;
+}
