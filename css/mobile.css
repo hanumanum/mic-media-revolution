@@ -42,7 +42,7 @@
         margin-right: 14px;
     }
     .becouse-list li .becouse-big {
-        font-size: 17px;
+        font-size: 17px !important;
         margin-left: 75px;
         /* word-spacing: 0px; */
         /* padding: 0 0; */
@@ -67,12 +67,19 @@
         position: absolute;
         top: 3%;
         padding-top: 0pc;
+        font-size: 14px;
+    }
+    .about-logo {
+        margin: 0px;
     }
     .active .about-columns p:first-child {
         width: 100%;
     }
     .about-contacts.bordered {
-        width: 100%;
+        width: 86% !important;
+        margin-top: 5px;
+        padding: 1px;
+        border: none;
     }
     .info-button {
         display: none;
@@ -325,12 +332,23 @@
     .lr-menu-item:hover, .lr-menu-item-active {
         color: black;
     }
-    #is49 .plyr, #is57 .plyr, #is62 .plyr, #is8 .plyr, #is32 .plyr, #is22 .plyr, #is23 .plyr, #is27 .plyr, #is67 .plyr {
+    /* #is49 .plyr, #is57 .plyr, #is62 .plyr, #is8 .plyr, #is32 .plyr, #is22 .plyr, #is23 .plyr, #is27 .plyr, #is67 .plyr {
         width: 85% !important;
         margin: auto;
     }
-    #is49 #slideID21_134 .relatives-for-mobile, #is23 #slideID8_51 .relatives-for-mobile, #is58 #slideID25_156 .relatives-for-mobile, #is67 #slideID30_188 .relatives-for-mobile, #is67 #slideID30_187 .relatives-for-mobile, #is67 #slideID30_185 .relatives-for-mobile, #slideID2_17 .relatives-for-mobile, #slideID7_46 .relatives-for-mobile, #slideID8_52 .relatives-for-mobile, #slideID26_165 .relatives-for-mobile {
+    #is49 #slideID21_134 .relatives-for-mobile, #is23 #slideID8_51 .relatives-for-mobile, #is58 #slideID25_156 .relatives-for-mobile, #is67 #slideID30_188 .relatives-for-mobile, #is67 #slideID30_187 .relatives-for-mobile, #is67 #slideID30_185 .relatives-for-mobile, #slideID2_17 .relatives-for-mobile, #slideID7_46 .relatives-for-mobile, #slideID8_52 .relatives-for-mobile, #slideID26_165 .relatives-for-mobile, #slideID2_16 .relatives-for-mobile {
         height: auto !important;
+    } */
+    #slideID2_16 .relatives, #slideID7_46 .relatives, #slideID8_51 .relatives, #slideID10_64 .relatives, #slideID13_82 .relatives, #slideID13_81 .relatives, #slideID13_80 .relatives, #slideID13_79 .relatives, #slideID21_133 .relatives, #slideID24_151 .relatives, #slideID26_164 .relatives {
+        width: 85% !important;
+        margin: auto;
+        height: auto !important;
+    }
+    #is67 .slide.fp-slide {
+        width: 85% !important;
+        margin: auto;
+        height: auto !important;
+        margin-left: 8%;
     }
     .slider-image-bkgr {
         background-position-y: 48% !important;

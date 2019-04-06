@@ -913,7 +913,7 @@ function footerForMobile() {
     let team = $(".about-columns:first-child");
     let Communicationsupport = $(".about-columns:nth-child(2)");
     let logos = $(".about-columns:nth-child(3)");
-    $(logos).find("p").css("width", "100%")
+    $(logos).find("p").css({ "width": "100%", "font-size": "13px" })
     $(logos).find("img").css("width", "100%")
     let side1 = $("<div>").addClass("slide");
     let side2 = $("<div>").addClass("slide");

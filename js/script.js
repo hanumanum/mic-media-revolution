@@ -44,6 +44,10 @@ setTimeout(function () {
         lazyLoading: true,
         loopHorizontal: false,
         afterLoad: function (origin, destination, direction) {
+            if (IS_MOBILE) {
+                let video = $(".fp-tableCell  .plyr__poster")
+                console.log(video.height())
+            }
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }

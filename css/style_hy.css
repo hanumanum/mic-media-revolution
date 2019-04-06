@@ -118,7 +118,7 @@ body {
         height: 38px;
     }
     .bordered {
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
     .about-columns .bordered {
         font-size: 14px !important;
@@ -128,5 +128,33 @@ body {
     }
     #is46 .becouse-small {
         width: 145px !important;
+    }
+    .about-title {
+        font-weight: 400;
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .about-small {
+        margin-top: 5px;
+    }
+    .person-text {
+        font-size: 0.9em !important;
+    }
+    .person-title {
+        font-size: 0.9em !important;
+    }
+    #is62 p {
+        padding-right: unset !important;
+    }
+    #is16 p {
+        font-size: 1em !important;
+    }
+    .quote {
+        font-size: unset !important;
+    }
+    #is24 .bordered {
+        font-size: 16px !important;
+        padding: 10px !important;
     }
 }
