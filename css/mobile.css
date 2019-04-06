@@ -350,6 +350,10 @@
         height: auto !important;
         margin-left: 8%;
     }
+    #is67 .slide.fp-slide:first-child {
+        width: 100% !important;
+        margin: auto;
+    }
     .slider-image-bkgr {
         background-position-y: 48% !important;
     }
