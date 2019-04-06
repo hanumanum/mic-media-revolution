@@ -120,6 +120,9 @@ body {
     .bordered {
         font-size: 18px !important;
     }
+    .about-columns .bordered {
+        font-size: 14px !important;
+    }
     .becouse-list li .becouse-big {
         font-size: 19px !important;
     }

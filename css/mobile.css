@@ -62,7 +62,11 @@
     .about-columns {
         width: 100%;
         float: none;
-        padding: 25px 13px 59px 17px;
+        height: 86%;
+        padding: 23px;
+        position: absolute;
+        top: 3%;
+        padding-top: 0pc;
     }
     .active .about-columns p:first-child {
         width: 100%;
@@ -86,7 +90,7 @@
         margin: 0;
     }
     .visible-sound {
-        height: 103px;
+        height: 54px;
         margin: auto;
         padding: 0px;
         width: 104%;
@@ -128,6 +132,7 @@
         line-height: 1em;
         padding: 2%;
         padding-left: 8%;
+        font-style: italic;
     }
     .person-text-right {
         text-align: left;
@@ -324,56 +329,37 @@
         width: 85% !important;
         margin: auto;
     }
-    #is49 #slideID21_134 .relatives-for-mobile, #is23 #slideID8_51 .relatives-for-mobile, #is58 #slideID25_156 .relatives-for-mobile, #is67 #slideID30_188 .relatives-for-mobile, #is67 #slideID30_187 .relatives-for-mobile, #is67 #slideID30_185 .relatives-for-mobile {
+    #is49 #slideID21_134 .relatives-for-mobile, #is23 #slideID8_51 .relatives-for-mobile, #is58 #slideID25_156 .relatives-for-mobile, #is67 #slideID30_188 .relatives-for-mobile, #is67 #slideID30_187 .relatives-for-mobile, #is67 #slideID30_185 .relatives-for-mobile, #slideID2_17 .relatives-for-mobile, #slideID7_46 .relatives-for-mobile, #slideID8_52 .relatives-for-mobile, #slideID26_165 .relatives-for-mobile {
         height: auto !important;
     }
     .slider-image-bkgr {
         background-position-y: 48% !important;
     }
-    /* s58,s67 */
-    #is58 .person-text-mobile {
-        width: 100% !important;
-        padding: 0px;
-    }
-    #is58 .person-title-mobile {
-        padding: 10px;
-    }
     #is58 audio {
-        width: 100% !important;
+        width: 86% !important;
+        float: none;
     }
     #is58 .translation-button {
-        top: 57%;
-        left: 8%;
+        position: static;
+        float: right;
+        margin-right: 13px;
     }
-    #is67 .person-text {
-        width: 100% !important;
-        padding: 0px;
-    }
-    #is67 .person-title-mobile {
+    /* #is67 .person-title-mobile {
         padding: 10px;
-    }
+    } */
     #is67 audio {
-        width: 100% !important;
+        width: 86% !important;
+        float: none;
     }
     #is67 .translation-button {
-        top: 57%;
-        left: 8%;
+        position: static;
+        float: right;
+        margin-right: 13px;
     }
-
-    .slideLinePoint{
+    .slideLinePoint {
         border-bottom: none;
     }
-
-    .slideLinePointTitle{
+    .slideLinePointTitle {
         border-bottom: solid white 1px;
     }
-    .person-title-mobile{
-        font-size: 32px;
-        font-weight: 500;
-        text-align: left;
-        opacity: 1;
-        font-style: normal;
-        line-height: 34px;
-    }
-
 }

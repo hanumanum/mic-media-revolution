@@ -25,10 +25,9 @@ function experienceMobile() {
         // for(var i = 0;i<4;i++){
         //     $(lrsectionleft).append(menuItem[i])
         // }
-        for (var i = 0; i <4; i++) {
+        for (var i = 0; i < 4; i++) {
             let menuActiveItem = menuItem[i];
             let activeSection = lrsectionleft[i];
-            console.log(menuItem[i], lrsectionleft[i])
             $(activeSection).append($(menuActiveItem))
         }
 

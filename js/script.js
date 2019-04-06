@@ -20,8 +20,7 @@ $(function () {
         $("#is58 .zoomer").remove()
         $("#is67 .zoomer").remove()
         $("#is58").html($("#is58 .mobile-hack").show().html())
-        
-        //$("#is67 .mobile-hack").show()
+        $("#is67").html($("#is67 .mobile-hack").show().html())
 
         //scrollTranslation()
         toggleMobileForRelatives()
@@ -57,7 +56,6 @@ setTimeout(function () {
             }
 
             let slide = $("#" + destination.item.id);
-            //console.log(destination.item.id)
             let customVideo = $(slide).find(".custom-video")
             if (customVideo.length != 0) {
                 videosList = prepareVideos(customVideo)
@@ -204,42 +202,7 @@ setTimeout(function () {
 
             }
 
-            function trtextPosition() {
-                let personVideo = $(slide).find(".person-video");
-                let translationText = $(slide).find(".translation-text");
-                let translationTextPosition = $(window).height() - personVideo[0].offsetHeight - 130
-                $(translationText).css("height", `${translationTextPosition}px`)
-            }
-            let trtext = $(slide).find(".translation-text")
-            if (trtext && trtext !== "undefined") {
-                $(slide).find(".translation-button").on("click", function () {
-
-                    scrollTranslation()
-                    trtext.fadeIn(200);
-                    let left = trtext[0].offsetLeft
-                    let width = trtext[0].offsetWidth - 40
-                    let size = left + width;
-                    let scrollNavButton;
-                    var windowWidth = $(window).width()
-                    var activeData = $(".active").data("anchor");
-                    console.log(left, width, windowWidth, activeData)
-                    if (activeData == "s58") {
-                        scrollNavButton = size;
-                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
-                    } else if (activeData == "s67") {
-                        scrollNavButton = size
-                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
-                    } else {
-                        scrollNavButton = size / windowWidth * 100;
-                        $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
-                    }
-                    if (IS_MOBILE) {
-                        trtextPosition()
-                        $(".person-title").css("color", "black")
-                        $(".person-text").css("color", "black")
-                    }
-                })
-            }
+            TranslationButtonClick(slide)
             let gallery = $(slide).find(".slider")
             if (gallery && gallery !== undefined && gallery.length > 0) {
                 galleryes.push(initBxGallery(gallery))
@@ -286,7 +249,7 @@ setTimeout(function () {
             }
 
             updateLanguageLink(currentAnchor)
-            $(".translation-button").addClass("none")
+            $(".person-video .translation-button").addClass("none")
             let blockDiv = $(".active .none")
 
 
@@ -296,21 +259,14 @@ setTimeout(function () {
 
 
             if (IS_MOBILE) {
-
                 if ($("#is58.active").length == 1) {
                     $("#is58 .zoomer").remove()
                     $("#is58 .mobile-hack").show()
-
                 }
                 if ($("#is67.active").length == 1) {
-                    console.log($("#is67.active").length)
-                    let audio = $("#is67 audio.visible-sound")
-                    $(audio).removeClass("relatives-fade")
-                    $(audio).css("width", "100% !important;")
-                    $("#is67 .person-title-mobile").append($(audio))
-                    $("#slideID30_186").remove()
+                    $("#is67 .zoomer").remove()
+                    $("#is67 .mobile-hack").show()
                 }
-
             }
 
         }
