@@ -431,7 +431,7 @@ function slideLine() {
 
         currentSectionIndex++
     }
-
+    calcDistanceMobile()
 }
 
 
@@ -452,7 +452,21 @@ function calcDistance(sections) {
     let distance = Math.round(h / sections.length)
     return distance
 }
-
+function calcDistanceMobile() {
+    if (IS_MOBILE) {
+        let slideLinePoint = $(".slideLinePoint")
+        let sections = $(".slideLinePointTitle")
+        let heightOfSlideLinePoint = calcDistance(sections)
+        for (let i of slideLinePoint) {
+            let slideLinePointTitle = $(i).hasClass("slideLinePointTitle")
+            if (!slideLinePointTitle) {
+                $(i).remove()
+            } else {
+                $(i).css({ "margin-top": `${heightOfSlideLinePoint - 10}px` })
+            }
+        }
+    }
+}
 function followSlideLine() {
     let sliedPoints = $(".slideLinePoint")
     $(".slideLinePoint").removeClass("seen")
@@ -463,9 +477,6 @@ function followSlideLine() {
         }
     }
 }
-
-
-
 function initScale() {
     $(window).on("load", changeRatio)
     $(window).on("resize", slideLine)

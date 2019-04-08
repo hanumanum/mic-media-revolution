@@ -67,7 +67,7 @@
         position: absolute;
         top: 3%;
         padding-top: 0pc;
-        font-size: 14px;
+        font-size: 13px;
     }
     .about-logo {
         margin: 0px;
@@ -340,7 +340,7 @@
         height: auto !important;
     } */
     #slideID2_16 .relatives, #slideID7_46 .relatives, #slideID8_51 .relatives, #slideID10_64 .relatives, #slideID13_82 .relatives, #slideID13_81 .relatives, #slideID13_80 .relatives, #slideID13_79 .relatives, #slideID21_133 .relatives, #slideID24_151 .relatives, #slideID26_164 .relatives {
-        width: 85% !important;
+        width: 73% !important;
         margin: auto;
         height: auto !important;
     }
@@ -366,9 +366,6 @@
         float: right;
         margin-right: 13px;
     }
-    /* #is67 .person-title-mobile {
-        padding: 10px;
-    } */
     #is67 audio {
         width: 86% !important;
         float: none;
@@ -381,7 +378,19 @@
     .slideLinePoint {
         border-bottom: none;
     }
-    .slideLinePointTitle {
+    .slideLinePointTitle.seen {
+        color: white;
         border-bottom: solid white 1px;
+    }
+    .slideLinePointTitle {
+        color: grey;
+        border-bottom: solid grey 1px;
+    }
+    .becouse>span {
+        font-size: 15px !important;
+    }
+    .slider .slider-image-bkgr:nth-child(7) {
+        background-size: 62%;
+        background-position-x: 50%;
     }
 }
