@@ -1,4 +1,5 @@
-git add . 
-git commit -m $0
-git push origin master
-git status
+read -r -p 'Commit message: ' desc  # prompt user for commit message
+git add .                           # track all files
+git add -u                          # track deletes
+git commit -m "$desc"               # commit with message
+git push origin master              # push to origin
