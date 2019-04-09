@@ -147,7 +147,7 @@
     }
     .bx-wrapper .bx-controls-direction a {
         position: absolute;
-        top: 49%;
+        top: 40%;
         margin-top: -16px;
         outline: 0;
         width: 32px;
@@ -356,7 +356,7 @@
         margin: auto;
     }
     .slider-image-bkgr {
-        background-position-y: 48% !important;
+        background-position-y: 35% !important;
     }
     #is58 audio {
         width: 86% !important;
@@ -390,8 +390,14 @@
     .becouse>span {
         font-size: 15px !important;
     }
-    .slider .slider-image-bkgr:nth-child(7) {
-        background-size: 62%;
+    #is68 .slider .slider-image-bkgr:nth-child(7) {
+        background-size: 58%;
         background-position-x: 50%;
+    }
+    #is10 {
+        background-image: none !important;
+    }
+    #slideID3_22 .relatives {
+        display: block !important;
     }
 }

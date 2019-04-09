@@ -21,11 +21,8 @@ $(function () {
         $("#is67 .zoomer").remove()
         $("#is58").html($("#is58 .mobile-hack").show().html())
         $("#is67").html($("#is67 .mobile-hack").show().html())
-
-        //scrollTranslation()
         toggleMobileForRelatives()
         toogleMobileForIntro()
-
         footerForMobile()
     }
     else {
@@ -44,16 +41,12 @@ setTimeout(function () {
         lazyLoading: true,
         loopHorizontal: false,
         afterLoad: function (origin, destination, direction) {
-            // if (IS_MOBILE) {
-            //     let video = $(".fp-tableCell  .plyr__poster")
-            // }
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
             else {
                 $("#nav-arrow").show("slow");
             }
-
             if (destination.item.id == "expertise") {
                 window.location.assign(EXPERTISEPAGE)
             }
@@ -271,7 +264,6 @@ setTimeout(function () {
                     $("#is67 .mobile-hack").show()
                 }
             }
-
 
 
         }
