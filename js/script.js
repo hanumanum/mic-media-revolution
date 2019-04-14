@@ -17,16 +17,18 @@ $(function () {
 
 
     if (IS_MOBILE) {
-
-        //scrollTranslation()
+        $("#is58 .zoomer").remove()
+        $("#is67 .zoomer").remove()
+        $("#is58").html($("#is58 .mobile-hack").show().html())
+        $("#is67").html($("#is67 .mobile-hack").show().html())
         toggleMobileForRelatives()
         toogleMobileForIntro()
-
         footerForMobile()
     }
     else {
         initIntro()
         initToolTips()
+        $(".mobile-hack").remove()
     }
 })
 
@@ -37,22 +39,19 @@ setTimeout(function () {
         fadingEffectKey: "dmVsdmV0c2tldGNoZXMubWVkaWEuYW1fbDRmWm1Ga2FXNW5SV1ptWldOMGxTNQ==",
         verticalCentered: true,
         lazyLoading: true,
+        loopHorizontal: false,
         afterLoad: function (origin, destination, direction) {
-
-
             if (destination.item.id === "cover") {
                 initCoverPageEffects();
             }
             else {
                 $("#nav-arrow").show("slow");
             }
-
             if (destination.item.id == "expertise") {
                 window.location.assign(EXPERTISEPAGE)
             }
 
             let slide = $("#" + destination.item.id);
-            //console.log(destination.item.id)
             let customVideo = $(slide).find(".custom-video")
             if (customVideo.length != 0) {
                 videosList = prepareVideos(customVideo)
@@ -199,43 +198,7 @@ setTimeout(function () {
 
             }
 
-            function trtextPosition() {
-                let personVideo = $(slide).find(".person-video");
-                let translationText = $(slide).find(".translation-text");
-                let translationTextPosition = 100 - (personVideo[0].offsetHeight / $(window).height() * 100);
-                $(translationText).css("height", `${translationTextPosition}%`)
-            }
-            let trtext = $(slide).find(".translation-text")
-
-            if (trtext && trtext !== "undefined") {
-                $(slide).find(".translation-button").on("click", function () {
-
-                    scrollTranslation()
-                    trtext.fadeIn(200);
-                    let left = trtext[0].offsetLeft
-                    let width = trtext[0].offsetWidth - 40
-                    let size = left + width;
-                    let scrollNavButton;
-                    var windowWidth = $(window).width()
-                    var activeData = $(".active").data("anchor");
-                    console.log(left, width, windowWidth, activeData)
-                    if (activeData == "s58") {
-                        scrollNavButton = size ;
-                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
-                    } else if (activeData == "s67") {
-                        scrollNavButton = size
-                        $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
-                    } else {
-                        scrollNavButton = size / windowWidth * 100;
-                        $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
-                    }
-                    if (IS_MOBILE) {
-                        trtextPosition()
-                        $(".person-title").css("color", "black")
-                        $(".person-text").css("color", "black")
-                    }
-                })
-            }
+            TranslationButtonClick(slide)
             let gallery = $(slide).find(".slider")
             if (gallery && gallery !== undefined && gallery.length > 0) {
                 galleryes.push(initBxGallery(gallery))
@@ -282,11 +245,27 @@ setTimeout(function () {
             }
 
             updateLanguageLink(currentAnchor)
-            $(".translation-button").addClass("none")
+            $(".person-video .translation-button").addClass("none")
             let blockDiv = $(".active .none")
+
+
             setTimeout(() => {
                 $(blockDiv).removeClass("none").addClass("show")
             }, 1000)
+
+
+            if (IS_MOBILE) {
+                if ($("#is58.active").length == 1) {
+                    $("#is58 .zoomer").remove()
+                    $("#is58 .mobile-hack").show()
+                }
+                if ($("#is67.active").length == 1) {
+                    $("#is67 .zoomer").remove()
+                    $("#is67 .mobile-hack").show()
+                }
+            }
+
+
         }
         , onLeave: function (origin, destination, direction) {
             $("div.show").addClass("none").removeClass("show")

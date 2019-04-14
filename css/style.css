@@ -187,7 +187,7 @@ a:hover, a:active {
   float: left;
   padding: 50px;
   text-align: left;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .about-logo {
@@ -392,6 +392,7 @@ a:hover, a:active {
   opacity: 0;
   letter-spacing: .2px;
   margin-top: 13px;
+  font-style: italic;
 }
 
 .person-text-right {
@@ -422,7 +423,7 @@ a:hover, a:active {
   opacity: 0;
 }
 
-.bordered{
+.bordered {
   width: 20%;
   border: 2px white solid;
   font-size: 18px;
@@ -435,7 +436,6 @@ a:hover, a:active {
   min-width: 260px;
   /*-moz-box-sizing: border-box; */
 }
-
 
 .backgroundvideo {
   position: absolute;
@@ -474,13 +474,14 @@ a:hover, a:active {
   transform: translate3d(0, 0, 0);
 }
 
-.zoomer{
+.zoomer {
   transform-origin: '0 0';
-  -moz-transform-origin: '0 0';     
-  -ms-transform-origin: '0 0'; 
+  -moz-transform-origin: '0 0';
+  -ms-transform-origin: '0 0';
   -webkit-transform-origin: '0 0';
   position: absolute;
 }
+
 .fixer {
   position: absolute;
   height: 100vh;
@@ -1126,4 +1127,26 @@ div {
 .none {
   display: none;
   transition: 1s;
+}
+
+.mobile-hack {
+  opacity: 0;
+}
+
+.person-title-mobile {
+  font-size: 0.9em;
+  line-height: 1em;
+  padding: 3%;
+  padding-left: 8%;
+  text-align: left;
+}
+
+.person-text-mobile {
+  width: 100%;
+  font-size: 0.9em;
+  line-height: 1em;
+  padding: 3%;
+  padding-left: 8%;
+  text-align: left;
+  font-style: italic;
 }

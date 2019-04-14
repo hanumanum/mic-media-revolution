@@ -71,7 +71,7 @@ function toogleMobileForIntro() {
 
 function toggleMobileForRelatives() {
     if (IS_MOBILE) {
-        
+
         // videoWidth()
         let zoomerIndex = 0
         let relativeIndex = 0
@@ -104,26 +104,51 @@ function toggleMobileForRelatives() {
         $(".zoomer").remove()
     }
 }
-
-function scrollTranslation() {
-    let bool = $(".active .translation-text .translation-close-button")
-    let trText = $(".active .translation-text")
-    let snb = $(trText).find(`div.scroll-nav-button`)
-    if (bool.length == 0) {
-        if (snb.length >= 0) {
-            $(trText).prepend(`<div class="scroll-nav-button">`)
-            $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
-            $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
-            $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
-        }else{
-            $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
-            $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
-            $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
-        }
+function trtextPosition() {
+    let mobile_hack = $("#is58").hasClass("active")
+    if (mobile_hack && !IS_MOBILE) {
+        let personVideo = $(slide).find(".person-video");
+        let translationText = $(slide).find(".translation-text");
+        let translationTextPosition = $(window).height() - personVideo[0].offsetHeight - 130
+        $(translationText).css("height", `${translationTextPosition}px`)
+    } else {
+        $($(".visible-sound").siblings(".translation-text")).css({ "height": "40%", "top": "49%" })
+        console.log()
     }
-    scrollTransolationClose()
-    rightClick()
-    leftClick()
+}
+function TranslationButtonClick(slide) {
+    let trtext = $(slide).find(".translation-text")
+    if (trtext && trtext !== "undefined") {
+        $(slide).find(".translation-button").on("click", function () {
+            scrollTranslation()
+            trtext.fadeIn(200);
+            let left = trtext[0].offsetLeft
+            let width = trtext[0].offsetWidth - 40
+            let size = left + width;
+            let scrollNavButton;
+            var windowWidth = $(window).width()
+            var activeData = $(".active").data("anchor");
+            if (activeData == "s58") {
+                scrollNavButton = size;
+                $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
+            } else if (activeData == "s67") {
+                scrollNavButton = size
+                $(".scroll-nav-button").css("left", `${scrollNavButton}px`)
+            } else {
+                scrollNavButton = size / windowWidth * 100;
+                $(".scroll-nav-button").css("left", `${scrollNavButton}%`)
+            }
+            if (IS_MOBILE) {
+                trtextPosition()
+                $(".person-title").css("color", "black")
+                $(".person-text").css("color", "black")
+
+
+            }
+        })
+    }
+}
+function scrollTranslation() {
     function scrollTransolationClose() {
         $(".translation-close-button").on("click", () => {
             $(".translation-text").fadeOut()
@@ -132,16 +157,57 @@ function scrollTranslation() {
             $(".person-text").css("color", "white")
         })
     }
-    function rightClick() {
+    function rightClick(trText) {
         $(".translation-scroll-button-right").on("click", () => {
             trText[0].scrollTop = trText[0].scrollTop += 70
         })
     }
-    function leftClick() {
+    function leftClick(trText) {
         $(".translation-scroll-button-left").on("click", () => {
             trText[0].scrollTop = trText[0].scrollTop -= 70
         })
     }
+    let mobile_hack = $("#is58").hasClass("active")
+    if (!mobile_hack) {
+        let bool = $(".active .translation-text .translation-close-button")
+        let trText = $(".active .translation-text")
+        let snb = $(trText).find(`div.scroll-nav-button`)
+        if (bool.length == 0) {
+            if (snb.length >= 0) {
+                $(trText).prepend(`<div class="scroll-nav-button">`)
+                $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
+            } else {
+                $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
+            }
+        }
+        scrollTransolationClose()
+        rightClick(trText)
+        leftClick(trText)
+    } else {
+        let bool = $(".active .translation-text .translation-close-button")
+        let trText = $(".active .translation-text")
+        let snb = $(trText).find(`div.scroll-nav-button`)
+        if (bool.length == 0) {
+            if (snb.length >= 0) {
+                $(trText).prepend(`<div class="scroll-nav-button">`)
+                $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
+            } else {
+                $(".scroll-nav-button").append(`<div class="translation-close-button"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-left"></div>`)
+                $(".scroll-nav-button").append(`<div class="translation-scroll-button-right"></div>`)
+            }
+        }
+        scrollTransolationClose()
+        rightClick(trText)
+        leftClick(trText)
+    }
+
 }
 function initMenuAndTools() {
     scrollSound = new Audio('scroll.mp3')
@@ -180,7 +246,7 @@ function longReadMenuAndScroll() {
 
 
     let lrMenuHeight = parseInt($(".lr-top-line").css("height"))
-    if(!IS_MOBILE){
+    if (!IS_MOBILE) {
         $(".lr-menu-item").click(function () {
             $(".lr-menu-item").removeClass("lr-menu-item-active")
             $(this).addClass("lr-menu-item-active")
@@ -188,9 +254,9 @@ function longReadMenuAndScroll() {
             $([document.documentElement, document.body]).animate({
                 scrollTop: $("#" + sectionID).offset().top - lrMenuHeight
             }, 1000);
-    
+
         })
-    
+
     }
     let currentSectionID = "gegham"
 
@@ -349,7 +415,14 @@ function slideLine() {
         }
 
         $(d).click(function () {
-            fullpage_api.moveTo(anchor);
+            if (!IS_MOBILE) {
+                fullpage_api.moveTo(anchor);
+            }
+            else if (d.hasClass("slideLinePointTitle")) {
+                fullpage_api.moveTo(anchor);
+            }
+
+
         })
 
         setStateSlideLinePoints(d)
@@ -358,7 +431,7 @@ function slideLine() {
 
         currentSectionIndex++
     }
-
+    calcDistanceMobile()
 }
 
 
@@ -379,7 +452,21 @@ function calcDistance(sections) {
     let distance = Math.round(h / sections.length)
     return distance
 }
-
+function calcDistanceMobile() {
+    if (IS_MOBILE) {
+        let slideLinePoint = $(".slideLinePoint")
+        let sections = $(".slideLinePointTitle")
+        let heightOfSlideLinePoint = calcDistance(sections)
+        for (let i of slideLinePoint) {
+            let slideLinePointTitle = $(i).hasClass("slideLinePointTitle")
+            if (!slideLinePointTitle) {
+                $(i).remove()
+            } else {
+                $(i).css({ "margin-top": `${heightOfSlideLinePoint - 10}px` })
+            }
+        }
+    }
+}
 function followSlideLine() {
     let sliedPoints = $(".slideLinePoint")
     $(".slideLinePoint").removeClass("seen")
@@ -390,9 +477,6 @@ function followSlideLine() {
         }
     }
 }
-
-
-
 function initScale() {
     $(window).on("load", changeRatio)
     $(window).on("resize", slideLine)
@@ -641,13 +725,13 @@ function isScrolledIntoView(elem) {
 
 
 function setEqualHeightLrSections() {
-    if(!IS_MOBILE){
-    $(".lr-section").each(function (i, section) {
-        let leftP = $(section).find(".lr-section-left")
-        $(section).find(".lr-image-holder").css("height", $(section).css("height"))
-        leftP.css("height", $(section).css("height"))
-    })
-}
+    if (!IS_MOBILE) {
+        $(".lr-section").each(function (i, section) {
+            let leftP = $(section).find(".lr-section-left")
+            $(section).find(".lr-image-holder").css("height", $(section).css("height"))
+            leftP.css("height", $(section).css("height"))
+        })
+    }
     // $(".lr-section:nth-child(4)").css("height","500px")
 }
 
@@ -686,7 +770,7 @@ function initCoverPageEffects() {
     const TITLE_LINE_SIZE = 400;
     const TITLE_TIMEOUT = 500;
     const IMAGE_TIMEOUT = 1000;
-    const TIME_BEFORE_START = 1500;
+    const TIME_BEFORE_START = 5000;
 
     $(document).ready(function () {
         $(".cover-text").fadeOut(TIME_BEFORE_START)
@@ -840,7 +924,7 @@ function footerForMobile() {
     let team = $(".about-columns:first-child");
     let Communicationsupport = $(".about-columns:nth-child(2)");
     let logos = $(".about-columns:nth-child(3)");
-    $(logos).find("p").css("width", "100%")
+    $(logos).find("p").css({ "width": "100%", "font-size": "13px" })
     $(logos).find("img").css("width", "100%")
     let side1 = $("<div>").addClass("slide");
     let side2 = $("<div>").addClass("slide");
